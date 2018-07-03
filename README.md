@@ -1,1 +1,2 @@
-# thesis
+# Thesis
+Senior thesis studying discrete time dynamic economic models. Particular model to be focused on is to be determined later. Project is viewable in the **Manuscript** which imports other sections into one final .tex document. Various .tex documents will be made for different sections of the report as needed. Figures and other externally imported material will be placed in folders titled **figures** in the subdirectory of each section folder. The bibliography .bib file, titled **references** will be placed in the root directory to be referenced by all .tex section documents.
