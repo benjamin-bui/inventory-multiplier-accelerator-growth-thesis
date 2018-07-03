@@ -1,0 +1,46 @@
+%Basic Page Formatting%
+\documentclass[12pt,twoside]{report}
+\usepackage[letterpaper,margin=1in,bindingoffset=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[babel]{csquotes}
+\usepackage{titling}
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+%Fancy Page Styling%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{Thesis Title}
+\fancyhead[RE,LO]{Chapter \thechapter}
+\fancyhead[C]{}
+\fancyfoot{}
+\fancyfoot[LE,RO]{Page \thepage}
+\fancyfoot[C]{Benjamin Bui}
+
+%Reference Management%
+\usepackage[
+backend=biber,
+style=chem-acs,
+articletitle
+]{biblatex}
+\addbibresource{references.bib}
+
+%Image Formatting%
+\usepackage{graphicx}%Enchanced graphics support%
+\usepackage{float}%Float options$
+\graphicspath{{.}}
+
+%Math Formatting%
+\usepackage{amsmath}%AMS Math%
+\usepackage{amsthm}%Theorem Formatting%
+\usepackage{amssymb}%AMS Symbols%
+\usepackage{array}%Allows for more complex matrices
+\usepackage{siunitx}%Formats SI units%
+\usepackage{booktabs}%Typsets tables%
+\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+\newcommand{\specialcellbold}[2][c]{%
+	\bfseries
+	\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}%
+}
+
