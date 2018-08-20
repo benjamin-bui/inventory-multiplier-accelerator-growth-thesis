@@ -44,3 +44,46 @@ articletitle
 	\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}%
 }
 
+%Lorem Ipsum%
+\usepackage{lipsum}
+\begin{document}
+\begin{titlepage}
+	\begin{center}
+		\vspace*{1.5 cm}
+		\textbf{\{Working Title\}}
+		
+
+		\vspace{1.5 cm}
+		
+		by\\ Benjamin Bui
+		\vspace{1.5 cm}
+		
+		Professor Peacock-Lopez, Advisor
+		\vspace{1.5 cm}
+		
+		A thesis submitted in partial fulfillment\\
+		of the requirements for the\\
+		Degree of Bachelor of Arts with Honors\\
+		in Chemistry
+		\vspace{1.5 cm}
+		
+		Williams College\\
+		Williamstown, Massachusetts
+		\vspace{1.5 cm}
+		
+		\today
+	\end{center}
+\end{titlepage}
+\thispagestyle{plain}
+\begin{center}
+	\vspace*{\fill}
+	\textbf{Abstract}\\
+	\lipsum[1-2]
+	\vspace*{\fill}
+\end{center}
+
+\chapter*{Introduction}
+\input{chapters/introduction}
+\chapter*{Conclusion}
+\input{chapters/conclusion}
+\end{document}
