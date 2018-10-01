@@ -68,8 +68,7 @@ articletitle
 	\end{itemize}
 \end{frame}
 
-\section{Background}
-\subsection*{The Logistic Map}
+\section{The Logistic Map}
 
 \begin{frame}{Applications}
 	\begin{itemize}
@@ -77,18 +76,117 @@ articletitle
 		 	Popularized by the ecologist Robert May (Cite Later)
 		\item
 			Used to model population dynamics
+		\item
+			Frequently analyzed and modified to study iterated maps
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Behavior}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-			$x_{t+1}=\mu(1-x_t)x_t|0\geqx_t\geq 1$
+			\begin{equation*}
+				x_{t+1}=\mu(1-x_t)x_t
+			\end{equation*}
 		\end{column}
 		\begin{column}{0.5\textwidth}
-			dfjksdj
+			Insert plot of logistic map
 		\end{column}
 	\end{columns}
 \end{frame}
 
+\begin{frame}{Stability of Equilibrium Points}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item
+					\textbf{Fixed Points}
+				\item
+					\begin{equation*}
+						x=0
+					\end{equation*}
+				\pause
+				\item
+					\begin{equation*}
+						\frac{\mu-1}{\mu}
+					\end{equation*}
+			\end{itemize}
+		\end{column}
+		\pause
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item
+					\textbf{Conditions for Stability}
+				\item
+					\begin{equation*}
+						|\mu|<1
+					\end{equation*}
+				\pause
+				\item
+					\begin{equation*}
+						1<\mu<3
+					\end{equation*}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Stability}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			Stability means there is a convergence to the fixed point
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			Include figure of convergence.
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Double Iteration}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item
+					\textbf{The Map}
+				\item
+					\begin{equation*}
+						\mu^2(\mu x^2-\mu x+1)(1-x)x
+					\end{equation*}
+				\pause
+				\item
+					\textbf{Conditions of Stability}
+				\item
+					\begin{equation*}
+						3<\mu<1+\sqrt{6}\approx3.449
+					\end{equation*}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			Include figure of 2 cycle
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Chaos}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item
+					\textbf{Lyapunov Exponent}
+				\item
+					\begin{equation*}
+						\lambda_n(x_0)=\frac{1}{n}\sum\limits_{t=1}^{t=n}\ln\lvert f^\prime(x_{t-1})\rvert
+					\end{equation*}
+				\pause
+				\item
+					\textbf{Bifurcation Diagram}
+				\item
+					Visualize transition from a singular fixed point to chaos.
+			\end{itemize}
+		\end{column}
+		\pause
+		\begin{column}{0.5\textwidth}
+			Show chaotic mapping
+		\end{column}
+	\end{columns}
+\end{frame}
 \end{document}

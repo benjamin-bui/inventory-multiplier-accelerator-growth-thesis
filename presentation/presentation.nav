@@ -11,15 +11,21 @@
 \headcommand {\beamer@framepages {4}{5}}
 \headcommand {\beamer@sectionpages {3}{5}}
 \headcommand {\beamer@subsectionpages {3}{5}}
-\headcommand {\sectionentry {2}{Background}{6}{Background}{0}}
-\headcommand {\beamer@subsectionpages {6}{5}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{6}{The Logistic Map}}
-\headcommand {\slideentry {2}{1}{1}{6/6}{The Logistic Map}{0}}
+\headcommand {\sectionentry {2}{The Logistic Map}{6}{The Logistic Map}{0}}
+\headcommand {\slideentry {2}{0}{1}{6/6}{}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\slideentry {2}{1}{2}{7/7}{The Logistic Map}{0}}
+\headcommand {\slideentry {2}{0}{2}{7/7}{}{0}}
 \headcommand {\beamer@framepages {7}{7}}
-\headcommand {\beamer@partpages {1}{7}}
-\headcommand {\beamer@subsectionpages {6}{7}}
-\headcommand {\beamer@sectionpages {6}{7}}
-\headcommand {\beamer@documentpages {7}}
-\headcommand {\gdef \inserttotalframenumber {6}}
+\headcommand {\slideentry {2}{0}{3}{8/11}{}{0}}
+\headcommand {\beamer@framepages {8}{11}}
+\headcommand {\slideentry {2}{0}{4}{12/12}{}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {2}{0}{5}{13/14}{}{0}}
+\headcommand {\beamer@framepages {13}{14}}
+\headcommand {\slideentry {2}{0}{6}{15/17}{}{0}}
+\headcommand {\beamer@framepages {15}{17}}
+\headcommand {\beamer@partpages {1}{17}}
+\headcommand {\beamer@subsectionpages {6}{17}}
+\headcommand {\beamer@sectionpages {6}{17}}
+\headcommand {\beamer@documentpages {17}}
+\headcommand {\gdef \inserttotalframenumber {10}}
