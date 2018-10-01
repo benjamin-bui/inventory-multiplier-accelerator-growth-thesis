@@ -1,0 +1,94 @@
+\documentclass{beamer}
+\mode<presentation>
+\usepackage[utf8]{inputenc}
+
+\usetheme{Dresden}
+\usecolortheme{beaver}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{caption}[numbered]
+
+\usepackage[english]{babel}%Set language as english%
+\usepackage[babel]{csquotes}%Nicer quotations%
+\usepackage{indentfirst}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{enumitem}%Different enumeration options%
+%Math Formatting%
+\usepackage{amsmath}%AMS Math%
+\usepackage{amsthm}%Theorem Formatting%
+\usepackage{amssymb}%AMS Symbols%
+\usepackage{array}%Allows for more complex matrices
+\usepackage{siunitx}%Formats SI units%
+\DeclareSIUnit{\molar}{M}%Adds molarity as unit%
+\usepackage{booktabs}%Typsets tables%
+\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+\newcommand{\specialcellbold}[2][c]{%
+	\bfseries
+	\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}%
+}
+\usepackage{chemformula}%Typsets Chemical Formulas$
+%Image Formatting%
+\usepackage{graphicx}%Enchanced graphics support%
+\usepackage{float}%Float options$
+
+
+\usepackage[
+backend=biber,
+style=chem-acs,
+articletitle
+]{biblatex}
+\addbibresource{references.bib}
+
+\usetheme{default}
+
+\title{Dynamics of Discrete Time Economic Growth Models}
+\author{Benjamin Bui}
+\date{October 5, 2018}
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Overview}
+	\tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{Motivation}
+	Can we apply techniques used in studying chemical oscillations and physical dynamical systems to analyze economic models?
+\end{frame}
+
+\begin{frame}{Key Differences}
+	\begin{itemize}
+		\item
+			Models in chemistry are based on interactions based in physical laws
+		\pause
+		\item
+			Macroscale physical systems are in continuous time
+	\end{itemize}
+\end{frame}
+
+\section{Background}
+\subsection*{The Logistic Map}
+
+\begin{frame}{Applications}
+	\begin{itemize}
+		\item
+		 	Popularized by the ecologist Robert May (Cite Later)
+		\item
+			Used to model population dynamics
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Behavior}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			$x_{t+1}=\mu(1-x_t)x_t|0\geqx_t\geq 1$
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			dfjksdj
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\end{document}

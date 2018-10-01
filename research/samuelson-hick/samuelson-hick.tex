@@ -1,0 +1,140 @@
+%Near Universal Formatting%
+\documentclass[]{article}
+\usepackage[english]{babel}%Set language as english%
+\usepackage[babel]{csquotes}%Nicer quotations%
+\usepackage{indentfirst}
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+\usepackage{titling}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{enumitem}%Different enumeration options%
+%Fancy Page Styling%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}%Clears header and footer%
+\rhead{Benjamin Bui}%Right header%
+\lhead{Samuelson-Hick}%Left header%
+\chead{}%Center header%
+\lfoot{Discrete Time Business Cycles}%Left footer%
+\rfoot{Page \thepage}%Right footer%
+\cfoot{}%Center footer%
+\renewcommand{\footrulewidth}{0.4pt}%Footer horizantal line%
+%Citation Management%
+%\usepackage[notes,natbib,isbn=false,backend=biber]{biblatex-chicago}%Chicago Style%
+%Math Formatting%
+\usepackage{amsmath}%AMS Math%
+\usepackage{amsthm}%Theorem Formatting%
+\usepackage{amssymb}%AMS Symbols%
+\usepackage{array}%Allows for more complex matrices
+\usepackage{siunitx}%Formats SI units%
+\DeclareSIUnit{\molar}{M}%Adds molarity as unit%
+\usepackage{booktabs}%Typsets tables%
+\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+\newcommand{\specialcellbold}[2][c]{%
+	\bfseries
+	\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}%
+}
+\usepackage{chemformula}%Typsets Chemical Formulas$
+%Image Formatting%
+\usepackage{graphicx}%Enchanced graphics support%
+\usepackage{float}%Float options$
+
+\usepackage[
+backend=biber,
+style=chem-acs,
+articletitle
+]{biblatex}
+\addbibresource{references.bib}
+
+\setlength{\droptitle}{-1 in}
+
+\begin{document}
+	\section*{Background}
+  Following the work of John Maynard Keynes, there was a significant amount of work done to incorporate his theories iused by businesses to nto a formalized economic theory. In 1939, Paul Samuelson developed a model that, depending on the parameters chosen, displayed cyclic change reminiscent of a business cycle\autocite{Puu2003,Skousen1997}.
+
+	There are several assumptions this model makes that do not necessarily apply to an actual economy. The model only includes investments and consumption so the economy is closed to other economies, i.e. there are no imports or exports. Moreover, there are no exogenous expenditures such as government spending or other forms of spending independent of business cycles. This model also assumes that investments are exactly equal to the amount of money not consumed, that there is no truly non-productive saving of income.
+
+	We can intepret this economy as having two main factors then, investments and consumption. Investments are equivalent to the rate of change in capital and as capital is the primary determinant of income in our economy, the stock of capital is always in a proportion of real income. Holding this assumption, we can interpret investments as a proportion to the rate of change of income which, in discrete time terms, is the difference between two successive time periods.
+
+	\subsection*{Investments}
+	Earlier theories used a linear function to represent the relationship between investment and income. This was questioned on its applicability to the real world however as it implied the destruction of existing capital in order to keep the proportionality of capital to income if income declined faster than the natural depreciation of capital. In the 1950s, Hicks suggted a piecewise linear function with upper and lower bounds to replace the linear investment function\autocite{Puu2003}. This allowed disinvestment to reach a minimal rate equal to the negative value that is the natural rate of capital depreciation. As there is also an upper bound, if income increases too quickly, investment no longer becomes the limiting factor of production as labor, land, and raw materials become the primary factors in additional increases in income. Thus there would become a maximal point where further investments do not contribute to increases in income.
+
+	Richard Goodwin proposed an alternative to the piecewise function that would allow it to be differentiable at all points. This function asymptotically approaches the piecewise function and is of the form of a hyperbolic tangent function. Both types of functions can be approximated using a linear-cubic Taylor series which introduces a change in the dynamics of the function. Approximating with a cubic Taylor series function introduces backbending to the relationship, i.e. income change will induce an increase in investments until a point, after this further increases in income change will induce a decrease in investments. This back-bending behavior is the reason for much of the phenomea seen, however there is a real-world reason for why backbending may occur.
+
+	In the real world, current government economic policy tends to be contracylic in nature. When the business cycle is at a recession, governments will spend to counteract the market behavior. Likewise when we consider an expansionary period in the economy, many governments will increase taxations in order to sustain the investments in a recessionary period, thereby limiting investments despite increases in income.
+
+	Investments are treated as a function of the change in income of the past, thus it is a 2nd order difference equation of the linear-cubic form:
+	\begin{equation}\label{eqn:inv}
+		I_t=v(Y_{t-1}-Y_{t-2})-v(Y_{t-1}-Y_{t-2})^3
+	\end{equation}
+
+	\subsection*{Consumption}
+	As we are assuming that no income is stored in an unproductive manner, we can note that there are only two outlets of income in this economy, thus we can write income as a function of consumption and investment:
+	\begin{equation}\label{eqn:inc_c+1}
+		Y_t=C_t+I_t
+	\end{equation}
+	Consumers have a propensity to save; however, if we assume that savings last for one time period and must be consumed in their entirety in the subsequent period, we are able to model consumption as a 2nd order difference equation:
+	\begin{equation}
+		C_t=(1-s)Y_{t-1}+sY_{t-2}
+	\end{equation}
+	Based on this eqution, consumption has two contributions, a 1-period delayed contribution to consumption due to the propensity to consume and the 2-period delayed contribution due to the propensity to save. It is important to note that the propensity to consume and the propensity to save should sum to unity, thus if we denote the propensity to save as $s$, the propensity to consume is $1-s$. The propensity to save and consume is exogenously determined in this model, it is a fixed proportion of income that is independent of any other variable.
+
+	\subsection*{Income}
+	With the two factors listed above, we can write the difference in income between time periods incorporating our functions for consumption and investment.
+	\begin{equation}\label{eqn:diffinc}
+		Y_t-Y_{t-1}=(v-s)(Y_{t-1}-Y_{t-2})-v(Y_{t-1}-t_{t-2})^3
+	\end{equation}
+
+	It is comon in economics to write the results of a difference equation mapping as a function in and of itself. We can thus define:
+	\begin{equation}
+		Y_t-Y_{t-1}=Z_{t-1}
+	\end{equation}
+	This allows us to simplify equation \ref{eqn:diffinc} to a single order difference equation:
+	\begin{equation}
+		Z_t=\mu(Z_{t-1})-(\mu+1)Z^3_{t-1}\ |\ \mu=(v-s)
+	\end{equation}
+	This is possible because the coefficient $v$ can be given any numerical value in real terms by simply changing the unit of measurement in income. This is what allowed our difference equation to be rescaled to the new parameter $\mu$ as this rescaling does not affect the linear term.
+
+	This rescaling allows us to ensure that the cubic function $Z$ will pass through the points (0,0), (0,-1), and (1,-1), thereby allowing us to contain the function in a square box with the interval $[-1,1]$ as our edges. A common practice in analyzing economic models of this type is to draw a figurative \SI{45}{\degree} line, i.e. a line of unit slope. This line denotes points such that $Z_t=Z_{t-1}$, that is to say the change per year is constant. This is of more interest than just determining the points where income is steady as economies naturally feature year-on-year growth. Recessions and expansions are noted because their growth is lower than or higher than average, not because they are negative or positive.
+
+	\section*{Describing the model}
+	\subsection*{Initial Analysis}
+		The fixed points of the iterated map are where $Z=Z_t$ on the function. For the purposes of notating the function, we rewrite it as:
+		\begin{equation}
+			f_\mu(Z)=\mu Z-(\mu+1)Z^3
+		\end{equation}
+		There is the trivial case where $Z=0$. However, there are two, non-origin points:
+		\begin{equation}
+			Z=\pm\sqrt{\frac{\mu-1}{\mu+1}}
+		\end{equation}
+		These fixed pints are stable if the absolute value of the derivative of the function is less than 1, the slope of the \SI{45}{\degree} line. Solving for the parameter that fulfills this condition, we see that $\mu<2$ in order for the equilibrium to be stable. Thus, if we start from any non-origin value of $Z$, we will approach one of the fixed points over time.
+	\subsection*{Cylicic Behavior}
+		Once $\mu=2$, a bifurcation occurs and the fixed points are no longer stable. Instead, points will enter a stable cycle consisting of 2 points on the curve. This can be calculated by identifying the equilibrium points of the twice iterated map: $f_\mu(f_\mu(Z))$ and determining the stability of this composite function. The cyclic behavior of $f_\mu$ does not remain as a 2-cycle however, it transitions to cycles of 4 and 8 periodicity when $\mu=2.25$ and $\mu=2.295$, respectively. At the Feigenbaum point where $\mu=2.302$, the stable cyclic behavior is loss and chaos is now present.
+	\subsection*{Chaotic Behavior}
+		The chaotic process is initially contained in the original quadrant of the initial value. This point occurs when the extremum of the cubic is equl t the value at which the cubic has a zero This occurs when:
+		\begin{equation}
+			F_\mu^\prime(Z)=0
+		\end{equation}
+		Solving for our iterated map, we arrive at:
+		\begin{equation}
+			Z=\pm\frac{1}{\sqrt3}\sqrt{\frac{\mu}{\mu+1}}
+		\end{equation}
+		Knowing this, we can solve for the parameter values that will result in a point where the extremum occurs at the same point as the zero. For our specific model, this occurs when:
+		\begin{equation}
+			\mu=\frac{3\sqrt3}{2}\approx2.5981
+		\end{equation}
+		As this allows $Z$ to transition to and from the positive domain, this means that this is the point where the model shifts from detailing an economy that is experiencing variable amounts of growth to an economy that is truly cyclic in income level.
+
+		It is important to note that stable cyclic behavior can appear even when in the chaotic region. A window of ordered behavior exists for example when $\mu=2.7$, resulting in a stable, attractive cycle of 6 periodicity that occupies both domains.
+
+		Any point where $\mu>3$ remains chaotic; however, the solution escapes the box we have set. At these points, the maximum and minimum exceed the bounds of the box declared previously. This behavior allows the solution of the system to explode which is outside of the realms of realism.
+	\subsection*{Lyapunov Exponent}
+		The lyapunov exponent effectively magnifies the effect of an infinitesimal difference in initial conditions. Formally speaking, In a theoretical sense, it can be calculated as:
+		\begin{equation}
+			\lambda_n(x_0)=\frac{1}{n}\sum^{t=n}{t=1}\ln|f^\prime(x_{t-1})
+		\end{equation}
+		The formal definition of the Lyapunov exponent assumes that there is a limiting value as the number of steps approach infinity; however, practically calculating it requires that there be a finite but large amount of steps, with more steps resulting in a better approximation. Moreover, although the formulas do refer to an initial value $x_0$, it does not depend on this as, provided the point selected is not an equilibrium point, the path of the map will settle on the chaotic attractor.
+
+		A system is often considered chaotic if, for a given parameter, the Lyapunov exponent is in the positive domain. When the Lyapunov exponent is in the negative domain, this indicates some form of stability whether it be through a fixed point or some sort of fixed period orbit.
+
+		
+\end{document}
