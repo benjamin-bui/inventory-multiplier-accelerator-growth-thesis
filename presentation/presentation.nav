@@ -9,23 +9,56 @@
 \headcommand {\beamer@framepages {3}{3}}
 \headcommand {\slideentry {1}{0}{2}{4/5}{}{0}}
 \headcommand {\beamer@framepages {4}{5}}
-\headcommand {\beamer@sectionpages {3}{5}}
-\headcommand {\beamer@subsectionpages {3}{5}}
-\headcommand {\sectionentry {2}{The Logistic Map}{6}{The Logistic Map}{0}}
-\headcommand {\slideentry {2}{0}{1}{6/6}{}{0}}
-\headcommand {\beamer@framepages {6}{6}}
-\headcommand {\slideentry {2}{0}{2}{7/7}{}{0}}
-\headcommand {\beamer@framepages {7}{7}}
-\headcommand {\slideentry {2}{0}{3}{8/11}{}{0}}
-\headcommand {\beamer@framepages {8}{11}}
-\headcommand {\slideentry {2}{0}{4}{12/12}{}{0}}
+\headcommand {\slideentry {1}{0}{3}{6/7}{}{0}}
+\headcommand {\beamer@framepages {6}{7}}
+\headcommand {\beamer@sectionpages {3}{7}}
+\headcommand {\beamer@subsectionpages {3}{7}}
+\headcommand {\sectionentry {2}{The Framework}{8}{The Framework}{0}}
+\headcommand {\slideentry {2}{0}{1}{8/9}{}{0}}
+\headcommand {\beamer@framepages {8}{9}}
+\headcommand {\slideentry {2}{0}{2}{10/11}{}{0}}
+\headcommand {\beamer@framepages {10}{11}}
+\headcommand {\slideentry {2}{0}{3}{12/12}{}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\slideentry {2}{0}{5}{13/14}{}{0}}
+\headcommand {\slideentry {2}{0}{4}{13/14}{}{0}}
 \headcommand {\beamer@framepages {13}{14}}
-\headcommand {\slideentry {2}{0}{6}{15/17}{}{0}}
+\headcommand {\slideentry {2}{0}{5}{15/17}{}{0}}
 \headcommand {\beamer@framepages {15}{17}}
-\headcommand {\beamer@partpages {1}{17}}
-\headcommand {\beamer@subsectionpages {6}{17}}
-\headcommand {\beamer@sectionpages {6}{17}}
-\headcommand {\beamer@documentpages {17}}
-\headcommand {\gdef \inserttotalframenumber {10}}
+\headcommand {\slideentry {2}{0}{6}{18/19}{}{0}}
+\headcommand {\beamer@framepages {18}{19}}
+\headcommand {\beamer@sectionpages {8}{19}}
+\headcommand {\beamer@subsectionpages {8}{19}}
+\headcommand {\sectionentry {3}{Quantitative Analysis}{20}{Quantitative Analysis}{0}}
+\headcommand {\slideentry {3}{0}{1}{20/21}{}{0}}
+\headcommand {\beamer@framepages {20}{21}}
+\headcommand {\slideentry {3}{0}{2}{22/22}{}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\slideentry {3}{0}{3}{23/24}{}{0}}
+\headcommand {\beamer@framepages {23}{24}}
+\headcommand {\slideentry {3}{0}{4}{25/26}{}{0}}
+\headcommand {\beamer@framepages {25}{26}}
+\headcommand {\slideentry {3}{0}{5}{27/29}{}{0}}
+\headcommand {\beamer@framepages {27}{29}}
+\headcommand {\slideentry {3}{0}{6}{30/30}{}{0}}
+\headcommand {\beamer@framepages {30}{30}}
+\headcommand {\slideentry {3}{0}{7}{31/31}{}{0}}
+\headcommand {\beamer@framepages {31}{31}}
+\headcommand {\slideentry {3}{0}{8}{32/32}{}{0}}
+\headcommand {\beamer@framepages {32}{32}}
+\headcommand {\beamer@sectionpages {20}{32}}
+\headcommand {\beamer@subsectionpages {20}{32}}
+\headcommand {\sectionentry {4}{Next Steps}{33}{Next Steps}{0}}
+\headcommand {\slideentry {4}{0}{1}{33/35}{}{0}}
+\headcommand {\beamer@framepages {33}{35}}
+\headcommand {\beamer@sectionpages {33}{35}}
+\headcommand {\beamer@subsectionpages {33}{35}}
+\headcommand {\sectionentry {5}{References}{36}{References}{0}}
+\headcommand {\slideentry {5}{0}{0}{36/36}{}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\slideentry {5}{0}{0}{36/37}{}{0}}
+\headcommand {\beamer@framepages {36}{37}}
+\headcommand {\beamer@partpages {1}{37}}
+\headcommand {\beamer@subsectionpages {33}{37}}
+\headcommand {\beamer@sectionpages {33}{37}}
+\headcommand {\beamer@documentpages {37}}
+\headcommand {\gdef \inserttotalframenumber {22}}

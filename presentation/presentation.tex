@@ -6,7 +6,7 @@
 \usecolortheme{beaver}
 \setbeamertemplate{footline}[frame number]
 \setbeamertemplate{caption}[numbered]
-
+\setbeamertemplate{navigation symbols}{}
 \usepackage[english]{babel}%Set language as english%
 \usepackage[babel]{csquotes}%Nicer quotations%
 \usepackage{indentfirst}
@@ -28,19 +28,19 @@
 \usepackage{chemformula}%Typsets Chemical Formulas$
 %Image Formatting%
 \usepackage{graphicx}%Enchanced graphics support%
+\usepackage{media9}
+\graphicspath{{./figures/}}
 \usepackage{float}%Float options$
-
 
 \usepackage[
 backend=biber,
-style=chem-acs,
-articletitle
+style=chem-acs
 ]{biblatex}
 \addbibresource{references.bib}
 
 \usetheme{default}
 
-\title{Dynamics of Discrete Time Economic Growth Models}
+\title{Parallels Between Chemical Oscillation and Discrete Time Economic Growth Models}
 \author{Benjamin Bui}
 \date{October 5, 2018}
 \begin{document}
@@ -61,148 +61,335 @@ articletitle
 \begin{frame}{Key Differences}
 	\begin{itemize}
 		\item
-			Models in chemistry are based on interactions based in physical laws
+			Physical laws make up the foundations of chemical systems
 		\pause
 		\item
-			Macroscale physical systems are in continuous time
+			Macroscale physical systems operate in continuous time
 	\end{itemize}
 \end{frame}
 
-\section{The Logistic Map}
+\begin{frame}{Natural Discrete Time Systems}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+					\item
+						Ecological systems are often modelled using discrete time equations
+					\pause
+					\item
+						One classically used system is the logistic map\autocite{Maier2010}
+					\item
+						The continuous time analogue is used to model autocatalytic reactions
+				\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\textwidth]{logistic.pdf}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
 
-\begin{frame}{Applications}
+\section{The Framework}
+\begin{frame}{Background}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+					\item
+						John Maynard Keynes
+					\pause
+					\item
+						Paul Samuelson and Hicks attempted to formalize a business cycle model\autocite{Puu2003}
+				\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\textwidth]{keynes.jpg}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Investment}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+				\begin{itemize}
+					\item
+						Capital stock is in a given proportion of production\autocite{Press1939}
+					\pause
+					\item
+						Hicks and Goodwin changed the linear relationship to a hyperbolic tangent curve
+					\item
+						This curve can be approximated with a linear-cubic Taylor series expansion
+				\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\textwidth]{investment_curve.pdf}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Investment}
+	\begin{equation*}
+		I_t=v(Y_{t-1}-Y_{t-2})-v(Y_{t-1}-Y_{t-2})^3
+	\end{equation*}
+\end{frame}
+
+\begin{frame}{Consumption}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item
+					Suppose consumption is a two-period process
+				\item
+					All production goes towards consumption and investments
+			\end{itemize}
+		\end{column}
+		\pause
+		\begin{column}{0.5\textwidth}
+			\begin{gather*}
+				C_t=(1-s)Y_{t-1}+sY_{t-2}\\
+				Y_t=C_t+I_t
+			\end{gather*}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Production}
+	\begin{columns}
+		\begin{column}{0.3\textwidth}
+			Insert the functions for investment and consumption into production
+		\end{column}
+		\begin{column}{0.7\textwidth}
+			\begin{itemize}
+				\item
+					\begin{equation*}
+						\begin{split}
+						Y_t-Y_{t-1}=(v-s)(Y_{t-1}-Y_{t-2})\\
+						-v(Y_{t-1}-Y_{t-2})^3
+					\end{split}
+					\end{equation*}
+				\pause
+				\item
+					\begin{equation*}
+						Z_{t-1}:=Y_-t-Y_{t-1}
+					\end{equation*}
+				\pause
+				\item
+					\begin{equation*}
+						Z_t=(v-s)Z_{t-1}-vZ^3_{t-1}
+					\end{equation*}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{A Little Economic Trickery}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item
+					\(v\) can be any arbitrary value by rescaling how we measure income
+				\item
+					This allows the function to be contained in a box of interval \([-1,1]\)
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item
+					\begin{equation*}
+						\mu\equiv(v-s)
+					\end{equation*}
+				\pause
+				\item
+					\begin{equation*}
+						Z_t=\mu Z_{t-1}-(\mu+1)Z^3_{t-1}
+					\end{equation*}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\section{Quantitative Analysis}
+\begin{frame}{Fixed Point Stability}
 	\begin{itemize}
 		\item
-		 	Popularized by the ecologist Robert May (Cite Later)
+			\textbf{Fixed Points}\hspace{5cm} \textbf{Stability}
 		\item
-			Used to model population dynamics
+			\begin{equation*}
+				Z=0 \hspace{5cm} \lvert \mu \rvert<1
+			\end{equation*}
+		\pause
 		\item
-			Frequently analyzed and modified to study iterated maps
+			\begin{equation*}
+				Z=\pm\sqrt{\frac{\mu-1}{\mu+1}} \hspace{4cm} 1<\mu<2
+			\end{equation*}
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Behavior}
+\begin{frame}{Fixed Point Stability}
+	\begin{figure}
+		\centering
+		\includegraphics[height=\textheight]{fixed_point.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Cyclic Behavior}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-			\begin{equation*}
-				x_{t+1}=\mu(1-x_t)x_t
-			\end{equation*}
+			Stability of multiple iterated map
 		\end{column}
+		\pause
 		\begin{column}{0.5\textwidth}
-			Insert plot of logistic map
+			\begin{figure}
+				\centering
+				\includegraphics[height=0.4\textheight]{2_cycle.pdf}
+			\end{figure}
+			\begin{figure}
+				\centering
+				\includegraphics[height=0.4\textheight]{8_cycle.pdf}
+			\end{figure}
 		\end{column}
 	\end{columns}
 \end{frame}
 
-\begin{frame}{Stability of Equilibrium Points}
+\begin{frame}{Confined Chaos}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\begin{itemize}
 				\item
-					\textbf{Fixed Points}
-				\item
-					\begin{equation*}
-						x=0
-					\end{equation*}
+					Occurs when parameter reaches Feigenbaum point
 				\pause
 				\item
 					\begin{equation*}
-						\frac{\mu-1}{\mu}
+						\mu\approx2.302
 					\end{equation*}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\textwidth]{contained_chaos.pdf}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Spillover Chaos}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item
+					Occurs once extremum of the cubic marginally exceed when the cubic has a zero
+				\pause
+				\item
+					\begin{gather*}
+						f^\prime(Z)=\mu-3(\mu+1)Z^2=0\\
+						Z=\pm\sqrt{\frac{\mu}{\mu+1}}\\
+						\mu>\frac{3\sqrt{3}}{2}\approx2.5981
+					\end{gather*}
 			\end{itemize}
 		\end{column}
 		\pause
 		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\textwidth]{spillover_chaos.pdf}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{True Cyclic Economy}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+				There are windows of order in chaotic regions
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\textwidth]{spillover_cycle.pdf}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Exploding Solutions}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
 			\begin{itemize}
 				\item
-					\textbf{Conditions for Stability}
+					Occur once the cubic escapes the box
 				\item
 					\begin{equation*}
-						|\mu|<1
+						\mu>3
 					\end{equation*}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[height=\textheight]{exploding.pdf}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Bifurcations and the Lyapunov Exponent}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item
+					A way to visualize progression of stability
+				\item
+					\begin{equation*}
+						L(Z_0)=\lim\limits_{n\to\infty}\frac{1}{n}\sum\limits_{i=1}^{i=n}\ln\lvert f^\prime(Z_{i-1}\rvert)
+					\end{equation*}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[height=0.4\textheight]{bifurcation.pdf}
+			\end{figure}
+			\begin{figure}
+				\centering
+				\includegraphics[height=0.3\textheight]{lyapunov.pdf}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\section*{Next Steps}
+\begin{frame}{Next Steps}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item
+					Samuelson-Hicks is a very simplified model
 				\pause
 				\item
-					\begin{equation*}
-						1<\mu<3
-					\end{equation*}
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}{Stability}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			Stability means there is a convergence to the fixed point
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			Include figure of convergence.
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}{Double Iteration}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{itemize}
-				\item
-					\textbf{The Map}
-				\item
-					\begin{equation*}
-						\mu^2(\mu x^2-\mu x+1)(1-x)x
-					\end{equation*}
+					There are a variety of variables and mechanism that are unnacounted for
 				\pause
 				\item
-					\textbf{Conditions of Stability}
-				\item
-					\begin{equation*}
-						3<\mu<1+\sqrt{6}\approx3.449
-					\end{equation*}
+					Kaldor and Solow-Swann
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
-			Include figure of 2 cycle
+			\begin{figure}
+				\centering
+				\includegraphics[width=\textwidth]{kaldor.png}
+			\end{figure}
 		\end{column}
 	\end{columns}
 \end{frame}
 
-\begin{frame}{Chaos}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{itemize}
-				\item
-					\textbf{Lyapunov Exponent}
-				\item
-					\begin{equation*}
-						\lambda_n(x_0)=\frac{1}{n}\sum\limits_{t=1}^{t=n}\ln\lvert f^\prime(x_{t-1})\rvert
-					\end{equation*}
-				\pause
-				\item
-					\textbf{Bifurcation Diagram}
-				\item
-					Visualize transition from a singular fixed point to chaos.
-			\end{itemize}
-		\end{column}
-		\pause
-		\begin{column}{0.5\textwidth}
-			Show chaotic mapping
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}{Switching Oscillations}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{itemize}
-				\item
-					One way to alter the logistic map
-				\item
-					Used to test effects
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			Include figure of convergence.
-		\end{column}
-	\end{columns}
+\begin{frame}[allowframebreaks]{References}
+	\nocite{*}
+	\printbibliography
 \end{frame}
 \end{document}
