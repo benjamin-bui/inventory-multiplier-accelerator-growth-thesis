@@ -162,6 +162,7 @@ style=chem-acs
 \begin{frame}{Production}
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
+			\centering
 			Insert the functions for investment and consumption into production
 		\end{column}
 		\begin{column}{0.7\textwidth}
@@ -176,7 +177,7 @@ style=chem-acs
 				\pause
 				\item
 					\begin{equation*}
-						Z_{t-1}:=Y_-t-Y_{t-1}
+						Z_{t-1}\equiv Y_-t-Y_{t-1}
 					\end{equation*}
 				\pause
 				\item
@@ -234,24 +235,22 @@ style=chem-acs
 \begin{frame}{Fixed Point Stability}
 	\begin{figure}
 		\centering
-		\includegraphics[height=\textheight]{fixed_point.pdf}
+		\includegraphics[height=0.9\textheight]{fixed_point.pdf}
 	\end{figure}
 \end{frame}
 
 \begin{frame}{Cyclic Behavior}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-			Stability of multiple iterated map
+			\begin{figure}
+				\centering
+				\includegraphics[height=0.8\textwidth,width=0.8\textwidth]{2_cycle.pdf}
+			\end{figure}
 		\end{column}
-		\pause
 		\begin{column}{0.5\textwidth}
 			\begin{figure}
 				\centering
-				\includegraphics[height=0.4\textheight]{2_cycle.pdf}
-			\end{figure}
-			\begin{figure}
-				\centering
-				\includegraphics[height=0.4\textheight]{8_cycle.pdf}
+				\includegraphics[height=0.8\textwidth,width=0.8\textwidth]{8_cycle.pdf}
 			\end{figure}
 		\end{column}
 	\end{columns}
@@ -262,6 +261,7 @@ style=chem-acs
 		\begin{column}{0.5\textwidth}
 			\begin{itemize}
 				\item
+					\centering
 					Occurs when parameter reaches Feigenbaum point
 				\pause
 				\item
@@ -284,7 +284,8 @@ style=chem-acs
 		\begin{column}{0.5\textwidth}
 			\begin{itemize}
 				\item
-					Occurs once extremum of the cubic marginally exceed when the cubic has a zero
+					\centering
+					Occurs once extremum of the cubic marginally exceed where the cubic has a zero
 				\pause
 				\item
 					\begin{gather*}
@@ -333,7 +334,7 @@ style=chem-acs
 		\begin{column}{0.5\textwidth}
 			\begin{figure}
 				\centering
-				\includegraphics[height=\textheight]{exploding.pdf}
+				\includegraphics[height=0.9\textheight]{exploding.pdf}
 			\end{figure}
 		\end{column}
 	\end{columns}
