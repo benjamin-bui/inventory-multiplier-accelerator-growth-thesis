@@ -6,7 +6,8 @@
 \usepackage[babel]{csquotes}
 \usepackage{titling}
 \usepackage[protrusion=true,expansion=true]{microtype}
-
+\usepackage{setspace}
+\onehalfspacing
 %Chapter Styling%
 \usepackage{titlesec}
 \titleformat{\chapter}
@@ -84,19 +85,14 @@ articletitle
 	\end{center}
 \end{titlepage}
 
-%Abstract%
-\setcounter{page}{1}
-\thispagestyle{plain}
-\begin{center}
-	\vspace*{\fill}
-	\textbf{Abstract}\\
-	\lipsum[1-2]
-	\vspace*{\fill}
-\end{center}
 
+\input{chapters/acknowledgements}
+\input{chapters/abstract}
 \tableofcontents
 \chapter{Introduction}
 \input{chapters/introduction}
 \chapter{Conclusion}
 \input{chapters/conclusion}
+\chapter{References}
+\input{chapters/references}
 \end{document}
