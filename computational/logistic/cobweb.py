@@ -7,7 +7,7 @@ rc('text', usetex=True)
 rc('font', family='serif')
 
 #Create function for cobweb plot with arguments: function, parameter, and initial value
-def plot_cobweb(f, u, x0, nmax=40):
+def plot_cobweb(f, u, x0, nmax=50 ):
     x = np.linspace(0,1,500)
     fig = plt.figure()
     ax = fig.add_subplot(111)
@@ -38,8 +38,7 @@ def plot_cobweb(f, u, x0, nmax=40):
     ax.set_ylabel(f.latex_label)
     ax.set_title('$x_0 = {:1}, \mu = {:2}$'.format(x0, u))
 
-    #Save plot
-    plt.savefig('log_fixed_cob')
+    
 
 
 class AnnotatedFunction:
@@ -53,3 +52,6 @@ class AnnotatedFunction:
 #Logistic Function
 func = AnnotatedFunction(lambda x, u: u*x*(1-x), r'$\mu x_t(1-x_t)$')
 plot_cobweb(func, 1.5, 0.1)
+plt.savefig('log_fixed_cob.eps', format='eps', dpi=1000)
+plot_cobweb(func, 3.2, 0.1)
+plt.savefig('log_cyclic_cob.eps', format='eps', dpi=1000)
