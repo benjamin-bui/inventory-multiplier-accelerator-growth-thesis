@@ -1,1 +1,33 @@
-Winfree1984
+\section{Discrete Time Dynamical Systems}
+Although many processes in the real-world are more intuitively interpreted as operating as a continuous time  function, there are many  occasions where it is possible and  in fact beneficial to think in a discrete-time sense. The prevalence of this type of system varies depending on the exact field of study; however, it is important to note that when computationally modelling continuous time systems, it is impossible for computers to truly operate with continuous variables and thus even these systems are reduced to technically discrete models.
+
+Population dynamics are frequently analyzed as a discrete time system as opposedto continuous time. It is often of more practical use to interpret $t= 0,1,2,3,...$ as the change in population per year or per season as opposed to determining the change in population over infinitesimally small changes in time. In terms of technique, many of the mathematical principles used in analyzing dynamic systems in continuous time apply to discrete time systems; however, it would be a mistake to assume the two were identical. An important distinction between the two is the nature by which chaos can occur. As described previously, a continuous time system requires 3 or more dependent variables in order for chaos to occur. A discrete time system only requires 1 variable in order to display the same type of chaotic behavior.
+
+The systems discussed throughout this paper will be of the discrete variety due to their nature. Laws pertaining to the physical world are scalable to the infinitesimal degree which allows for their use in continuous models. Economic models do not have a basis in physical laws. It is also important to note that, due to the complexity involved in the human behavior that economic models are trying predict, the exact numerical values of the model are typically of minor concern. The general behavior of the model is significantly more valuable in order to determine the effects of an economic assumption.
+
+\section{The Logistic Map, A Mathematical Introduction}
+The logistic map is regarded as the prototypical chaotic discrete time mapping. The logistic function, which the logistic map is based off of, was developed to study population dynamics but actually garnered widespread use in other disciplines such as the study of autocatalytic reactions, computer science, statistics, and economics\autocite{Kavanagh1934}.
+\begin{equation}
+    \frac{d}{dx}f(x)=f(x)(1-f(x))
+\end{equation}
+The logistic function has 2 equilibria or points where the derivative of the function is 0. $f(x) = 0$ is an unstable equilibrium but $f(x)=1$ is a stable equilibrium point which means that other points on the function will tend towards this equilibrium overtime.  This can be realized by solving for the derivative of the function at points when $f(x)\in(0,1)$ which is universally positive and $f(x)\in(1,\ifnty)$ which is negative. Integrating the differential equation gives the general form equation:
+\begin{equation}
+    f(x)=\frac{e^x}{e^x+C}
+\end{equation}
+This function gained prominence due to its rapid, exponential growth when $f(x)$ is low and its slow, linear decaying to non-existent growth as population increases.  Used by notable mathematicians operating in the field of population dynamics such as Verhulst, Pearl, and Lotka, the model continues to be widely used today and is often the basis upon which other modifications are applied\autocite{Zwanzig1973}.
+
+\begin{equation}
+    x_{t=1}=\mu x_t(1-x_t)
+\end{equation}
+The logistic map is a difference equation model popularized by Robert May as a discrete time analogue to the logistic function\autocite{May1976}. When interpreted in the biological context, $x_t$ refers to the ratio of the population at time $t$ compared to the maximal population, thus the mapping is bounded between 0 and 1. Here we see intuitively the major difference between difference equation and differential equation based systems. Differential equations solve for the derivative of a variable with respect to time in terms of the variable, difference equations solve for the actual state of the variable in the successive state provided we know the state of the variable in the previous time period. Much like how differential equations can be of higher order with the introduction higher order derivatives, a difference equation can also be of higher order by including more time periods in the function for the state of the variable which is valuable in a variety of the models discussed later.
+
+Much like how the equilibrium points were solved for in the differential equation, difference equations also have equilibrium points where $x_{t+1}=x_t$. Interestingly, unlike the logistic function, there does not exist a fixed point at $x_t=1$ as this would result in $x_{t+1}=0$. Solving for the fixed points, we have:
+\begin{equation}
+    x_{t+1}=x_t=0,\frac{\mu-1}{\mu}
+\end{equation}
+
+The stability of a fixed point is again dependent on the derivative of the function; however, there are differences in the details of our analysis. Treating $f(x)=x_{t+1}$, we see the derivative of the logistic map is:
+\begin{equation}
+    f^\prime(x)=\mu(1-2x)
+\end{equation}
+For reasons that will become clear later, the stability of a point on the map requires that $|f^\prime(x)|<1$. Solving for when this is true for our two fixed points, we see that $\mu<1$ provides stability for the origin fixed point and $1<\mu<3$ gives stability for the non-zero fixed point. Thus, provided the parameter $\mu$ satisfies either of the conditions set previously. 
