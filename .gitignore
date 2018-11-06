@@ -10,3 +10,5 @@
 *.pdf
 *.fls
 *.fdb_latexmk
+#Python Results
+*.png
