@@ -7,8 +7,11 @@
 *.run.xml
 *.synctex.gz
 *.toc
-*.pdf
 *.fls
 *.fdb_latexmk
 #Python Results
 *.png
+*.eps
+#Mathematica Results
+*.gif
+*.mov

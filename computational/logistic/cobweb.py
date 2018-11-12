@@ -38,9 +38,6 @@ def plot_cobweb(f, u, x0, nmax=50 ):
     ax.set_ylabel(f.latex_label)
     ax.set_title('$x_0 = {:1}, \mu = {:2}$'.format(x0, u))
 
-    
-
-
 class AnnotatedFunction:
     def __init__(self, func, latex_label):
         self.func = func
@@ -53,5 +50,7 @@ class AnnotatedFunction:
 func = AnnotatedFunction(lambda x, u: u*x*(1-x), r'$\mu x_t(1-x_t)$')
 plot_cobweb(func, 1.5, 0.1)
 plt.savefig('log_fixed_cob.eps', format='eps', dpi=1000)
-plot_cobweb(func, 3.2, 0.1)
+plot_cobweb(func, 3.2, 0.799455)
 plt.savefig('log_cyclic_cob.eps', format='eps', dpi=1000)
+plot_cobweb(func, 3.8, 0.1)
+plt.savefig('log_chaos_cob.eps', format='eps', dpi=1000)

@@ -57,6 +57,28 @@ This behavior can be visualized using a cobweb diagram. This diagram consists of
 The \SI{45}{\degree} line is defined as the line where $x_t=x_{t+1}$ which is useful for determining the result of successive iterations. Beginning from the point $x_0$, we can then determine what point $x_1$ wll be via the mapping. We can then look horizontally to the \SI{45}{\degree} line until we intersect with it. The $x$-coordinate of this intersection point is equivalent to the result of the mapping of the previous iteration, thus using this new point will allow us to determine the result of the next iteration of the function. This process can be repeated ad infinitum; however, the result will soon prove uninteresting for stable points and orbits as the trajectory will converge and repeat its behavior.
 
 The reason the logistic map is so frequently studied is because of its ability to exhibit complex behavior beyond a stable equilibrium solution. Once $\mu>3$, the mapping enters a cyclic region. Much like how fixed points could be solved for by identifying where $x_{t}=x_{t+1}$, stable oscillatory points can be found by solving for the equilibrium points of higher iterations of the function. A 2-cycle will be such that $x_{t}=x_{t+2}\neq x_{t+1}$ for example and the stability of a such a cycle can be found using the same methodology as described previously. 
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{log_cyclic_cob.eps}
+    \caption{2-period cycle of the logistic map showing only the cyclic behavior.}
+    \label{log_cyclic_cob}
+\end{figure}
+The logistic map also provides a mechanism to more quantitatively describe what it means for a system to be chaotic. The Lyapunov exponent, named after one of major driving forces in the development of stability analysis, is used to measure the effect of small perturbations in initial conditions on the trajectory of the variable\autocite{Puu2003}. Conceptually, the logistic map and the systems discussed in this paper are determinisitic. However, chaotic systems have highly divergent trajectories with even small changes in their initial conditions; thus knowing approximately what the initial conditions are does not provide approximate information on the trajectory of the variable. 
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{log_chaos_cob.eps}
+    \caption{Chaotic behavior in the logistic map.}
+    \label{log_chaos_cob}
+\end{figure}
 
-The logistic map also allows us to more precisely determine what it means for a mapping to be chaotic. Intuitively, a system is chaotic if the result of the system is highly dependent on its initial conditions. 
-
+In order to quantify this, we begin by taking the absolute value of the derivative of the function as this allows us to effectively magnify the effect of an infinitesimal change in the intiial conditions. We then take the natural logarithm of this derivative in order to measure the exponential rate of separation of trajectories. Finally, we take the average separation over an arbitrarily high number of iterations $n$ as exponential separation is not necessitated over all phase space. This gives us a the equation:
+\begin{equation}
+    \lambda_n(x_0)=\frac{1}{n}\sum^{t=n}_{t=1}\ln\lvert f^\prime(x_{t-1})\rvert
+\end{equation}
+where $\lambda_n(x_0)$ is the lyapunov exponent for a given intial point when allowed to run for $n$ iterations. The true value of the lyapunov exponent is the limit of the infinite series as $n\rightarrow\infty$ divided by $n$; however, the complexity of these maps often makes it practically impossible to analytically solve for the limit. By choosing arbitrarily high values of $n$ though, it is possible to achieve better approximations at the expense of computational time. It is also important to note that, although the lyapunov exponent is a function of the intial condition, as long as the intiial state is not in some stable fixed point or cycle, the trajectories will follow that of the chaotic attractor, thus the value of the lyapunov exponent should be mostly consistent regardless of the choice of initial conditions.
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{log_lyapunov.eps}
+    \caption{Lyapunov exponent plotted against $\mu$. Initial value of 0.1 is used. Red denotes regions where $\lambda\geq0$, black denotes regions where $\lambda<0$.}
+    \label{log_lyapunov}
+\end{figure}

@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "Poincar\\'e"
-    ]
+    ],
+    "python.linting.pylintEnabled": true
 }
