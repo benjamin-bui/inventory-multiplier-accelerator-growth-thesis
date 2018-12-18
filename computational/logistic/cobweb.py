@@ -7,13 +7,13 @@ rc('text', usetex=True)
 rc('font', family='serif')
 
 #Create function for cobweb plot with arguments: function, parameter, and initial value
-def plot_cobweb(f, u, x0, nmax=50 ):
-    x = np.linspace(0,1,500)
+def plot_cobweb(f, u, x0, nmax=1000 ):
+    x = np.linspace(0,1,1000)
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
     #Plot map
-    ax.plot(x, f(x, u), c='black', lw=1)
+    ax.plot(x, f(x, u), c='black', lw=0.2)
     #Plot 45 degree line
     ax.plot(x, x, c='gray', lw=1, dashes=[6,2])
 
@@ -49,8 +49,11 @@ class AnnotatedFunction:
 #Logistic Function
 func = AnnotatedFunction(lambda x, u: u*x*(1-x), r'$\mu x_t(1-x_t)$')
 plot_cobweb(func, 1.5, 0.1)
-plt.savefig('log_fixed_cob.eps', format='eps', dpi=1000)
+plt.savefig('./manuscript/figures/logistic/fixed_cob.pdf', dpi=1000)
 plot_cobweb(func, 3.2, 0.799455)
-plt.savefig('log_cyclic_cob.eps', format='eps', dpi=1000)
+plt.savefig('./manuscript/figures/logistic/2-cyclic_cob.pdf', dpi=1000)
+plot_cobweb(func, 3.82842712, 0.5)
+plt.savefig('./manuscript/figures/logistic/3-cyclic_cob.pdf', dpi=1000)
 plot_cobweb(func, 3.8, 0.1)
-plt.savefig('log_chaos_cob.eps', format='eps', dpi=1000)
+plt.savefig('./manuscript/figures/logistic/chaos_cob.pdf', dpi=1000)
+
