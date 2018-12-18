@@ -1,6 +1,7 @@
 import numpy as np
 from matplotlib import rc
 import matplotlib.pyplot as plt
+from tqdm import tqdm
 
 #LaTeX Font
 rc('text', usetex=True)
@@ -20,7 +21,7 @@ def plot_cobweb(f, u, x0, nmax=250 ):
     #Iterate function for nmax stpdf
     px, py = np.empty((2, nmax+1, 2))
     px[0], py[0] = x0, x0
-    for n in range(1, nmax, 2):
+    for n in tqdm(range(1, nmax, 2)):
         px[n] = px[n-1]
         py[n] = f(px[n-1], u)
         px[n+1] = py[n]
@@ -35,6 +36,8 @@ def plot_cobweb(f, u, x0, nmax=250 ):
     ax.grid(which='major', alpha=0.5)
     ax.set_aspect('equal')
     ax.set_xlabel('$x$')
+    ax.axhline(0, color='k', lw=.5, alpha=0.25)
+    ax.axvline(0, color='k', lw=.5, alpha=0.25)
     ax.set_ylabel(f.latex_label)
     ax.set_title('$x_0 = {:1}, \mu = {:2}$'.format(x0, u))
 
@@ -49,13 +52,13 @@ class AnnotatedFunction:
 #Logistic Function
 func = AnnotatedFunction(lambda x, u: u*x-(u+1)*x**3, r'$\mu Z-(\mu+1)Z^3$')
 plot_cobweb(func, 1.5, 0.5)
-plt.savefig('./manuscript/figures/sam_hicks/fixed.pdf', dpi=1000)
+plt.savefig('./manuscript/figures/sam_hicks/fixed.pdf', dpi=600)
 plot_cobweb(func, 2.15, 0.799455)
-plt.savefig('./manuscript/figures/sam_hicks/2-cyclic.pdf', dpi=1000)
+plt.savefig('./manuscript/figures/sam_hicks/2-cyclic.pdf', dpi=600)
 plot_cobweb(func, 2.4, 0.1)
-plt.savefig('./manuscript/figures/sam_hicks/chaos_contained.pdf', dpi=1000)
+plt.savefig('./manuscript/figures/sam_hicks/chaos_contained.pdf', dpi=600)
 plot_cobweb(func, 2.6, 0.1)
-plt.savefig('./manuscript/figures/sam_hicks/chaos_uncontained.pdf', dpi=1000)
+plt.savefig('./manuscript/figures/sam_hicks/chaos_uncontained.pdf', dpi=600)
 plot_cobweb(func, 2.7, 0.1)
-plt.savefig('./manuscript/figures/sam_hicks/chaos_unbound_cyclic.pdf', dpi=1000)
+plt.savefig('./manuscript/figures/sam_hicks/unbound_cyclic.pdf', dpi=600)
 

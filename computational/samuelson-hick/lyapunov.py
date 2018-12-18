@@ -4,6 +4,7 @@ from matplotlib import rc
 import math
 import statistics
 from sympy import *
+from tqdm import tqdm
 #LaTeX Font
 rc('text', usetex=True)
 rc('font', family='serif')
@@ -22,10 +23,10 @@ x = 0.1 * np.ones(n)
 
 #Lyapunov calculation
 lyapunov = np.zeros(n)
-fig = plt.figure(dpi=1000)
+fig = plt.figure(dpi=600)
 ax = fig.add_subplot(111)
 
-for i in range(iterations):
+for i in tqdm(range(iterations)):
     x = sam_hick(u, x)
     #Compute partial sums using log of absolute value of derivative
     lyapunov += np.log(abs(u-3*(u+1)*x**2))
@@ -45,7 +46,7 @@ ax.set_title('Lyapunov Plot')
 ax.set_ylim(-2, 1)
 ax.axhline(0, color='k', lw=.5, alpha=0.25)
 #Save and show
-plt.savefig('./manuscript/figures/sam_hicks/lyapunov.pdf', dpi=1000)
+plt.savefig('./manuscript/figures/sam_hicks/lyapunov.pdf', dpi=600)
 plt.show()
 
 
