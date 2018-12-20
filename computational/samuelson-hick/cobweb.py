@@ -11,7 +11,7 @@ rc('font', family='serif')
 def plot_cobweb(f, u, x0, nmax=250 ):
     x = np.linspace(-1,1,2000)
     fig = plt.figure()
-    ax = fig.add_subplot(111)
+        
 
     #Plot map
     ax.plot(x, f(x, u), c='black', lw=1)
