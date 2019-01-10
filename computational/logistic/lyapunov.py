@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib import rc
 import math
 import statistics
+from tqdm import tqdm
 #LaTeX Font
 rc('text', usetex=True)
 rc('font', family='serif')
@@ -11,11 +12,11 @@ def logistic(r, x):
     return u * x * (1-x)
 
 #Range of u values and interval between each
-n = 160000
+n = 1000000
 u = np.linspace(0.0001, 4.0, n)
 
 #Higher iteration count increases approxmation accuracy
-iterations = 50000
+iterations = 100000
 #Set initial value
 x0 = 0.1 
 x = 0.1 * np.ones(n)
@@ -25,7 +26,8 @@ lyapunov = np.zeros(n)
 fig = plt.figure()
 ax = fig.add_subplot(111)
 
-for i in range(iterations):
+print('Solving for L)')
+for i in tqdm(range(iterations)):
     x = logistic(u, x)
     #Compute partial sums using log of absolute value of derivative
     lyapunov += np.log(abs(u * (1 - 2 * x)))

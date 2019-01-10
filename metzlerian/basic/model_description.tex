@@ -1,0 +1,54 @@
+%Near Universal Formatting%
+\documentclass[]{article}
+\usepackage[english]{babel}%Set language as english%
+\usepackage[babel]{csquotes}%Nicer quotations%
+\usepackage{indentfirst}
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+\usepackage{titling}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{enumitem}%Different enumeration options%
+%Fancy Page Styling%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}%Clears header and footer%
+\rhead{Benjamin Bui}%Right header%
+\lhead{Metzlerian Non-Linear Business Cycle Model}%Left header%
+\chead{}%Center header%
+\renewcommand{\footrulewidth}{0.4pt}%Footer horizantal line%
+%Citation Management%
+%\usepackage[notes,natbib,isbn=false,backend=biber]{biblatex-chicago}%Chicago Style%
+%Math Formatting%
+\usepackage{amsmath}%AMS Math%
+\usepackage{amsthm}%Theorem Formatting%
+	\newtheorem*{lemma}{Lemma}%Addes Lemma Command%
+\usepackage{amssymb}%AMS Symbols%
+\usepackage{array}%Allows for more complex matrices
+\usepackage{siunitx}%Formats SI units%
+\usepackage{booktabs}%Typsets tables%
+	\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+	\newcommand{\specialcellbold}[2][c]{%
+		\bfseries
+		\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}%
+	}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newtheorem*{theorem}{Theorem}
+%Image Formatting%
+\usepackage{graphicx}%Enchanced graphics support%
+\usepackage{float}%Float options$
+
+\setlength{\droptitle}{-1 in}
+
+\begin{document}
+\section*{Framework}
+\begin{equation*}
+    Y_t=I_t+S_t+U_t
+\end{equation*}
+National income $Y$ is equal to the sum of consumption goods produced for sale $U$, inventory stock $S$, and investment goods $I$. This model fixes investment good production to such that $I_t=\bar I$.
+
+Inventory stock is adjusted by producers every period in order to achieve a desired level of inventory $\hat Q_t$. $S_t$ inventory is purchased to raise inventory stock to this desired level:
+\begin{equation*}
+    S_t=\hat Q_t-Q_{t-1}
+\end{equation*}
+\end{document}
