@@ -48,7 +48,7 @@ def timeseries(b, c, d, f, k, Y0, U0, Ibar, iterations):
         Income[i] = metzlerian(k, Sale[i], Sale[i-1], Consumption[i-1], Ibar)
     return Income
 
-#Faster Bifurcation Diagram varying mpc, b
+#Bifurcation Diagram varying mpc, b
 def bbifurcation(lower, upper, points, c, d, f, k, Y0, U0, Ibar):
     #Plot set up
     last = 10
@@ -58,10 +58,113 @@ def bbifurcation(lower, upper, points, c, d, f, k, Y0, U0, Ibar):
     #Generate distribution of parameter
     b = np.linspace(lower, upper, points)
     #Solve for each parameter value
+    print("b Bifurcation")
     for j in tqdm(range(points)):
         Income = timeseries(b[j], c, d, f, k, Y0, U0, Ibar, iterations)
         for m in range(iterations):
             if m >= (iterations-last):
                 ax.plot(b[j], Income[m], ',k', alpha=0.25)
-    plt.show()
-bbifurcation(0.7, 0.8, 500, 0.3, 1.0, 0.5, 1 , 40.5, 30.0, 10)
+    #Labelling
+    ax.minorticks_on()
+    ax.set_xlabel('$b$')
+    ax.set_ylabel('$Y$')
+    ax.set_title('Bifurcation Diagram')
+    #Save and show
+    plt.savefig('./manuscript/figures/metzlerian_basic/bbifurcation.pdf', dpi=600)
+#Bifurcation Diagram varying expected deviation from equilibrium, c
+def cbifurcation(lower, upper, points, b, d, f, k, Y0, U0, Ibar):
+    #Plot set up
+    last = 10
+    iterations = 1000
+    fig = plt.figure(dpi=600)
+    ax = fig.add_subplot(111)
+    #Generate distribution of parameter
+    c = np.linspace(lower, upper, points)
+    #Solve for each parameter value
+    print("c Bifurcation")
+    for j in tqdm(range(points)):
+        Income = timeseries(b, c[j], d, f, k, Y0, U0, Ibar, iterations)
+        for m in range(iterations):
+            if m >= (iterations-last):
+                ax.plot(c[j], Income[m], ',k', alpha=0.25)
+    #Labelling
+    ax.minorticks_on()
+    ax.set_xlabel('$c$')
+    ax.set_ylabel('$Y$')
+    ax.set_title('Bifurcation Diagram')
+    #Save and show
+    plt.savefig('./manuscript/figures/metzlerian_basic/cbifurcation.pdf', dpi=600)
+#Bifurcation Diagram varying desired level of consumption relative to expected sale of consumption goods, k
+def kbifurcation(lower, upper, points, b, c, d, f, Y0, U0, Ibar):
+    #Plot set up
+    last = 10
+    iterations = 1000
+    fig = plt.figure(dpi=600)
+    ax = fig.add_subplot(111)
+    #Generate distribution of parameter
+    k = np.linspace(lower, upper, points)
+    #Solve for each parameter value
+    print("k Bifurcation")
+    for j in tqdm(range(points)):
+        Income = timeseries(b, c, d, f, k[j], Y0, U0, Ibar, iterations)
+        for m in range(iterations):
+            if m >= (iterations-last):
+                ax.plot(k[j], Income[m], ',k', alpha=0.25)
+    #Labelling
+    ax.minorticks_on()
+    ax.set_xlabel('$k$')
+    ax.set_ylabel('$Y$')
+    ax.set_title('Bifurcation Diagram')
+    #Save and show
+    plt.savefig('./manuscript/figures/metzlerian_basic/kbifurcation.pdf', dpi=600)
+#Bifurcation Diagram varying popularity of regressive expectations, d
+def dbifurcation(lower, upper, points, b, c, f, k, Y0, U0, Ibar):
+    #Plot set up
+    last = 10
+    iterations = 1000
+    fig = plt.figure(dpi=600)
+    ax = fig.add_subplot(111)
+    #Generate distribution of parameter
+    d = np.linspace(lower, upper, points)
+    #Solve for each parameter value
+    print("d Bifurcation")
+    for j in tqdm(range(points)):
+        Income = timeseries(b, c, d[j], f, k, Y0, U0, Ibar, iterations)
+        for m in range(iterations):
+            if m >= (iterations-last):
+                ax.plot(d[j], Income[m], ',k', alpha=0.25)
+    #Labelling
+    ax.minorticks_on()
+    ax.set_xlabel('$d$')
+    ax.set_ylabel('$Y$')
+    ax.set_title('Bifurcation Diagram')
+    #Save and show
+    plt.savefig('./manuscript/figures/metzlerian_basic/dbifurcation.pdf', dpi=600)
+#Bifurcation Diagram varying adjustment speed towards equilibrium, f
+def fbifurcation(lower, upper, points, b, c, d, k, Y0, U0, Ibar):
+    #Plot set up
+    last = 10
+    iterations = 1000
+    fig = plt.figure(dpi=600)
+    ax = fig.add_subplot(111)
+    #Generate distribution of parameter
+    f = np.linspace(lower, upper, points)
+    #Solve for each parameter value
+    print("f Bifurcation")
+    for j in tqdm(range(points)):
+        Income = timeseries(b, c, d, f[j], k, Y0, U0, Ibar, iterations)
+        for m in range(iterations):
+            if m >= (iterations-last):
+                ax.plot(f[j], Income[m], ',k', alpha=0.25)
+    #Labelling
+    ax.minorticks_on()
+    ax.set_xlabel('$f$')
+    ax.set_ylabel('$Y$')
+    ax.set_title('Bifurcation Diagram')
+    #Save and show
+    plt.savefig('./manuscript/figures/metzlerian_basic/fbifurcation.pdf', dpi=600)
+bbifurcation(0.68, 0.72, 5000, 0.3, 1.0, 0.5, 1 , 40.5, 30.5, 10)
+cbifurcation(0.0, 1.0, 5000, 0.75, 1.0, 0.5, 1, 40.5, 30.5, 10)
+kbifurcation(0.0, 1.0, 5000, 0.75, 0.3, 1.0, 0.1, 40.5, 30.5, 10)
+dbifurcation(0.0, 0.5, 5000, 0.75, 0.3, 0.1, 0.1, 40.5, 30.5, 10)
+fbifurcation(0.0, 0.5, 5000, 0.75, 0.3, 1.0, 0.1, 40.0, 30.5, 10)
