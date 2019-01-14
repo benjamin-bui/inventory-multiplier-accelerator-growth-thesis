@@ -7,7 +7,7 @@ rc('text', usetex=True)
 rc('font', family='serif')
 
 #Create function for cobweb plot with arguments: function, parameter, and initial value
-def plot_cobweb(f, u, x0, nmax=1000 ):
+def plot_cobweb(f, u, x0, nmax=1000):
     x = np.linspace(0,1,1000)
     fig = plt.figure()
     ax = fig.add_subplot(111)
