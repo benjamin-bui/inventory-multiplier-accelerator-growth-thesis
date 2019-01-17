@@ -58,7 +58,7 @@ def timeseries(b, c, d, f, k, Y0, U0, Ibar, iterations):
 
 
 
-timeseries(0.75, 0.3, 1.0, 0.5, 1 , 40.5, 30.0, 10, 1000)
+timeseries(0.75, 0.3, 1.0, 0.5, 1.0, 40.5, 30.0, 10, 1000)
     
 
 
