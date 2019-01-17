@@ -181,8 +181,8 @@ def fbifurcation(lower, upper, points, b, c, d, k, Y0, U0, Ibar):
     #Save and show
     plt.savefig('./manuscript/figures/metzlerian_basic/fbifurcation.pdf', dpi=600)
 
-bbifurcation(0.68, 0.72, 100000, 0.3, 1.0, 0.5, 1 , 40.5, 30.5, 10)
-cbifurcation(0.0, 1.0, 100000, 0.75, 1.0, 0.5, 1, 40.5, 30.5, 10)
-kbifurcation(0.0, 1.0, 100000, 0.75, 0.3, 1.0, 0.1, 40.5, 30.5, 10)
-dbifurcation(0.0, 0.5, 100000, 0.75, 0.3, 0.1, 0.1, 40.5, 30.5, 10)
-fbifurcation(0.0, 0.5, 100000, 0.75, 0.3, 1.0, 0.1, 40.0, 30.5, 10)
+bbifurcation(0.4, 0.85, 50000, 0.3, 1.0, 0.5, 1.0 , 40.5, 30.5, 10)
+cbifurcation(0.1, 0.9, 50000, 0.75, 1.0, 0.5, 1.0, 40.5, 30.5, 10)
+kbifurcation(0.1, 0.4, 50000, 0.75, 0.3, 1.0, 0.1, 40.5, 30.5, 10)
+dbifurcation(0.1, 2.0, 50000, 0.75, 0.3, 0.1, 0.1, 40.5, 30.5, 10)
+fbifurcation(0.1, 0.5, 50000, 0.75, 0.3, 1.0, 0.1, 40.0, 30.5, 10)
