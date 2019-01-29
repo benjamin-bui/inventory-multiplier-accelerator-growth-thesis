@@ -1,0 +1,61 @@
+\section{Background}
+John Maynard Keynes work revolutionized economic thought; however, he never formalized any of his theories into a mathematical theory. This was performed in a process known as the neoclassical synthesis which was so called for its attempt to bridge classical models with these Keynesian principles. Although nobel prize winning Paul Samuelson was widely credited with providing a mathematical basis to Keynesian economics and popularizing the neoclassical synthesis, he was far from the ony economist involved in the movement\autocite{Skousen1997,Samuelson1939}
+
+Another notable Keynesian was Lloyd Metzler who developed a type of multiplier-accelerator business cycle. This type of model allows for cyclic behavior to occur endogenously, that is to say the model allows for persistent behavior outside of the steady state. This idea runs contrary to the idea that economic booms and recessions are reactions to exogenous shocks which is common in the new classical models. Also known as freshwater economics, these models assume that agents are perfectly rational and are capable of learning from past experiences. This viewpoint came into prominence in the late 1970s with a model by Lucas and Sargent\autocite{Lucas1979} which sought to move past these seemingly outdated Keynesian principles. In the modern day however, Keynesianism has regained popularity with a new neoclassical synthesis that resulted in a new school of thought, New Keynesianism, that seeks to provide stronger microfoundations to macroeconomic models than was previously encountered in neo-Keynesianism. 
+
+Many models developed in the neo-Keynesian era of economics still remain in use but have either been expanded or used to study specific relationships. Wegener, Westerhoff, and Zaklan expand upon Metzler's inventory cycle model by introducing heterogenous expectations into firm behavior\autocite{Wegener2009}. 
+
+Unlike the well known multiplier-accelerator model developed by Samuelson and Hicks, the dynamics of this model are driven by shifts in the heterogenous mix of behaviors in the firms. This model reduces the decision of firms to one of two behaviors, a regressive type and an extrapolative type. The extrapolative behavior occurs when a firm predicts that future income will deviate from the long-run average. The regressive behavior occurs when firms predict that future income will return to the long-run average. It is this heterogeneity as well as the ability for firms to switch their behavior type that is the defining feature of this model. 
+
+\section{Model Set-Up}
+In this business cycle model, the economy is closed and income is determined completely by the quantity of goods produced by firms. Goods are completely homogenized but can be produced for 3 purposes: stock $S$, consumption $U$, and investment $I$. This lets us define income as:
+\begin{equation}
+    Y_t=I_t+S_t+U_t
+\end{equation}
+Investment is held to be exogenously determined and constant, thus:
+\begin{equation}
+    I_t=\bar I
+\end{equation}
+Producers have a desired level of inventory based on the expected level of consumption goods. Thus setting, $k>0$:
+\begin{equation}
+    \hat Q_t=kU_t
+\end{equation}  
+where $Q$ is the level of inventory. In order to achieve this desired level of inventory, firms produce $S$ amount of output such that:
+\begin{equation}
+    S_t=\hat Q_t-Q_{t-1}
+\end{equation}
+However, the expected level of consumption does not necessarily match the produced level of goods. The realized level of inventory change can thus be determined as:
+\begin{equation}
+    Q_t=\hat Q_t-(C_t-U_t)
+\end{equation}
+
+The quantity of goods produced for consumption is determined by firms expectations for desired consumption. The extrapolative expectation rule is used by firms that believe consumption levels will continue shifting away from the long-run average quantity. This behavior is interpreted mathematically as:
+\begin{equation}
+    U^E_t=C_{t-1}+c(C_{t-1}-\bar C)
+\end{equation}
+where $c\geq 0$ denotes the speed at which firms expect consumption to deviate from the long-run level. 
+
+The other possible strategy firms can take is to expect consumption to return to the equilibrium level. This is described as the regressive expectation rule and is interpreted mathematically as:
+\begin{equation}
+    U_t^R=C_{t-1}+f(\bar C-C_{t-1})
+\end{equation}
+where $0\leq f\leq 1$ denotes the expected adjustment speed to the long-run level. 
+
+As this economy only involves two expectation rules, the aggregate expected level of consumption is a simple weighted average:
+\begin{equation}
+    U_t=w_tU_t^E+(1-w_t)U_t^R
+\end{equation}
+The weight is defined as a function of consumption level which allows firms to switch their predictive behavior based on the current consumption level. Intuitively, as consumption deviates further from equilibrium, more firms will believe that the boom or slump will end and adjust in accordance. Likewise, when consumption is close to equilibrium, firms will believe it to be more accurate to extrapolate consumption. Weight is determined by the function:
+\begin{equation}
+    w_t=\frac{1}{1+d(\bar C-C_{t-1})^2}
+\end{equation}
+where $d$ is determined by the popularity of the regressive rule. 
+
+Taking these rules in aggregate, income is second-order nonlinear iterated mapping. Condensing the model, we arrive at the mapping:
+\begin{equation}
+    Y_t=U_t+kU_t-(1+k)U_{t-1}+C_{t-1}+\bar I
+\end{equation}
+This gives a single fixed point of:
+\begin{equation}
+    \bar Y=\frac{1}{1-b}\bar I
+\end{equation}
