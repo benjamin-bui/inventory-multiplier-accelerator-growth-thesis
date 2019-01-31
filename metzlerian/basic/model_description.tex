@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 %Near Universal Formatting%
 \documentclass[]{article}
 \usepackage[english]{babel}%Set language as english%
@@ -135,111 +134,27 @@ The key aspect of the model given by producer expectations can also be expanded 
 	U_t=w_tU_t^E+(1-w_t)U_t^R\\
 	w_t=\frac{1}{1+d(\bar C-C_{t-1})^2}\\
 \end{gather*}
-=======
-%Near Universal Formatting%
-\documentclass[]{article}
-\usepackage[english]{babel}%Set language as english%
-\usepackage[babel]{csquotes}%Nicer quotations%
-\usepackage{indentfirst}
-\usepackage[letterpaper, portrait, margin=1in]{geometry}
-\usepackage{titling}
-\usepackage[protrusion=true,expansion=true]{microtype}
-\usepackage{enumitem}%Different enumeration options%
-%Fancy Page Styling%
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}%Clears header and footer%
-\rhead{Benjamin Bui}%Right header%
-\lhead{Metzlerian Non-Linear Business Cycle Model}%Left header%
-\chead{}%Center header%
-\renewcommand{\footrulewidth}{0.4pt}%Footer horizantal line%
-%Citation Management%
-%\usepackage[notes,natbib,isbn=false,backend=biber]{biblatex-chicago}%Chicago Style%
-%Math Formatting%
-\usepackage{amsmath}%AMS Math%
-\usepackage{amsthm}%Theorem Formatting%
-	\newtheorem*{lemma}{Lemma}%Addes Lemma Command%
-\usepackage{amssymb}%AMS Symbols%
-\usepackage{array}%Allows for more complex matrices
-\usepackage{siunitx}%Formats SI units%
-\usepackage{booktabs}%Typsets tables%
-	\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
-	\newcommand{\specialcellbold}[2][c]{%
-		\bfseries
-		\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}%
-	}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\Q}{\mathbb{Q}}
-\newtheorem*{theorem}{Theorem}
-%Image Formatting%
-\usepackage{graphicx}%Enchanced graphics support%
-\usepackage{float}%Float options$
+\subsection*{Incorporating Endogenous Investment}
+\begin{gather*}
+	K_t^\alpha =\frac{ Y_t }{ L_t^{\alpha-1} }\\
+	K_t = \sqrt[\alpha]{\frac{Y_t}{L_t^{\alpha-1}}} = I_{t-1} + (1-\delta) K_{t-1}\\
+	I_{t-1} = \sqrt[\alpha]{\frac{Y_t}{L_t^{\alpha-1}}} - (1-\delta) K_{t-1}\\
+\end{gather*}
+As future labor and present capital can be perfectly determined, firms must predict the quantity of investment needed for a level of capital that can sustain the desired level of income. However, as firms are boundedly rational, they must use a method similar to their method of predicting income.
 
-\setlength{\droptitle}{-1 in}
+Suppose firms use a regressive method and extrapolative method to predicting income change. Let $P$ be predicted income such that:
+\begin{gather*}
+	P_t^E = Y_{t-1} + h(Y_{t-1} - \bar Y)\\
+	P_t^R = Y_{t-1} + j(\bar Y - Y_{t-1})\\
+	P_t = v_t P_t^E + (1-v_t) P^R_t\\
+	v_t = \frac{1}{1 + p(\bar Y - Y_{t-1})}
+\end{gather*}
 
-\begin{document}
-\section*{Set-Up}
-\begin{equation*}
-    Y_t=I_t+S_t+U_t
-\end{equation*}
-National income $Y$ is equal to the sum of consumption goods produced for sale $U$, inventory stock $S$, and investment goods $I$. This model fixes investment good production to such that $I_t=\bar I$.
+Making the appropriate substitutions:
+\begin{gather*}
+	I_{t} = \sqrt[\alpha]{\frac{P_{t+1}}{\bar L^{\alpha-1}}} - (1-\delta) K_{t-1}
+\end{gather*}
+This result would differ in the case of perfectly rational firms; however, it would be inconsistent to assume that firms were perfectly rational in predicting output change but boundedly rational in predicting consumption change.
+\section{Expanded with Hicksian Investment}
 
-Inventory stock is adjusted by producers every period in order to achieve a desired level of inventory $\hat Q_t$. $S_t$ inventory is purchased to raise inventory stock to this desired level:
-\begin{equation*}
-    S_t=\hat Q_t-Q_{t-1}
-\end{equation*}
-Let the desired level of inventory be positively related to \underline{expected} sale of consumption goods:
-\begin{equation*}
-	\hat Q_t=k U_t
-\end{equation*}
-Realized inventory does not always match desired level of inventory due to unexpected changes in inventory. These changes occur when actual consumption does not match expected consumption, i.e. $U_t>C_t$. This gives the relationship:
-\begin{equation*}
-	Q_{t-1}=\hat Q_{t-1}-(C_{t-1}-U_{t-1})
-\end{equation*}
-As taxes are not a factor of this economy, consumption is a fixed proportion of income.
-\begin{equation*}
-	C_t=bY_t
-\end{equation*}
-$0<b<1$ is the aggregate marginal propensity to consume. 
-
-Producers must thus predict consumption behavior. This model uses 2 different expectation formation rules that they can switch between: $U_t^E$ and $U_t^R$. The first strategy involved the firms attempting to extrapolate future consumption:
-\begin{equation*}
-	U+t^E=C_{t-1}+c(C_{t-1}-\bar C)
-\end{equation*}
-such that $\bar C$ is the equilibrium level of consumption and $0\leq c$ is a measure of speed of expected deviation from equilibrium.
-
-The other strategy has producers who believe in a return to equilibrium:
-\begin{equation*}
-	U_t^R=C_{t-1}+f(\bar C-C_{t-1})
-\end{equation*}
-such that $0\leq f\leq 1$. $f=1$ denotes a state where it is believed that the economy will immediately return to equilibrium. 
-
-Aggregate expected consumption is a weighted average of the two strategies:
-\begin{equation*}
-	U_t=w_tU_t^E+(1-w_t)U_t^R
-\end{equation*}
-The distribution is determined by the weight in the time period:
-\begin{equation*}
-	w_t=\frac{1}{1+d(\bar C-C_{t-1})^2}
-\end{equation*}
-Intuitively, the farther from equilibrium the current state, the more producers will believe that production will shift back towards equilibrium. Likewise, at equilibrium, firms will choose to extrapolate. $d$ indicates the popularity of extrapolation. 
-\section*{Model}
-Combining equations gives the function for income:
-\begin{equation*}
-	Y_t=U_t+kU_t-(1+k)U_{t-1}+C_{t-1}+\bar I
-\end{equation*}
-This gives the fixed point:
-\begin{equation*}
-	\bar Y=\frac{1}{1-b}\bar I
-\end{equation*}
-which is analogous to the Keynesian multiplier solution. By parameter restrictions, the model lacks stability iff
-\begin{equation*}
-	1-b(1+c)(1+k)>0
-\end{equation*}
-\section*{Possible Expansions}
-This model is similar in terms of economic scope to the multiplier-accelerator model in that it only takes into account consumption and investment. Government expenditures and taxes can be incorporated into the model in order to incorporate fiscal policy. The investment goods condition can also be relaxed and allowed to vary, perhaps via a system similar to the Solow growth model. This would allow for a naive incorporation of monetary policy via control of interest rates; however, this may introduce theoretical complications due to the debate on the effect of nominal interest rates on real interest rates.
-
-The key aspect of the model given by producer expectations can also be expanded to allow for other possible game strategies or to incorporate learning into the model. 
->>>>>>> Stashed changes
 \end{document}
