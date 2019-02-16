@@ -45,5 +45,28 @@
 	\begin{equation}
 		Y_t=I_t+S_t+U_t
 	\end{equation}
-	Income is made up of the same components as cited in Westerhoff's model, production for investment $I_t$, production for inventory $S_t$, 
+	Income is made up of the same components as cited in Westerhoff's model, production for investment $I_t$, production for inventory $S_t$, and production intended for consumption in that time period $C_t$.
+	\begin{gather}
+		S_t=\hat Q -Q_{t-1}\\
+		\hat Q=k U_t\\
+		Q_{t-1}=\hat Q_{t-1}-(C_{t-1}-U_{t-1})
+	\end{gather}
+	Firms use inventory to accommodate differences between actual consumption and predicted consumption. The desired level of inventory $\hat Q_t$ is assumed to be in proportion to expected levels of consumption, $U_t$. The actual level of inventory can thus be determined to be the difference between the expected level produced explicitly for inventory in addition to unexpected changes in inventory as a result of overproduction or underproduction of goods for consumption.
+\section*{From Tonu Puu's Multiplier Acclerator Model}
+	\begin{equation}
+		I_t=v(Y_{t-1}-Y_{t-2})-v(Y_{t-1}-Y_{t-2})
+	\end{equation}
+	Investment is dependent on the most recent change in income.
+	\begin{equation}
+		C_t=(1-s)Y_{t-1}+sY_{t-2}
+	\end{equation}
+	Actual consumption is also based on income from the past two periods. There is a lag in the reaction of consumers to changes in income so consumption in the current period is equal to income from the previous period multiplied by the marginal propensity to consume. Moreover, income saved from two periods ago is likewise also expended in the current period. This is a typical Robertson lag as described in Metzler.
+\section*{A New Mechanism for Predicting Consumption}
+	Westerhoff's model incorporates heterogenous expectations for income. This original model does not incorporate any Robertson lag but instead, it has a Lundberg style lag. That is to say, consumption is based on income of the current period but there is a lag between consumption change and response in consumption change. 
+
+	By adding a Robertson lag to the model, we must readjust the timescale reactions of the model. Metzler claims that their is uncertainty with regards to which of the two forms of lags are of a shorter time scale. 
+
+	If we assume that the two lags operate on the same time-scale, then expected consumption should operate on a 1-period time lag similar to that of consumption. The model described in Westerhoff does use a 1-period lag; however, it is reliant on the difference between the steady-state level of income and the lagged income. However, the model in Tonu Puu, depending on the parameter choice, features enodgenous growth. This would result in the absence of any steady state level of income, forcing a modification of the model. 
+
+	
 \end{document}
