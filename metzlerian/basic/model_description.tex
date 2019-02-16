@@ -117,8 +117,7 @@ This model is similar in terms of economic scope to the multiplier-accelerator m
 
 The key aspect of the model given by producer expectations can also be expanded to allow for other possible game strategies or to incorporate learning into the model. 
 \pagebreak
-\section{Expanded with Cobb-Douglas Production}
-	Based on the Metzlerian model previously explained. This alternative model attempts to provide endogenous change to investment in addition to the pre-existing endogenous inventory change by way of a Cobb-Douglas production taking capital as input similar to a Solow model. Labor is allowed to grow exogenously for the model to experience growth in output.
+\section{Expanded Metzlerian}
 \subsection*{Mathematical Setup}
 \begin{gather*}
 	Y_t = I_t + U_t + S_t\\
@@ -135,26 +134,16 @@ The key aspect of the model given by producer expectations can also be expanded 
 	w_t=\frac{1}{1+d(\bar C-C_{t-1})^2}\\
 \end{gather*}
 \subsection*{Incorporating Endogenous Investment}
-\begin{gather*}
-	K_t^\alpha =\frac{ Y_t }{ L_t^{\alpha-1} }\\
-	K_t = \sqrt[\alpha]{\frac{Y_t}{L_t^{\alpha-1}}} = I_{t-1} + (1-\delta) K_{t-1}\\
-	I_{t-1} = \sqrt[\alpha]{\frac{Y_t}{L_t^{\alpha-1}}} - (1-\delta) K_{t-1}\\
-\end{gather*}
-As future labor and present capital can be perfectly determined, firms must predict the quantity of investment needed for a level of capital that can sustain the desired level of income. However, as firms are boundedly rational, they must use a method similar to their method of predicting income.
+This method of incorporating invesment makes use of a similar method to Hicks' multiplier-accelerator discrete time model. The function cannot be copied exactly due to the differences in timescale and assumptions. 
 
-Suppose firms use a regressive method and extrapolative method to predicting income change. Let $P$ be predicted income such that:
-\begin{gather*}
-	P_t^E = Y_{t-1} + h(Y_{t-1} - \bar Y)\\
-	P_t^R = Y_{t-1} + j(\bar Y - Y_{t-1})\\
-	P_t = v_t P_t^E + (1-v_t) P^R_t\\
-	v_t = \frac{1}{1 + p(\bar Y - Y_{t-1})}
-\end{gather*}
+The Hicks-Goodwin investment curve incorporates public investments into the investment function; however, as the expanded Metzlerian model I am working on has explicit government spending, their will not exist the same back-bending behavior. However, there investment should not be allowed to increase or decrease infinitely so it should calculated using a hyperbolic tangent curve, not a linear-cubic taylor series expansion.
 
-Making the appropriate substitutions:
-\begin{gather*}
-	I_{t} = \sqrt[\alpha]{\frac{P_{t+1}}{\bar L^{\alpha-1}}} - (1-\delta) K_{t-1}
-\end{gather*}
-This result would differ in the case of perfectly rational firms; however, it would be inconsistent to assume that firms were perfectly rational in predicting output change but boundedly rational in predicting consumption change.
-\section{Expanded with Hicksian Investment}
+The Hicks investment curve is in relation to change in income of the last 2 time periods; however, incorporating this model into the inventory cycle requires analysis on the speed at which inventories adjust compared to investment. 
+	Making investment a symmetric hyperbolic tangent function:
+	\begin{equation*}
+		I_t = \alpha \tanh \frac{Y_{t-1}-Y_{t-2}}{\beta}
+	\end{equation*}
 
+\subsection*{Incorporating Government Expenditure and Taxes}
+This government model works purely in the form of financial policy, i.e. taxes and government expenditure. In the model described by Puu, government expenditures are wrapped in the investment curve and taxes are not included at all. 
 \end{document}
