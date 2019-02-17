@@ -54,7 +54,7 @@ Income is made up of the same components as cited in Westerhoff's model, product
 Firms use inventory to accommodate differences between actual consumption and predicted consumption. The desired level of inventory $\hat Q_t$ is assumed to be in proportion to expected levels of consumption, $U_t$. The actual level of inventory can thus be determined to be the difference between the expected level produced explicitly for inventory in addition to unexpected changes in inventory as a result of overproduction or underproduction of goods for consumption.
 \section*{From Tonu Puu's Multiplier Acclerator Model}
 \begin{equation}
-	I_t=v(Y_{t-1}-Y_{t-2})-v(Y_{t-1}-Y_{t-2})
+	I_t=v(Y_{t-1}-Y_{t-2})-v(Y_{t-1}-Y_{t-2})^3
 \end{equation}
 Investment is dependent on the most recent change in income.
 \begin{equation}
@@ -70,37 +70,13 @@ If we assume that the two lags operate on the same time-scale, then expected con
 \subsection*{2nd-Order Homogenous Extrapolative Behavior}
 Similarly to Metzler's original paper, we can provide an extrapolative behavior for firms:
 \begin{equation}
-	U_t=C_{t-1}+\eta(C_{t-1}-C_{t-2})
+	U_t=C_{t-1}+\eta_{t-1}(C_{t-1}-C_{t-2})
 \end{equation}
 where $\eta$ is termed the coefficient of expectation. The case where $\eta=0$ returns a perfect Lundberg sequence in regards to expected consumption whereas $\eta=1$ returns the case where firms predict trends in predicted income change are constant. Values $\in(0,1)$ involve firms damping their expectations of change. 
 \subsection*{Adaptive change in Extrapolative Behavior}
 It is possible to have firms effectively learn from the past by allowing $\eta$ to change over time. Starting with some initial value of $\eta$, each firm can choose a new value of $\eta$ in the subsequent period that would have resulted in the correct prediction in the past period. This has interesting consequences because the choice of $\eta$ and subsequently $U_t$ does affect consumption itself. 
 \begin{gather}
-	\eta_t = \frac{C_t-C_{t-1}}{C_{t-1}-C_{t-2}}\\
 	\eta_{t-1} = \frac{C_{t-1}-C_{t-2}}{C_{t-2}-C_{t-3}}
 \end{gather}
 
-This allows us to incorporate this time dependent $\eta$ into the predictive mechanism:
-\begin{equation}
-	U_t=C_{t-1}+\eta_{t-1}(C_{t-1}-C_{t-2})
-\end{equation}
-This adaptive mechanism does not give firms significant memory but it does allow them to react to their incorrect predictions of the current period.
-\section*{Analysis}
-\subsection*{Incorporation into a single equation}
-\begin{gather*}
-	Y_t=I_t+S_t+U_t
-\end{gather*}
-\subsubsection*{Inventory}
-
-\begin{gather*}
-	S_t=\hat Q_t-Q_{t-1}\\
-	S_t=kU_t-(\hat Q_{t-1}-(C_{t-1}-U_{t-1}))\\
-	S_t=kU_t-(\hat Q_{t-1}-C_{t-1}+U_{t-1}))\\
-	S_t=kU_t-\hat Q_{t-1}+C_{t-1}-U_{t-1}\\
-\end{gather*}
-\subsubsection*{Expectations}
-\begin{gather*}
-	U_t = C_{t-1}+\eta_{t-1}(C_{t-1}-C_{t-2})\\
-	U_t = (1-s)Y_{t-2}+sY_{t-3}+\eta_{t-1}((1-s)Y_{t-2}+sY_{t-3}-(1-s)Y_{t-3}-sY_{t-4})
-\end{gather*}
 \end{document}
