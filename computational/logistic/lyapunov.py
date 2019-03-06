@@ -12,7 +12,7 @@ def logistic(r, x):
     return u * x * (1-x)
 
 #Range of u values and interval between each
-n = 1000000
+n = 10000
 u = np.linspace(0.0001, 4.0, n)
 
 #Higher iteration count increases approxmation accuracy
@@ -47,7 +47,7 @@ ax.set_title('Lyapunov Plot')
 ax.set_ylim(-2, 1)
 ax.axhline(0, color='k', lw=.5, alpha=.5)
 #Save and show
-plt.savefig('./manuscript/figures/logistic/lyapunov.pdf', dpi=600)
+plt.savefig('./manuscript/figures/logistic/lyapunov.eps', dpi=600)
 plt.show()
 
 

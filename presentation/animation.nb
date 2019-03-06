@@ -320,7 +320,7 @@ Cell[BoxData[{
    RowBox[{"ListAnimate", "[", "movie", "]"}]}], "]"}], "\[IndentingNewLine]", 
  RowBox[{"Export", "[", 
   RowBox[{
-  "\"\<D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\2_cycle.pdf\>\
+  "\"\<D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\2_cycle.eps\>\
 \"", ",", 
    RowBox[{"Last", "[", "movie", "]"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.7482987892041464`*^9, 3.748298791413045*^9}, {
@@ -475,7 +475,7 @@ Cell[BoxData[{
    RowBox[{"ListAnimate", "[", "movie", "]"}]}], "]"}], "\[IndentingNewLine]", 
  RowBox[{"Export", "[", 
   RowBox[{
-  "\"\<D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\8_cycle.pdf\>\
+  "\"\<D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\8_cycle.eps\>\
 \"", ",", 
    RowBox[{"Last", "[", "movie", "]"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.7481839763924227`*^9, 3.7481839810157633`*^9}, {
@@ -631,7 +631,7 @@ chaos.gif\>\"", ",",
  RowBox[{"Export", "[", 
   RowBox[{
   "\"\<D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\contained_\
-chaos.pdf\>\"", ",", 
+chaos.eps\>\"", ",", 
    RowBox[{"Last", "[", "movie", "]"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.7481840936594553`*^9, 3.7481840996230526`*^9}, {
    3.7481842195920353`*^9, 3.748184246664601*^9}, {3.748184546727297*^9, 
@@ -787,7 +787,7 @@ chaos.gif\>\"", ",",
  RowBox[{"Export", "[", 
   RowBox[{
   "\"\<D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\spillover_\
-chaos.pdf\>\"", ",", 
+chaos.eps\>\"", ",", 
    RowBox[{"Last", "[", "movie", "]"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.7481842052251697`*^9, 3.748184208439349*^9}, {
    3.7481842527598495`*^9, 3.748184258087821*^9}, {3.7481846274501543`*^9, 
@@ -942,7 +942,7 @@ cycle.gif\>\"", ",",
  RowBox[{"Export", "[", 
   RowBox[{
   "\"\<D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\spillover_\
-cycle.pdf\>\"", ",", 
+cycle.eps\>\"", ",", 
    RowBox[{"Last", "[", "movie", "]"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.7481842798653593`*^9, 3.748184290584875*^9}, {
   3.7481846599606843`*^9, 3.748184669480292*^9}},

@@ -1,0 +1,66 @@
+\section{Background}
+Metzler's and Westerhoff's model show that it is possible for endogenous business cycles to be induced through inventory cycles and the failure of firms to accurately predict future consumption. These models were designed to focus on the effects of firm expectations with Westerhoff's contribution consisting of introducing a heterogenous expectation rule that allows firms to switch behavior based on the state of the economy. Both of these models however simplify other aspects of the economy that feature more complex behavior in other business cycle models.
+
+The inventory cycle model features 3 main factors of production: predicted consumption, investment, and inventory. Metzler and Westerhoff holds investment as an exogenously determined constant; however, this is both unrealistic and does not allow for long term endogenous growth. To incorporate a mechanism for endogenously adjusting investment, we take inspiration from the discrete time business cycle model described by T\"{o}nu Puu\autocite{Puu2003}. In order for investment to operate under Keynes' accelerator principle, capital stock must be in a proportion to the change in income, thus the investment level would be a function of the rate of change in income. 
+
+A linear function for investment captures this premise; however, this leads to unrealistic behavior for higher magnitudes of income change. Suppose income dramatically increased; a linear function implies that a proportionally high level of investment can sustain this higher level of production when in reality other factors of production such as the land, labor, or technology available are the primary limiting factors. Of larger concern with a linear model though is if the economy encounters a sharp decrease in income. This induces a large, negative value for investment which implies that firms would actively destroy their machinery and other forms of capital stock in the event of an economic recession. This is obviously unrealistic and so John Hicks introduced a piecewise linear investment function such that at extreme levels of income change, investment will reach a predetermined maximal or minimal value. This piecewise function was then adapted to be differentiable over all points by Richard Goodwin by approximating the curve with a hyperbolic-tangent function\autocite{Puu2003}.
+
+Puu approximates the hyperbolic-tangent function with its linear-cubic Taylor series expansion as this introduces a back-bending behavior into the curve. This allows the investment curve to capture not only firm behavior in the private sector but also implicitly include government spending and taxation. This follows from the now common policy for governments to engage in contracyclic behavior, increasing the quantity and size of spending projects and decreasing taxes when income is decreasing. Likewise, when the economy is performing well, the government cuts back on spending projects intended to stimulate the economy while also increasing taxes in order to take advantage of the overheating economy. 
+
+The problem with the cubic function is that it leads to unbounded behavior in the extremes, much like the linear function. Puu resolves this by ensuring that income growth is bounded by [-1, 1]; this is not the case for our model however. We instead want a function that features similar curvature and behavior as the cubic function but flattens when income change is of significant magnitude. This can be accomplished with the following function:
+
+\begin{equation}
+    I_t = \frac{\frac{Y_{t-1}-Y_{t-2}}{v}}{(\frac{Y_{t-1}-Y_{t-2}}{v})^4+q}	
+\end{equation}
+
+Metzler describes the existence of two important lags in the study of Keynesian models. The Robertson lag is characterized by making current consumption a function of past income, i.e. consumption behavior lags behind current income. The Lundberg lag however concerns a discrepancy between the income level and the production decision of firms \autocite{Metzler1941} . These lags are named after the two economists D. H. Robertson and Erik Lundberg who developed models that contained only their eponymous lag type. Although both lags are likely to exist in reality, most models only incorporate one lag due to the increased complexity associated with it. Metzler and Westerhoff make use of a Lundberg lag by making income a function of the predicted level of consumption as opposed to actual consumption. T\"{o}nu Puu's model makes use of a Robertson in order to induce endogenous business cycles. Metzler himself does not claim that the Lundberg sequence is any more realistic than the Robertson sequence. Whichever lag has a longer time-period can be treated as of being greater importance but Metzler actually proposes a variety of scenarios that present contradicting conclusions. Suppose that decided their behavior on a quarterly basis but consumers altered their spending behavior with every paycheck, then it is no longer unrealistic to treat the Robertson lag as being of 0 length, i.e. nonexistent. If consumers revise their spending behavior every 6 months to a year, then it would actually be more realistic to include a non-zero Robertson lag while minimizing the Lundberg lag. 
+
+For the purposes of this model, we will include a non-zero Lundberg and Robertson lag. The consumption function is treated exactly as presented in Puu:
+\begin{equation}
+    C_t=(1-s)Y_{t-1}+sY_{t-2}
+\end{equation}
+This function incorporates a 1-period Lundberg lag where $s\in[0,1]$ is the marginal propensity to save. This function also contains a 2-period delayed consumption due to the marginal propensity to save, thus all income made in some period $t$ can be though of as being eventually spent in the period $t+1$ and $t+2$. Although intuitive, this explanation is not wholly accurate as the Lundberg lag does not imply saving of income to spend in the next period but rather that spending behavior is influenced only on the information of lagged income level. 
+
+As the economy is also making use of a Robertson lag, income is not directly a function of consumption as may be seen in other models. Rather, income is viewed from a production standpoint. This is achieved by explicitly defining a predicted level of consumption as in Metzler or Westerhoff. 
+
+\begin{equation} \label{eq:predict}
+    U_t=C_{t-1}+\eta(C_{t-1}-C_{t-2})
+\end{equation}
+
+This predictive rule differs from that proposed in Chapter 2 because of the inclusion of endogenous investment. This mechanism introduces the possibility of endogenous long-run growth which eliminates the existence of a non-trivial steady-state level of consumption (given a sufficiently long time span where income is equal to 0, the long-run behavior of the system will also equal 0, thus the steady-state level of consumption would equal 0). By this predictive rule then, firms predict that current consumption is a sum of the 1-period lag level of consumption and a proportion of the change in consumption. This proportion $\eta\in[-1,1]$ is the coefficient of expectation and is bounded as such in Metzler's model although this bound can be exceeded without logical contradiction. The coefficient is held constant in Metzler which implies that, in this economy, firms are unable to learn from the accuracy of their predictions. Although this simplifies the model, it is unrealistic as individual firms benefit from the ability to better predict desired consumption levels in order to prevent underproduction or overproduction of goods. Westerhoff attempted to resolve this by introducing heterogenous expectation rules and allowing firms to switch between an extrapolative and regressive behavior. As this economy often does not have a useful steady-state level of consumption, we must develop a new method to better allow firms to predict consumption changes.
+
+Let firms operate homogenously, that is they all predict consumption via the same mechanism. To allow the coefficient of expectation to adapt to actual consumption, we can change Equation \ref{eq:predict} to be of the form:
+\begin{equation}
+    U_t=C_{t-1}+\eta_{t-1}(C_{t-1}-C_{t-2})
+\end{equation}
+The coefficient of expectation changes because firms learn from past experiences. Suppose then that firms decide their expectation based on what would have provided an accurate prediction in the last period. This can be accomplished solving:
+\begin{equation*}
+    C_t=C_{t-1}+\eta_t(C_{t-1}-C_{t-2})
+\end{equation*}
+This gives the function:
+\begin{equation}
+    \eta_t=\frac{C_t-C_{t-1}}{C_{t-1}-C_{t-2}}
+\end{equation}
+The adaptive coefficient of expectation is thus a third-order difference equation on actual consumption. This removes the bounds on $\eta$ set by Metzler as firms can now choose arbitrary coefficients based on the result of the past. 
+
+Inventory production proceeds as seen in Chapter 2 with firms producing $S_t$ explicitly to maintain Inventory at optimal levels:
+\begin{equation}
+    S_t = k U_t-Q_{t-1}
+\end{equation}
+where $Q_t$ is the level of inventory maintained at the end of time $t$. This can be solved for as the sum of the previous inventory level, production intended for inventory, and the difference between production intended for consumption and the actual consumption level:
+\begin{equation}
+    Q_t=Q_{t-1}+S_t+(U_t-C_t)
+\end{equation}
+
+Income level, or output, can thus be written as a sum of production:
+\begin{equation}
+    Y_t=I_t+S_t+U_t
+\end{equation}
+However, as income has the capability of sustained growth under this model, it is difficult to analyze the behavior of the model purely by the value of income. It is preferable then to derive a function for the rate of change of income:
+\begin{multline}
+    Z_{t} = \frac{\frac{Z_{t-1}}{v}}{\left(\frac{Z_{t-1}}{v}\right)^4+q}-\frac{\frac{Z_{t-2}}{v}}{\left(\frac{Z_{t-2}}{v}\right)^4+q}+\\
+    [(1-s)Z_{t-2}+sZ_{t-3}]+\left[\frac{[(1-s)Z_{t-2}+sZ_{t-3}]^2}{(1-s)Z_{t-3}+sZ_{t-4}}\right]-\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]+\\
+    k\left[[(1-s)Z_{t-2}+sZ_{t-3}]+\left[\frac{[(1-s)Z_{t-2}+sZ_{t-3}]^2}{(1-s)Z_{t-3}+sZ_{t-4}}\right]-\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]\right]-\\
+    [(k+1)\left[[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]-\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]\right]\\
+    -(1-s)Z_{t-2}-sZ_{t-3}]
+\end{multline}

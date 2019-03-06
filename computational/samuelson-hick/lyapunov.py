@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from matplotlib import rc
 import math
 import statistics
-from sympy import *
 from tqdm import tqdm
 #LaTeX Font
 rc('text', usetex=True)
@@ -12,7 +11,7 @@ rc('font', family='serif')
 def sam_hick(u, x):
     return u*x-(u+1)*x**3
 #Range of u values and interval between each
-n = 1000000
+n = 50000
 u = np.linspace(0.0001, 3.0, n)
 
 #Higher iteration count increases approxmation accuracy
@@ -46,7 +45,7 @@ ax.set_title('Lyapunov Plot')
 ax.set_ylim(-2, 1)
 ax.axhline(0, color='k', lw=.5, alpha=0.25)
 #Save and show
-plt.savefig('./manuscript/figures/sam_hicks/lyapunov.pdf', dpi=600)
+plt.savefig('./manuscript/figures/sam_hicks/lyapunov.eps', dpi=1500)
 plt.show()
 
 

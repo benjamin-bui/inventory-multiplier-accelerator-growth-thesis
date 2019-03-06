@@ -35,6 +35,6 @@ def bifur_2way(n, iterations, x0, u_lower, u_upper):
     ax.set_xlim(u_lower, u_upper)
 bifur_2way(5000, 10000, 0.1, 0.9, 3.0)
 #Save and show
-plt.savefig("./manuscript/figures/sam_hicks/bifurcation.pdf", dpi=600)
+plt.savefig("./manuscript/figures/sam_hicks/bifurcation.eps", dpi=600)
 
 plt.show()

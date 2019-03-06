@@ -30,7 +30,7 @@ def consumption(b, Ylag):
     return b * Ylag
 #Solves for S, goods produced for stock
 def stock(k, Ulag, Clag, U):
-    qhatlag = k * Ulag
+    Qhatlag = k * Ulag
     Qlag = Qhatlag - (Clag - Ulag)
     Qhat = k * U
     return Qhat - Qlag
@@ -40,6 +40,9 @@ def timeseries_plot(Income):
     #Time series of mapping
     ax1 = fig.add_subplot(1, 1, 1)
     ax1.plot(Income, c='blue', linewidth=0.5)
+    plt.ylabel('Income')
+    plt.xlabel('t')
+    plt.savefig('./manuscript/figures/metzlerian_basic/timeseries_income.eps', dpi=600) 
     plt.show()
 #Solves for timeseries data
 def timeseries(b, c, d, f, k, Y0, U0, Ibar, iterations):
@@ -48,7 +51,6 @@ def timeseries(b, c, d, f, k, Y0, U0, Ibar, iterations):
     Income = np.array([Y0,]*iterations)
     Sale = np.array([U0,]*iterations)
     Consumption = np.ones(iterations)
-    Stock = np.ones(iterations)
     for i in tqdm(range(1, iterations)):
         Consumption[i-1] = consumption(b, Income[i-1])
         Sale[i] = saledist(c, f, d, Cbar, Consumption[i-1])
@@ -56,10 +58,8 @@ def timeseries(b, c, d, f, k, Y0, U0, Ibar, iterations):
     timeseries_plot(Income)
 
 
-
-
-timeseries(0.75, 0.3, 1.0, 0.1, 0.1, 40.6, 30.3, 10, 50)
-    
+timeseries(0.75, 0.3, 1.0, 0.1, 0.1, 40.6, 30.3, 10, 150)
+ 
 
 
 

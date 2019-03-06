@@ -51,11 +51,11 @@ class AnnotatedFunction:
 #Logistic Function
 func = AnnotatedFunction(lambda x, u: u*x*(1-x), r'$\mu x_t(1-x_t)$')
 plot_cobweb(func, 1.5, 0.1)
-plt.savefig('./manuscript/figures/logistic/fixed_cob.pdf', dpi=600)
+plt.savefig('./manuscript/figures/logistic/fixed_cob.eps', dpi=600)
 plot_cobweb(func, 3.2, 0.799455)
-plt.savefig('./manuscript/figures/logistic/2-cyclic_cob.pdf', dpi=600)
+plt.savefig('./manuscript/figures/logistic/2-cyclic_cob.eps', dpi=600)
 plot_cobweb(func, 3.82842712, 0.5)
-plt.savefig('./manuscript/figures/logistic/3-cyclic_cob.pdf', dpi=600)
+plt.savefig('./manuscript/figures/logistic/3-cyclic_cob.eps', dpi=600)
 plot_cobweb(func, 3.8, 0.1)
-plt.savefig('./manuscript/figures/logistic/chaos_cob.pdf', dpi=600)
+plt.savefig('./manuscript/figures/logistic/chaos_cob.eps', dpi=600)
 
