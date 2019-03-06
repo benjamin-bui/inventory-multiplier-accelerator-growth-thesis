@@ -1,0 +1,140 @@
+%Near Universal Formatting%
+\documentclass[]{article}
+\usepackage[english]{babel}%Set language as english%
+\usepackage[babel]{csquotes}%Nicer quotations%
+\usepackage{indentfirst}
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+\usepackage{titling}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{enumitem}%Different enumeration options%
+%Fancy Page Styling%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}%Clears header and footer%
+\rhead{Benjamin Bui}%Right header%
+\lhead{Inventory Cycle Model}%Left header%
+\chead{}%Center header%
+\renewcommand{\footrulewidth}{0.4pt}%Footer horizantal line%
+%Citation Management%
+%\usepackage[notes,natbib,isbn=false,backend=biber]{biblatex-chicago}%Chicago Style%
+%Math Formatting%
+\usepackage{amsmath}%AMS Math%
+\usepackage{amsthm}%Theorem Formatting%
+\newtheorem*{lemma}{Lemma}%Addes Lemma Command%
+\usepackage{amssymb}%AMS Symbols%
+\usepackage{array}%Allows for more complex matrices
+\usepackage{siunitx}%Formats SI units%
+\usepackage{booktabs}%Typsets tables%
+\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+\newcommand{\specialcellbold}[2][c]{%
+	\bfseries
+	\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}%
+}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newtheorem*{theorem}{Theorem}
+%Image Formatting%
+\usepackage{graphicx}%Enchanced graphics support%
+\usepackage{float}%Float options$
+
+\setlength{\droptitle}{-1 in}
+
+\begin{document}
+\section{Framework}
+\noindent Output: 
+	\begin{equation}
+	Y_t = S_t + I_t + U_t 
+	\end{equation}
+Investment: 
+	\begin{equation}
+		I_t = \frac{\frac{Y_{t-1}-Y_{t-2}}{v}}{(\frac{Y_{t-1}-Y_{t-2}}{v})^4+q}	
+	\end{equation}
+Consumption:
+	\begin{equation}
+		C_t = (1-s)(Y_{t-1}) + s(Y_{t-2})
+	\end{equation}
+Predicted Consumption:
+	\begin{equation}
+		U_t = C_{t-1} + \eta_{t-1} (C_{t-1} - C_{t-2})
+	\end{equation}
+Adaptive Prediction Parameter:
+	\begin{equation}
+		\eta_{t-1} = \frac{C_{t-1}-C_{t-2}}{C_{t-3}-C_{t-4}}
+	\end{equation}
+Produced for Inventory:
+	\begin{equation}
+		S_t = kU_t - Q_{t-1}
+	\end{equation}
+Inventory Level:
+	\begin{equation}
+		Q_t = Q_{t-1} + S_t + (U_t-C_t)
+	\end{equation}
+\section{Solving for Growth}
+\noindent Defining Growth:
+	\begin{equation}
+		Z_{t-1}=Y_t-Y_{t-1}
+	\end{equation}
+Consumption in Terms of Growth:
+	\begin{equation}
+		C_t-C_{t-1}=(1-s)Z_{t-2}+sZ_{t-3}
+	\end{equation}
+Investment in Terms of Growth:
+	\begin{equation}
+		I_t-I_{t-1}=\frac{\frac{Z_{t-2}}{v}}{\left(\frac{Z_{t-2}}{v}\right)^4+q}-\frac{\frac{Z_{t-3}}{v}}{\left(\frac{Z_{t-3}}{v}\right)^4+q}
+	\end{equation}
+Adaptive Parameter in Terms of Growth:
+	\begin{equation}
+		\eta_{t-1}=\frac{(1-s)Z_{t-3}+sZ_{t-4}}{(1-s)Z_{t-4}+sZ_{t-5}}
+	\end{equation}
+Predicted Consumption in Terms of Growth:
+	\begin{equation}
+		U_t-U_{t-1}=[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]-\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]
+	\end{equation}
+\subsection{Solving for Inventory Production in terms of Growth}
+\noindent Inventory Level found by substituting $S_t$
+	\begin{equation*}
+		Q_t=kU_t-Q_{t-1}+Q_{t-1}+U_t-C_t
+	\end{equation*}
+	\begin{equation}
+		Q_t=U_t(k+1)-C_t
+	\end{equation}
+Change in Inventory in Terms of Growth:
+	\begin{equation*}
+		Q_t-Q_{t-1}=(k+1)(U_t-U_{t-1})-(C_t-C_{t-1})
+	\end{equation*}
+	\begin{equation}
+	\begin{split}
+		Q_t-Q_{t-1}=(k+1)\left[[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]-\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]\right]\\
+		-(1-s)Z_{t-2}+sZ_{t-3}
+	\end{split}
+	\end{equation}
+Change in Inventory Production in Terms of Growth:
+	\begin{equation*}
+		S_t-S_{t-1}=k(U_t-U_{t-1})-(Q_{t-1}-Q_{t-2})
+	\end{equation*}
+	\begin{equation}
+	\begin{split}
+		S_t-S_{t-1}=k\left[[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]-\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]\right]-\\
+		[(k+1)\left[[(1-s)Z_{t-4}+sZ_{t-5}]+\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]-\left[\frac{[(1-s)Z_{t-5}+sZ_{t-6}]^2}{(1-s)Z_{t-6}+sZ_{t-7}}\right]\right]\\
+		-(1-s)Z_{t-3}+sZ_{t-4}]
+	\end{split}
+	\end{equation}
+\subsection{Growth as a 6th Order Difference Equation}
+	\begin{multline}
+		Z_{t-1} = \frac{\frac{Z_{t-2}}{v}}{\left(\frac{Z_{t-2}}{v}\right)^4+q}-\frac{\frac{Z_{t-3}}{v}}{\left(\frac{Z_{t-3}}{v}\right)^4+q}+\\
+		[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]-\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]+\\
+		k\left[[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]-\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]\right]-\\
+		[(k+1)\left[[(1-s)Z_{t-4}+sZ_{t-5}]+\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]-\left[\frac{[(1-s)Z_{t-5}+sZ_{t-6}]^2}{(1-s)Z_{t-6}+sZ_{t-7}}\right]\right]\\
+		-(1-s)Z_{t-3}-sZ_{t-4}]
+	\end{multline}
+	\begin{multline}
+		Z_{t} = \frac{\frac{Z_{t-1}}{v}}{\left(\frac{Z_{t-1}}{v}\right)^4+q}-\frac{\frac{Z_{t-2}}{v}}{\left(\frac{Z_{t-2}}{v}\right)^4+q}+\\
+		[(1-s)Z_{t-2}+sZ_{t-3}]+\left[\frac{[(1-s)Z_{t-2}+sZ_{t-3}]^2}{(1-s)Z_{t-3}+sZ_{t-4}}\right]-\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]+\\
+		k\left[[(1-s)Z_{t-2}+sZ_{t-3}]+\left[\frac{[(1-s)Z_{t-2}+sZ_{t-3}]^2}{(1-s)Z_{t-3}+sZ_{t-4}}\right]-\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]\right]-\\
+		[(k+1)\left[[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]-\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]\right]\\
+		-(1-s)Z_{t-2}-sZ_{t-3}]
+	\end{multline}
+
+
+\end{document}

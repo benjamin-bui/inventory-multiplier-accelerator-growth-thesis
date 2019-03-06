@@ -16,6 +16,10 @@ Investment is held to be exogenously determined and constant, thus:
 \begin{equation}
     I_t=\bar I
 \end{equation}
+Consumption adapts to income according to the marginal propensity to consume, $b$. As this model follows closely to the framework developed by Metzler\autocite{Metzler1941}, consumption adapts directly to the current income level as follows:
+\begin{equation}
+    C_t=bY_t
+\end{equation}
 Producers have a desired level of inventory based on the expected level of consumption goods. Thus setting, $k>0$:
 \begin{equation}
     \hat Q_t=kU_t
@@ -51,7 +55,7 @@ The weight is defined as a function of consumption level which allows firms to s
 \end{equation}
 where $d$ is determined by the popularity of the regressive rule. 
 
-Taking these rules in aggregate, income is second-order nonlinear iterated mapping. Condensing the model, we arrive at the mapping:
+Taking these rules in aggregate, income is a second-order nonlinear iterated mapping. Condensing the model, we arrive at the mapping:
 \begin{equation}
     Y_t=U_t+kU_t-(1+k)U_{t-1}+C_{t-1}+\bar I
 \end{equation}
@@ -59,3 +63,66 @@ This gives a single fixed point of:
 \begin{equation}
     \bar Y=\frac{1}{1-b}\bar I
 \end{equation}
+
+It is apparent that, as $\bar Y$ is constant, the theoretical set-up of the model is only valid if their is no long-term growth. This is because the predictive mechanism used by firms is reliant on the difference between the lag in consumption and the steady-state level of consumption. If consumption were to consistently grow, then this difference would also grow over time, eliminating any effective purpose in providing heterogenous expectations as firms would practically unanimously switch to the extrapolative mechanism. 
+
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_basic/timeseries_income.eps}
+    \caption{Timeseries plot of inventory cycle as described by Westerhoff et al.\autocite{Wegener2009} Simulation is determined given $Y_0=40.6$, $U_0=30.3$, and $\bar I=10$. The parameters of the model are: $b=0.75,c=0.3,d=1.0,f=0.1,k=0.1$. Income does not feature long-run growth but rather oscillates around the steady state level of income.}
+    \label{metzler_basic_timeseries}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_basic/cobweb.eps}
+    \caption{Cobweb plot of same trajectory in Figure \ref{metzler_basic_timeseries}. The beginning of the trajectory occurs at the point (40.6, 40.6).}
+    \label{metzler_basic_cobweb}
+\end{figure}
+
+\section{Analysis of Income Dynamics}
+In the example trajectory given above, income clearly followed bounded, cyclic behavior. As seen with the analysis of the logistic map however, there are other types of long-term behavior possible. Given the restrictions on parameters, the steady-state level of income is stable if:
+\begin{equation}
+    k<\frac{1-b-bc}{b(1+c)}
+\end{equation}
+The proof for this can be seen in the appendix of Westerhoff et al.\autocite{Wegener2009} The stability of the steady state is only dependent on $b$, $k$, and $c$, thus the behavior of the regressive expectation rule and the ratio of firms behaving with each expectation rule do not affect the stability of this fixed point. This can be seen graphically using bifurcation diagrams of the parameters.
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_basic/bbifurcation.eps}
+    \caption{Bifurcations diagram varying the parameter $b$ over the range [0.2, 0.85]holding all other parameters and initial conditions as described in Figure \ref{metzler_basic_timeseries}. The simulation was allowed to run for 1000 iterations and the last 50 points are captured in the diagram.}
+    \label{metzler_basic_bbifurcation}
+\end{figure} 
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_basic/cbifurcation.eps}
+    \caption{Bifurcations diagram varying the parameter $c$ over the range [0.1, 0.9] holding all other parameters and initial conditions as described in Figure \ref{metzler_basic_timeseries}. The simulation was allowed to run for 1000 iterations and the last 50 points are captured in the diagram.}
+    \label{metzler_basic_cbifurcation}
+\end{figure} 
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_basic/kbifurcation.eps}
+    \caption{Bifurcations diagram varying the parameter $k$ over the range [0
+    1, 0.4] holding all other parameters and initial conditions as described in Figure \ref{metzler_basic_timeseries}. The simulation was allowed to run for 1000 iterations and the last 50 points are captured in the diagram.}
+    \label{metzler_basic_kbifurcation}
+\end{figure} 
+
+There is a Neimark-Sacker bifurcation where $b\approx0.65$ which marks a transition point from a stable fixed point to a bounded cycle. However, as $b$ approaches 1, the bifurcation diagram does not graphically feature cycles of well defined order. Varying $c$ and $k$ alters the behavior of the cycles as seen in Figure \ref{metzler_basic_cbifurcation} and \ref{metzler_basic_kbifurcation}. Altering $d$ or $f$ affects the magnitude of the inventory cycles but does not have any effect on the presence of the cycles.
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_basic/dbifurcation.eps}
+    \caption{Bifurcations diagram varying the parameter $d$ over the range [0.01, 2.0] holding all other parameters and initial conditions as described in Figure \ref{metzler_basic_timeseries}. The simulation was allowed to run for 1000 iterations and the last 50 points are captured in the diagram.}
+    \label{metzler_basic_dbifurcation}
+\end{figure} 
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_basic/fbifurcation.eps}
+    \caption{Bifurcations diagram varying the parameter $f$ over the range [0.1, 0.5] holding all other parameters and initial conditions as described in Figure \ref{metzler_basic_timeseries}. The simulation was allowed to run for 1000 iterations and the last 50 points are captured in the diagram.}
+    \label{metzler_basic_fbifurcation}
+\end{figure} 
+

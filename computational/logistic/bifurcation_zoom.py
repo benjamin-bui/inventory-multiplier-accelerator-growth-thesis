@@ -29,6 +29,6 @@ ax.set_xlabel('$\mu$')
 ax.set_ylabel('$x$')
 ax.set_title('Bifurcation Diagram')
 #Save and show
-plt.savefig('./manuscript/figures/logistic/bifurcation_zoom.pdf', dpi=600)
+plt.savefig('./manuscript/figures/logistic/bifurcation_zoom.eps', dpi=1000)
 
 plt.show()

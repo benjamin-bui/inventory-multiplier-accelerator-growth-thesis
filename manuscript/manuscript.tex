@@ -8,6 +8,7 @@
 \usepackage[protrusion=true,expansion=true]{microtype}
 \usepackage{setspace}
 \onehalfspacing
+\usepackage{appendix}
 %Chapter Styling%
 \usepackage{titlesec}
 \titleformat{\chapter}
@@ -92,11 +93,16 @@ articletitle
 \tableofcontents
 \chapter{Introduction}
 \input{chapters/introduction}
-\chapter{Metzlerian Business Cycles}
+\chapter{Heterogenous Inventory Cycles by Westerhoff et al.}
 \input{chapters/metzlerian_basic}
+\chapter{Inventory Cycles with Endogenous Investment\\ and Adaptive Expectations}
+\input{chapters/metzlerian_expanded}
 \chapter{Conclusion}
 \input{chapters/conclusion}
 \chapter{References}
 \input{chapters/references}
-
+\begin{appendices}
+\chapter{Solving for Change in Income}
+\input{chapters/appendixA}
+\end{appendices}
 \end{document}

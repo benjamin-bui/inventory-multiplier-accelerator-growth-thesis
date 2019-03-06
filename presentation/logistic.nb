@@ -673,7 +673,7 @@ Cell[BoxData[
  RowBox[{"Export", "[", 
   RowBox[{
   "\"\<D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\investment_\
-curve.pdf\>\"", ",", "%"}], "]"}]], "Input",
+curve.eps\>\"", ",", "%"}], "]"}]], "Input",
  CellChangeTimes->{{3.747523828844736*^9, 3.7475238597695684`*^9}, {
   3.7475240314752593`*^9, 3.7475240320989237`*^9}, {3.7475317485209255`*^9, 
   3.747531752919847*^9}},
@@ -681,7 +681,7 @@ curve.pdf\>\"", ",", "%"}], "]"}]], "Input",
   "In[218]:=",ExpressionUUID->"d0ad8a8c-0cfa-4be3-a060-db26f07a6100"],
 
 Cell[BoxData["\<\"D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\\
-investment_curve.pdf\"\>"], "Output",
+investment_curve.eps\"\>"], "Output",
  CellChangeTimes->{3.7475238614375944`*^9, 3.7475240334141536`*^9, 
   3.7475317549696736`*^9},
  CellLabel->

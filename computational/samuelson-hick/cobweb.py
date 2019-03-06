@@ -11,7 +11,7 @@ rc('font', family='serif')
 def plot_cobweb(f, u, x0, nmax=250 ):
     x = np.linspace(-1,1,2000)
     fig = plt.figure()
-        
+    ax = fig.add_subplot(111)
 
     #Plot map
     ax.plot(x, f(x, u), c='black', lw=1)
@@ -52,13 +52,13 @@ class AnnotatedFunction:
 #Logistic Function
 func = AnnotatedFunction(lambda x, u: u*x-(u+1)*x**3, r'$\mu Z-(\mu+1)Z^3$')
 plot_cobweb(func, 1.5, 0.5)
-plt.savefig('./manuscript/figures/sam_hicks/fixed.pdf', dpi=600)
+plt.savefig('./manuscript/figures/sam_hicks/fixed.eps', dpi=1500)
 plot_cobweb(func, 2.15, 0.799455)
-plt.savefig('./manuscript/figures/sam_hicks/2-cyclic.pdf', dpi=600)
+plt.savefig('./manuscript/figures/sam_hicks/2-cyclic.eps', dpi=1500)
 plot_cobweb(func, 2.4, 0.1)
-plt.savefig('./manuscript/figures/sam_hicks/chaos_contained.pdf', dpi=600)
+plt.savefig('./manuscript/figures/sam_hicks/chaos_contained.eps', dpi=1500)
 plot_cobweb(func, 2.6, 0.1)
-plt.savefig('./manuscript/figures/sam_hicks/chaos_uncontained.pdf', dpi=600)
+plt.savefig('./manuscript/figures/sam_hicks/chaos_uncontained.eps', dpi=1500)
 plot_cobweb(func, 2.7, 0.1)
-plt.savefig('./manuscript/figures/sam_hicks/unbound_cyclic.pdf', dpi=600)
+plt.savefig('./manuscript/figures/sam_hicks/unbound_cyclic.eps', dpi=1500)
 

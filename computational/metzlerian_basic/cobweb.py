@@ -45,14 +45,27 @@ def cobweb(b, c, d, f, k, Y0, U0, Ibar, iterations):
     px = []
     py = []
     for i in range(iterations-1):
-        px = np.append(px, Consumption[i])
-        py = np.append(py, Consumption[i+1])
+        px = np.append(px, Income[i])
+        py = np.append(py, Income[i+1])
     print(px)
     print(py)
 
+    x = np.linspace(0,50,1000)
     fig = plt.figure(dpi=1000)
     ax = fig.add_subplot(111)
-    ax.plot(px, py, c='blue', alpha=0.25)
+    ax.plot(x, x, c='gray', lw=1, dashes=[6,2])
+    ax.plot(px, py, c='blue', linewidth=0.5)
+    #Beautify Plot
+    ax.minorticks_on()
+    ax.grid(which='minor', alpha=0.5)
+    ax.grid(which='major', alpha=0.5)
+    ax.axhline(0, color='k', lw=.5, alpha=0.25)
+    ax.axvline(0, color='k', lw=.5, alpha=0.25)
+    ax.set_aspect('equal')
+    ax.set_xlabel('$Y_t$')
+    ax.set_ylabel('$Y_{t+1}$')
+    ax.set_xlim(38.5, 41.0)
+    ax.set_ylim(38.5, 41.0)
+    plt.savefig('./manuscript/figures/metzlerian_basic/cobweb.eps')
     plt.show()
-    
-cobweb(0.75, 0.3, 1.0, 0.1, 0.1, 40.6, 30.3, 10, 50)
+cobweb(0.75, 0.3, 1.0, 0.1, 0.1, 40.6, 30.3, 10, 150)

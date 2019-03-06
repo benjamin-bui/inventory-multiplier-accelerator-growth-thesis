@@ -1,0 +1,26 @@
+We can define the growth rate $Z_t$ as the difference in income between contiguous time periods:
+\begin{equation}
+    Z_{t-1}=Y_t-Y_{t-1}
+\end{equation}
+This equation can be expanded to be of the form:
+\begin{equation*}
+    Z_{t-1}=(U_t-U_{t-1})+(I_t-I_{t-1})+(S_t-S_{t-1})
+\end{equation*}
+
+The change in investment can be trivially solved for as investment is already a function of the change in income.
+\begin{equation*}
+    I_t=\frac{\frac{Z_{t-2}}{v}}{\left(\frac{Z_{t-2}}{v}\right)^4+q}
+\end{equation*}
+Thus the change in investment is:
+\begin{equation}
+    I_t-I_{t-1}=\frac{\frac{Z_{t-2}}{v}}{\left(\frac{Z_{t-2}}{v}\right)^4+q}-\frac{\frac{Z_{t-3}}{v}}{\left(\frac{Z_{t-3}}{v}\right)^4+q}
+\end{equation}
+
+As predicted consumption is a function of the change in actual consumption, we must derive a function for the change in consumption in terms of the growth rate.
+\begin{equation*}
+    C_t-C_{t-1}=(1-s)Y_{t-1}+sY_{t-2}-[(1-s)Y_{t-2}+sY_{t-3}]
+\end{equation*}
+This can be simplified to:
+\begin{equation}
+    C_t-C_{t-1}=(1-s)(Y_{t-1}-Y_{t-2})+s(Y_{t-2}-Y_{t-3})=(1-s)Z_{t-2}+sZ_{t-3}
+\end{equation}

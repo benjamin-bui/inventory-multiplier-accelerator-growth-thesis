@@ -656,14 +656,14 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"Export", "[", 
   RowBox[{
-  "\"\<D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\lyapunov.pdf\
+  "\"\<D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\lyapunov.eps\
 \>\"", ",", "%32"}], "]"}]], "Input",
  CellChangeTimes->{{3.7475171150269737`*^9, 3.747517132348057*^9}, {
   3.7475172451537423`*^9, 3.7475172455635147`*^9}},
  CellLabel->"In[34]:=",ExpressionUUID->"4c0e847f-228a-422d-a046-4b2e3518f477"],
 
 Cell[BoxData["\<\"D:\\\\school_work\\\\thesis\\\\presentation\\\\figures\\\\\
-lyapunov.pdf\"\>"], "Output",
+lyapunov.eps\"\>"], "Output",
  CellChangeTimes->{
   3.7475171338202004`*^9, {3.747517243335781*^9, 3.7475172469744153`*^9}},
  CellLabel->"Out[34]=",ExpressionUUID->"ae77b47b-a997-4fb6-9716-e0b0716f1c3a"]

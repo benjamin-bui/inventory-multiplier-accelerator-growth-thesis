@@ -30,7 +30,7 @@ def consumption(b, Ylag):
     return b * Ylag
 #Solves for S, goods produced for stock
 def stock(k, Ulag, Clag, U):
-    qhatlag = k * Ulag
+    Qhatlag = k * Ulag
     Qlag = Qhatlag - (Clag - Ulag)
     Qhat = k * U
     return Qhat - Qlag
@@ -41,7 +41,6 @@ def timeseries(b, c, d, f, k, Y0, U0, Ibar, iterations):
     Income = np.array([Y0,]*iterations)
     Sale = np.array([U0,]*iterations)
     Consumption = np.ones(iterations)
-    Stock = np.ones(iterations)
     for i in range(1, iterations):
         Consumption[i-1] = consumption(b, Income[i-1])
         Sale[i] = saledist(c, f, d, Cbar, Consumption[i-1])
@@ -51,7 +50,7 @@ def timeseries(b, c, d, f, k, Y0, U0, Ibar, iterations):
 #Bifurcation Diagram varying mpc, b
 def bbifurcation(lower, upper, points, c, d, f, k, Y0, U0, Ibar):
     #Plot set up
-    last = 10
+    last = 50
     iterations = 1000
     fig = plt.figure(dpi=1000)
     ax = fig.add_subplot(111)
@@ -71,13 +70,13 @@ def bbifurcation(lower, upper, points, c, d, f, k, Y0, U0, Ibar):
     ax.minorticks_on()
     ax.set_xlabel('$b$')
     ax.set_ylabel('$Y$')
-    ax.set_title('Bifurcation Diagram')
+    
     #Save and show
-    plt.savefig('./manuscript/figures/metzlerian_basic/bbifurcation.pdf', dpi=1000)
+    plt.savefig('./manuscript/figures/metzlerian_basic/bbifurcation.eps', dpi=1500)
 #Bifurcation Diagram varying expected deviation from equilibrium, c
 def cbifurcation(lower, upper, points, b, d, f, k, Y0, U0, Ibar):
     #Plot set up
-    last = 10
+    last = 50
     iterations = 1000
     fig = plt.figure(dpi=1000)
     ax = fig.add_subplot(111)
@@ -97,13 +96,13 @@ def cbifurcation(lower, upper, points, b, d, f, k, Y0, U0, Ibar):
     ax.minorticks_on()
     ax.set_xlabel('$c$')
     ax.set_ylabel('$Y$')
-    ax.set_title('Bifurcation Diagram')
+    
     #Save and show
-    plt.savefig('./manuscript/figures/metzlerian_basic/cbifurcation.pdf', dpi=1000)
+    plt.savefig('./manuscript/figures/metzlerian_basic/cbifurcation.eps', dpi=1500)
 #Bifurcation Diagram varying desired level of consumption relative to expected sale of consumption goods, k
 def kbifurcation(lower, upper, points, b, c, d, f, Y0, U0, Ibar):
     #Plot set up
-    last = 10
+    last = 50
     iterations = 1000
     fig = plt.figure(dpi=1000)
     ax = fig.add_subplot(111)
@@ -123,14 +122,14 @@ def kbifurcation(lower, upper, points, b, c, d, f, Y0, U0, Ibar):
     ax.minorticks_on()
     ax.set_xlabel('$k$')
     ax.set_ylabel('$Y$')
-    ax.set_title('Bifurcation Diagram')
+    
     #Save and show
-    plt.savefig('./manuscript/figures/metzlerian_basic/kbifurcation.pdf', dpi=1000)
+    plt.savefig('./manuscript/figures/metzlerian_basic/kbifurcation.eps', dpi=1500)
 
 #Bifurcation Diagram varying popularity of regressive expectations, d
 def dbifurcation(lower, upper, points, b, c, f, k, Y0, U0, Ibar):
     #Plot set up
-    last = 10
+    last = 50
     iterations = 1000
     fig = plt.figure(dpi=1000)
     ax = fig.add_subplot(111)
@@ -150,14 +149,14 @@ def dbifurcation(lower, upper, points, b, c, f, k, Y0, U0, Ibar):
     ax.minorticks_on()
     ax.set_xlabel('$d$')
     ax.set_ylabel('$Y$')
-    ax.set_title('Bifurcation Diagram')
+    
     #Save and show
-    plt.savefig('./manuscript/figures/metzlerian_basic/dbifurcation.pdf', dpi=1000)
+    plt.savefig('./manuscript/figures/metzlerian_basic/dbifurcation.eps', dpi=1500)
 
 #Improved efficiency bifurcation diagram varying f
 def fbifurcation(lower, upper, points, b, c, d, k, Y0, U0, Ibar):
     #Plot set up
-    last = 10
+    last = 50
     iterations = 1000
     fig = plt.figure(dpi=1000)
     ax = fig.add_subplot(111)
@@ -177,13 +176,13 @@ def fbifurcation(lower, upper, points, b, c, d, k, Y0, U0, Ibar):
     ax.minorticks_on()
     ax.set_xlabel('$f$')
     ax.set_ylabel('$Y$')
-    ax.set_title('Bifurcation Diagram')
+    
     #Save and show
-    plt.savefig('./manuscript/figures/metzlerian_basic/fbifurcation.pdf', dpi=600)
+    plt.savefig('./manuscript/figures/metzlerian_basic/fbifurcation.eps', dpi=1500)
 
-bbifurcation(0.2, 0.85, 100000, 0.3, 1.0, 0.5, 1.0 , 40.5, 30.5, 10)
-cbifurcation(0.1, 0.9, 100000, 0.75, 1.0, 0.5, 1.0, 40.5, 30.5, 10)
-kbifurcation(0.1, 0.4, 100000, 0.75, 0.3, 1.0, 0.1, 40.5, 30.5, 10)
-dbifurcation(0.01, 2.0, 100000, 0.75, 0.3, 0.1, 0.1, 40.5, 30.5, 10)
-fbifurcation(0.1, 0.5, 100000, 0.75, 0.3, 1.0, 0.1, 40.0, 30.5, 10)
+bbifurcation(0.6, 0.85, 10000, 0.3, 1.0, 0.1, 0.1, 40.6, 30.5, 10)
+cbifurcation(0.1, 0.9, 10000, 0.75, 1.0, 0.1, 0.1, 40.5, 30.5, 10)
+kbifurcation(0.1, 0.4, 10000, 0.75, 0.3, 0.1, 0.1, 40.5, 30.5, 10)
+dbifurcation(0.01, 2.0, 10000, 0.75, 0.3, 0.1, 0.1, 40.5, 30.5, 10)
+fbifurcation(0.1, 0.5, 10000, 0.75, 0.3, 1.0, 0.1, 40.0, 30.5, 10)
 
