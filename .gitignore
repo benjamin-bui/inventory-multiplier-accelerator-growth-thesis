@@ -15,3 +15,5 @@
 #Mathematica Results
 *.gif
 *.mov
+#Presentation Folder
+/presentation
