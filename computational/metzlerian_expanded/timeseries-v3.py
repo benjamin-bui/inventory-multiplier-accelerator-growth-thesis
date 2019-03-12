@@ -77,12 +77,16 @@ def mapping(y0, y1, y2, y3, c0, c1, s, k, v, q, iter):
         Inventory[i] = inventory(Inventory[i-1], Inventory_produced[i], Predicted[i], Consumption[i])
         Income[i] = Predicted[i] + Investment[i] + Inventory_produced[i]
     variableplot(Income)
-
+'''
 #Parameter and initial condition set up with quasi-periodic/periodic behavior
 mapping(100, 90, 80, 70, 80, 70, 0.3, 0.5, 50, 35, 150)
 plt.savefig('./manuscript/figures/metzlerian_expanded/timeseries_decay.eps', dpi=1500)
 #Parameter and initial condition set up with periodic behavior
+'''
 mapping(100, 110, 120, 130, 80, 90, 0.3, 0.5, 50, 35, 150)
-plt.savefig('./manuscript/figures/metzlerian_expanded/timeseries_grow.eps', dpi=1500)
+#plt.savefig('./manuscript/figures/metzlerian_expanded/timeseries_grow.eps', dpi=1500)
+plt.show()
+'''
 mapping(100, 105, 115, 150, 80, 90, 0.3, 0.5, 50, 35, 150)
 plt.savefig('./manuscript/figures/metzlerian_expanded/timeseries_cycle.eps', dpi=1500)
+'''

@@ -1,89 +1,93 @@
-We can define the growth rate $Z_t$ as the difference in income between contiguous time periods:
+We can define the growth rate $\dot Y_t$ as the difference in income between contiguous time periods:
 \begin{equation}
-    Z_{t-1}=Y_t-Y_{t-1}\Rightarrow Z_t=Y_{t+1}-Y_t
+    \dot Y_t=Y_{t+1}-Y_t
 \end{equation}
-This equation can be expanded to be of the form:
+Let this dot notation refer to the analogous growth rate of other state variables. This equation can be expanded using Equation \ref{eq:Income}.
 \begin{equation*}
-    Z_{t-1}=(U_t-U_{t-1})+(I_t-I_{t-1})+(S_t-S_{t-1})
+    \dot Y_t=(U_{t+1}-U_t)+(I_{t+1}-I_t)+(S_{t+1}-S_t)=\dot U_t+\dot I_t+\dot S_t
 \end{equation*}
 
 The change in investment can be trivially solved for as investment is already a function of the change in income.
 \begin{equation*}
-    I_t=\frac{\frac{Z_{t-2}}{v}}{\left(\frac{Z_{t-2}}{v}\right)^4+q}
+    I_t=\frac{\frac{\dot Y_{t-2}}{v}}{\left(\frac{\dot Y_{t-2}}{v}\right)^4+q}
 \end{equation*}
 Thus the change in investment is:
 \begin{equation}
-    I_t-I_{t-1}=\frac{\frac{Z_{t-2}}{v}}{\left(\frac{Z_{t-2}}{v}\right)^4+q}-\frac{\frac{Z_{t-3}}{v}}{\left(\frac{Z_{t-3}}{v}\right)^4+q}
+    \dot I_t=\frac{\frac{\dot Y_{t-1}}{v}}{\left(\frac{\dot Y_{t-1}}{v}\right)^4+q}-\frac{\frac{\dot Y_{t-2}}{v}}{\left(\frac{\dot Y_{t-2}}{v}\right)^4+q}
 \end{equation}
 
 As predicted consumption is a function of the change in actual consumption, we must derive a function for the change in consumption in terms of the growth rate.
 \begin{equation*}
-    C_t-C_{t-1}=(1-s)Y_{t-1}+sY_{t-2}-[(1-s)Y_{t-2}+sY_{t-3}]
+    C_{t+1}-C_t=[(1-s)Y_{t}+sY_{t-1}]-[(1-s)Y_{t-1}+sY_{t-2}]
 \end{equation*}
 This can be simplified to:
 \begin{equation}
-    C_t-C_{t-1}=(1-s)(Y_{t-1}-Y_{t-2})+s(Y_{t-2}-Y_{t-3})=(1-s)Z_{t-2}+sZ_{t-3}
+    \dot C_t=(1-s)(Y_{t}-Y_{t-1})+s(Y_{t-1}-Y_{t-2})=(1-s)\dot Y_{t-1} + s\dot Y_{t-2}
 \end{equation}
 
-Noting again the function for the adaptive expectation coefficient in Equation \ref{eq:adaptive}, we can solve for this parameter as:
+The change in expected consumption can be given by:
+\begin{align*}
+    U_{t+1}-U_{t}&=\frac{C_{t}+C_{t-1}+C_{t-2}}{3}-\frac{C_{t-1}+C_{t-2}+C_{t-3}}{3}\\
+    \dot U_t&=\frac{\dot C_{t-1}+\dot C_{t-2}+\dot C_{t-3}}{3}
+\end{align*}
+This can be clearly resolved into a function of income growth rates:
+\begin{equation*}
+    \dot U_t=\frac{[(1-s)\dot Y_{t-2} + s\dot Y_{t-3}]+[(1-s)\dot Y_{t-3} + s\dot Y_{t-4}]+[(1-s)\dot Y_{t-4} + s\dot Y_{t-5}]}{3}
+\end{equation*}
 \begin{equation}
-    \eta_{t-1}=\frac{(1-s)Z_{t-3}+sZ_{t-4}}{(1-s)Z_{t-4}+sZ_{t-5}}
-\end{equation}
-This allows us to solve for the change in predicted consumption as a function of growth rates. 
-\begin{gather*}
-    U_t-U_{t-1}=C_{t-1}+\eta_{t-1}(C_{t-1}-C_{t-2})-C_{t-2}-\eta_{t-2}(C_{t-2}-C_{t-3})\\
-    U_t-U_{t-1}=C_{t-1}-C_{t-2}+\eta_{t-1}(C_{t-1}-C_{t-2})-\eta_{t-2}(C_{t-2}-C_{t-3})
-\end{gather*}
-This can be clearly resolved into a function of growth rates:
-\begin{equation}
-\begin{split}
-    U_t-U_{t-1}& =[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]\\
-    & -\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]
-\end{split}
+    \dot U_t=\frac{(1-s)(\dot Y_{t-2}+\dot Y_{t-3}+\dot Y_{t-4})+s(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})}{3}
 \end{equation}
 
 The final step is to solve for inventory production in terms of growth rates. We can substitute our $S_t$ into our function for $Q_t$:
-\begin{equation*}
-    Q_t=Q_{t-1}+(kU_t-Q_{t-1}+(U_t-C_t)=kU_t+U_t-C_t
-\end{equation*}
+\begin{align*}
+    Q_t&=Q_{t-1}+(kU_t-Q_{t-1}+(U_t-C_t)\\
+    Q_t&=kU_t+U_t-C_t
+\end{align*}
 This gives an equation for the rate of change:
 \begin{align*}
-    Q_t-Q_{t-1}&=kU_t+U_t-C_t-kU_{t-1}-U_{t-1}+C_{t-1}\\
-    Q_t-Q_{t-1}&=(k+1)(U_t-U_{t-1})-(C_t-C_{t-1})
+    Q_{t+1}-Q_{t}&=\left[kU_{t+1}+U_{t+1}-C_{t+1}\right]-\left[kU_{t}+U_{t}-C_{t}\right]\\
+    \dot Q_t&= (k+1)(U_{t+1})-(k+1)(U_t)-(C_{t+1}-C_t)\\
+    \dot Q_t&=(k+1)(\dot U_t)-(\dot C_t)
 \end{align*}
-Thus giving a function with respect to growth rate:
+Thus giving a function with respect to income growth rate:
 \begin{equation}
 \begin{split}
-    Q_t-Q_{t-1}& = (k+1)\left[[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]\right.\\
-    &\left.-\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]\right]-(1-s)Z_{t-2}-sZ_{t-3}
+    \dot Q_t& = (k+1)\frac{(1-s)(\dot Y_{t-2}+\dot Y_{t-3}+\dot Y_{t-4})+s(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})}{3}\\
+    &-(1-s)\dot Y_{t-1}-s\dot Y_{t-2}
 \end{split}
 \end{equation}
 
-The difference in production of goods for investment is given by:
+The difference in production of goods for inventory is given by:
 \begin{align*}
-    S_t-S_{t-1}& =(kU_t-Q_{t-1})-(kU_{t-1}-Q_{t-2})\\
-    S_t-S_{t-1}& = k(U_t-U_{t-1})-(Q_{t-1}-Q_{t-2})
+    S_{t+1}-S_{t}& =(kU_{t+1}-Q_{t})-(kU_{t}-Q_{t-1})\\
+    \dot S_t &= k(U_{t+1}-U_t)+Q_{t-1}-Q_t\\
+    \dot S_t& = k(\dot U_t)-(\dot Q_{t-1})
 \end{align*}
 We can thus substitute our functions for the change in predicted consumption and change in inventory:
 \begin{equation}
 \begin{split}
-    S_t-S_{t-1}& =k\left[[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]\right.\\
-    & \left.-\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]\right]-\\
-    & \left[(k+1)\left[[(1-s)Z_{t-4}+sZ_{t-5}]+\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]-\right.\right.\\
-    & \left.\left.\left[\frac{[(1-s)Z_{t-5}+sZ_{t-6}]^2}{(1-s)Z_{t-6}+sZ_{t-7}}\right]\right]-(1-s)Z_{t-3}-sZ_{t-4}\right]
+    \dot S_t& =k\frac{(1-s)(\dot Y_{t-2}+\dot Y_{t-3}+\dot Y_{t-4})+s(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})}{3}-\\
+    &\left[(k+1)\frac{(1-s)(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})+s(\dot Y_{t-4}+\dot Y_{t-5}+\dot Y_{t-6})}{3}\right.\\
+    &\left.-(1-s)\dot Y_{t-2}-s\dot Y_{t-3}\right]
 \end{split}
 \end{equation}
 
 This means the function for the growth rate of the economy can be written as a 6th order, single-variable difference equation:
+
+\begin{equation*}
+\begin{split}
+    \dot Y_{t}& = \frac{\frac{\dot Y_{t-1}}{v}}{\left(\frac{\dot Y_{t-1}}{v}\right)^4+q}-\frac{\frac{\dot Y_{t-2}}{v}}{\left(\frac{\dot Y_{t-2}}{v}\right)^4+q} + \\
+    & \frac{(1-s)(\dot Y_{t-2}+\dot Y_{t-3}+\dot Y_{t-4})+s(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})}{3} + \\
+    &k\frac{(1-s)(\dot Y_{t-2}+\dot Y_{t-3}+\dot Y_{t-4})+s(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})}{3}-\\
+    &\left[(k+1)\frac{(1-s)(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})+s(\dot Y_{t-4}+\dot Y_{t-5}+\dot Y_{t-6})}{3}\right.\\
+    &\left.-(1-s)\dot Y_{t-2}-s\dot Y_{t-3}\right]
+\end{split}
+\end{equation*}
 \begin{equation}
 \begin{split}
-    Z_{t-1}& = \frac{\frac{Z_{t-2}}{v}}{\left(\frac{Z_{t-2}}{v}\right)^4+q}-\frac{\frac{Z_{t-3}}{v}}{\left(\frac{Z_{t-3}}{v}\right)^4+q}+\\
-    & [(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]\\
-    & -\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]+\\
-    & k\left[[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]\right.\\
-    & \left.-\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]\right]-\\
-    & \left[(k+1)\left[[(1-s)Z_{t-4}+sZ_{t-5}]+\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]-\right.\right.\\
-    & \left.\left.\left[\frac{[(1-s)Z_{t-5}+sZ_{t-6}]^2}{(1-s)Z_{t-6}+sZ_{t-7}}\right]\right]-(1-s)Z_{t-3}-sZ_{t-4}\right]
+    \dot Y_{t}& = \frac{\frac{\dot Y_{t-1}}{v}}{\left(\frac{\dot Y_{t-1}}{v}\right)^4+q}-\frac{\frac{\dot Y_{t-2}}{v}}{\left(\frac{\dot Y_{t-2}}{v}\right)^4+q} + \\
+    & (1+k)\frac{(1-s)(\dot Y_{t-2}+\dot Y_{t-3}+\dot Y_{t-4})+s(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})}{3} -\\
+    &\left[(k+1)\frac{(1-s)(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})+s(\dot Y_{t-4}+\dot Y_{t-5}+\dot Y_{t-6})}{3}\right.\\
+    &\left.-(1-s)\dot Y_{t-2}-s\dot Y_{t-3}\right]
 \end{split}
 \end{equation}
-A function for $Z_t$ can be found in Chapter 3.

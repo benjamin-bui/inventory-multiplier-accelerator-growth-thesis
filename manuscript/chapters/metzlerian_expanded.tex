@@ -21,27 +21,18 @@ For the purposes of this model, we will include a non-zero Lundberg and Robertso
 \end{equation}
 This function incorporates a 1-period Lundberg lag where $s\in[0,1]$ is the marginal propensity to save. This function also contains a 2-period delayed consumption due to the marginal propensity to save, thus all income made in some period $t$ can be though of as being eventually spent in the period $t+1$ and $t+2$. Although intuitive, this explanation is not wholly accurate as the Lundberg lag does not imply saving of income to spend in the next period but rather that spending behavior is influenced only on the information of lagged income level. 
 
-As the economy is also making use of a Robertson lag, income is not directly a function of consumption as may be seen in other models. Rather, income is viewed from a production standpoint. This is achieved by explicitly defining a predicted level of consumption as in Metzler or Westerhoff. 
+As the economy is also making use of a Robertson lag, income is not directly a function of consumption as may be seen in other models. Rather, income is viewed from a production standpoint. This is achieved by explicitly defining a predicted level of consumption. Westerhoff and Metzler use an equation similar to the form:
 
-\begin{equation} \label{eq:predict}
+\begin{equation*} 
     U_t=C_{t-1}+\eta(C_{t-1}-C_{t-2})
-\end{equation}
-
-This predictive rule differs from that proposed in Chapter 2 because of the inclusion of endogenous investment. This mechanism introduces the possibility of endogenous long-run growth which eliminates the existence of a non-trivial steady-state level of consumption (given a sufficiently long time span where income is equal to 0, the long-run behavior of the system will also equal 0, thus the steady-state level of consumption would equal 0). By this predictive rule then, firms predict that current consumption is a sum of the 1-period lag level of consumption and a proportion of the change in consumption. This proportion $\eta\in[-1,1]$ is the coefficient of expectation and is bounded as such in Metzler's model although this bound can be exceeded without logical contradiction. The coefficient is held constant in Metzler which implies that, in this economy, firms are unable to learn from the accuracy of their predictions. Although this simplifies the model, it is unrealistic as individual firms benefit from the ability to better predict desired consumption levels in order to prevent underproduction or overproduction of goods. Westerhoff attempted to resolve this by introducing heterogenous expectation rules and allowing firms to switch between an extrapolative and regressive behavior. As this economy often does not have a useful steady-state level of consumption, we must develop a new method to better allow firms to predict consumption changes.
-
-Let firms operate homogenously, that is they all predict consumption via the same mechanism. To allow the coefficient of expectation to adapt to actual consumption, we can change Equation \ref{eq:predict} to be of the form:
-\begin{equation}
-    U_t=C_{t-1}+\eta_{t-1}(C_{t-1}-C_{t-2})
-\end{equation}
-The coefficient of expectation changes because firms learn from past experiences. Suppose then that firms decide their expectation based on what would have provided an accurate prediction in the last period. This can be accomplished solving:
-\begin{equation*}
-    C_t=C_{t-1}+\eta_t(C_{t-1}-C_{t-2})
 \end{equation*}
-This gives the function:
-\begin{equation}\label{eq:adaptive}
-    \eta_t=\frac{C_t-C_{t-1}}{C_{t-1}-C_{t-2}}
+However, this assumes that firms have no way to adapt their coefficient of expectation $\eta$. 
+
+A new predictive mechanism requires that firms have bounded rationality. If firms possessed perfect rationality, then they would be able to perfectly predict consumption levels as consumption is based on lagged income, thus if we wish to maintain our Robertson lag, firms must still be boundedly rational. Another mechanism that firms can use that maintains better "memory" is that of an average. 
+\begin{equation}\label{predict}
+    U_t = \frac{C_{t-1}+C_{t-2}+C_{t-3}}{3}
 \end{equation}
-The adaptive coefficient of expectation is thus a third-order difference equation on actual consumption. This removes the bounds on $\eta$ set by Metzler as firms can now choose arbitrary coefficients based on the result of the past. 
+This formulation is an average of the consumption levels of the past 3 time periods. The choice of three time periods is relatively arbitrary and higher order difference equations of the same form can be used; however these higher order formulations can result in a less mathematically tractable model.
 
 Inventory production proceeds as seen in Chapter 2 with firms producing $S_t$ explicitly to maintain Inventory at optimal levels:
 \begin{equation}
@@ -53,14 +44,8 @@ where $Q_t$ is the level of inventory maintained at the end of time $t$. This ca
 \end{equation}
 
 Income level, or output, can thus be written as a sum of production:
-\begin{equation}
+\begin{equation}\label{eq:Income}
     Y_t=I_t+S_t+U_t
 \end{equation}
-However, as income has the capability of sustained growth under this model, it is difficult to analyze the behavior of the model purely by the value of income. It is preferable then to derive a function for the rate of change of income:
-\begin{multline}
-    Z_{t} = \frac{\frac{Z_{t-1}}{v}}{\left(\frac{Z_{t-1}}{v}\right)^4+q}-\frac{\frac{Z_{t-2}}{v}}{\left(\frac{Z_{t-2}}{v}\right)^4+q}+\\
-    [(1-s)Z_{t-2}+sZ_{t-3}]+\left[\frac{[(1-s)Z_{t-2}+sZ_{t-3}]^2}{(1-s)Z_{t-3}+sZ_{t-4}}\right]-\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]+\\
-    k\left[[(1-s)Z_{t-2}+sZ_{t-3}]+\left[\frac{[(1-s)Z_{t-2}+sZ_{t-3}]^2}{(1-s)Z_{t-3}+sZ_{t-4}}\right]-\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]\right]-\\
-    [(k+1)\left[[(1-s)Z_{t-3}+sZ_{t-4}]+\left[\frac{[(1-s)Z_{t-3}+sZ_{t-4}]^2}{(1-s)Z_{t-4}+sZ_{t-5}}\right]-\left[\frac{[(1-s)Z_{t-4}+sZ_{t-5}]^2}{(1-s)Z_{t-5}+sZ_{t-6}}\right]\right]\\
-    -(1-s)Z_{t-2}-sZ_{t-3}]
-\end{multline}
+However, as income has the capability of sustained growth under this model, it is preferable to analyze the rate of change of income in this model. In Appendix A, we show that this equation is actually a 6th order difference equation on $\dot Y_t=Y_{t+1}-Y_t$ of the form:
+
