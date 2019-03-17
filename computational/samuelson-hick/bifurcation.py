@@ -30,7 +30,7 @@ def bifur_2way(n, iterations, x0, u_lower, u_upper):
     #Labelling
     ax.minorticks_on()
     ax.set_xlabel('$\mu$')
-    ax.set_ylabel('$Z$')
+    ax.set_ylabel('$\dot$')
     ax.set_title('Bifurcation Diagram')
     ax.set_xlim(u_lower, u_upper)
 bifur_2way(5000, 10000, 0.1, 0.9, 3.0)

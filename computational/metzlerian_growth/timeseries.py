@@ -27,6 +27,8 @@ def variableplot(Variable):
     #Time series of mapping
     ax1 = fig.add_subplot(1, 1, 1)
     ax1.plot(Variable, c='blue', linewidth=0.5)
+    ax1.set_xlabel('$t$')
+    ax1.set_ylabel('$\dot Y$')
 
 def mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, q, iter):
 
@@ -52,7 +54,10 @@ def mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, q, iter):
         dS[t] = pinvent(dU[t], dQ[t-1], k)
         dY[t] = growth(dU[t], dI[t], dS[t])
     variableplot(dY)
-    print(dY)
-    plt.show()
 
-mapping(29, 30 , 50 , 100, 20 ,50, 0.5, 0.3, 500, 0.001, 300)
+mapping(100, 120, 110, 100, 105, 107, 0.6, 0.3, 500, 0.001, 150)
+plt.savefig('./manuscript/figures/metzlerian_growth/timeseries1.eps', dpi=1200)
+mapping(100, 120, 110, 100, 105, 107, 0.7, 0.3, 500, 0.001, 200)
+plt.savefig('./manuscript/figures/metzlerian_growth/timeseries2.eps', dpi=1200)
+mapping(29, 20 , 15 , 10, 20 ,50, 0.6, 0.3, 500, 0.001, 150)
+plt.savefig('./manuscript/figures/metzlerian_growth/timeseries3.eps', dpi=1200)

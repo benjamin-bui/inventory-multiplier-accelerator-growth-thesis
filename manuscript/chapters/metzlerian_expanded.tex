@@ -13,13 +13,23 @@ The problem with the cubic function is that it leads to unbounded behavior in th
     I_t = \frac{\frac{Y_{t-1}-Y_{t-2}}{v}}{(\frac{Y_{t-1}-Y_{t-2}}{v})^4+q}	
 \end{equation}
 
+The behavior of this function qualitatively resembles that of the linear-cubic function described in by Puu when $v,q>0$ and ; however, $\lim_{(Y_{t-1}-Y_{t-2})\to\infty}I_t=0$. This function is at its absolute maximum and minimum when:
+\begin{equation*}
+    Y_{t-1}-Y_{t-2}=\pm\frac{q^{1/4}v}{3^{1/4}}
+\end{equation*}
+Thus giving a maximal or minimal investment of:
+\begin{equation*}
+    I_t=\frac{3^{3/4}}{4q^{3/4}}
+\end{equation*}
+Intuitively, larger values of $v$ make the function "wider", increasing the range over $Y_{t-1}-Y_{t-2}$ where $I_t$ is not effectively 0. Smaller values of $q$ increases the magnitude of the maximum and minimum of the function, effectively making it taller. $v$ and $q$ cannot be directly attributed to any direct economic phenomena; however, their effect on the function can be interpreted analogously to the properties of the linear-cubic function. The "height" of the function determines the potential magnitude of investment and the "width" determines the rate at which investment, both private and public, react to changes in income.
+
 Metzler describes the existence of two important lags in the study of Keynesian models. The Robertson lag is characterized by making current consumption a function of past income, i.e. consumption behavior lags behind current income. The Lundberg lag however concerns a discrepancy between the income level and the production decision of firms \autocite{Metzler1941} . These lags are named after the two economists D. H. Robertson and Erik Lundberg who developed models that contained only their eponymous lag type. Although both lags are likely to exist in reality, most models only incorporate one lag due to the increased complexity associated with it. Metzler and Westerhoff make use of a Lundberg lag by making income a function of the predicted level of consumption as opposed to actual consumption. T\"{o}nu Puu's model makes use of a Robertson in order to induce endogenous business cycles. Metzler himself does not claim that the Lundberg sequence is any more realistic than the Robertson sequence. Whichever lag has a longer time-period can be treated as of being greater importance but Metzler actually proposes a variety of scenarios that present contradicting conclusions. Suppose that decided their behavior on a quarterly basis but consumers altered their spending behavior with every paycheck, then it is no longer unrealistic to treat the Robertson lag as being of 0 length, i.e. nonexistent. If consumers revise their spending behavior every 6 months to a year, then it would actually be more realistic to include a non-zero Robertson lag while minimizing the Lundberg lag. 
 
 For the purposes of this model, we will include a non-zero Lundberg and Robertson lag. The consumption function is treated exactly as presented in Puu:
 \begin{equation}
     C_t=(1-s)Y_{t-1}+sY_{t-2}
 \end{equation}
-This function incorporates a 1-period Lundberg lag where $s\in[0,1]$ is the marginal propensity to save. This function also contains a 2-period delayed consumption due to the marginal propensity to save, thus all income made in some period $t$ can be though of as being eventually spent in the period $t+1$ and $t+2$. Although intuitive, this explanation is not wholly accurate as the Lundberg lag does not imply saving of income to spend in the next period but rather that spending behavior is influenced only on the information of lagged income level. 
+This function incorporates a 1-period Lundberg lag where $s\in[0,1]$ is the marginal propensity to save. This function also contains a 2-period delayed consumption due to the marginal propensity to save, thus all income made in some period $t$ can be though of as being eventually spent in the period $t+1$ and $t+2$. Although intuitive, this explanation is not wholly accurate as the Lundberg lag does not imply saving of income to spend in the next period but rather that spending behavior is influenced only on the information of lagged income level. The choice of $s$ dictates the relative importance of lagged income, a higher marginal propensity to save reduces the impact of income made in the previous time period but increases the effective impact of the income made two time periods ago.  
 
 As the economy is also making use of a Robertson lag, income is not directly a function of consumption as may be seen in other models. Rather, income is viewed from a production standpoint. This is achieved by explicitly defining a predicted level of consumption. Westerhoff and Metzler use an equation similar to the form:
 
@@ -28,7 +38,7 @@ As the economy is also making use of a Robertson lag, income is not directly a f
 \end{equation*}
 However, this assumes that firms have no way to adapt their coefficient of expectation $\eta$. 
 
-A new predictive mechanism requires that firms have bounded rationality. If firms possessed perfect rationality, then they would be able to perfectly predict consumption levels as consumption is based on lagged income, thus if we wish to maintain our Robertson lag, firms must still be boundedly rational. Another mechanism that firms can use that maintains better "memory" is that of an average. 
+A new predictive mechanism requires that firms have bounded rationality. If firms possessed perfect rationality, then they would be able to perfectly predict consumption levels as consumption is based on lagged income, thus if we wish to maintain our Robertson lag, firms must still have bounded rationality. Another mechanism that firms can use that maintains better "memory" is that of an average. 
 \begin{equation}\label{predict}
     U_t = \frac{C_{t-1}+C_{t-2}+C_{t-3}}{3}
 \end{equation}
@@ -38,7 +48,7 @@ Inventory production proceeds as seen in Chapter 2 with firms producing $S_t$ ex
 \begin{equation}
     S_t = k U_t-Q_{t-1}
 \end{equation}
-where $Q_t$ is the level of inventory maintained at the end of time $t$. This can be solved for as the sum of the previous inventory level, production intended for inventory, and the difference between production intended for consumption and the actual consumption level:
+where $Q_t$ is the level of inventory maintained at the end of time $t$ and $k\in[0,1]$. This can be solved for as the sum of the previous inventory level, production intended for inventory, and the difference between production intended for consumption and the actual consumption level:
 \begin{equation}
     Q_t=Q_{t-1}+S_t+(U_t-C_t)
 \end{equation}
@@ -47,5 +57,64 @@ Income level, or output, can thus be written as a sum of production:
 \begin{equation}\label{eq:Income}
     Y_t=I_t+S_t+U_t
 \end{equation}
-However, as income has the capability of sustained growth under this model, it is preferable to analyze the rate of change of income in this model. In Appendix A, we show that this equation is actually a 6th order difference equation on $\dot Y_t=Y_{t+1}-Y_t$ of the form:
+However, as income has the capability of sustained growth under this model, it is preferable to analyze the rate of change of income in this model. In Appendix A, we show that the growth rate of the economy can be interpreted as a single variable, 6th order difference equation on $\dot Y$:
+\begin{equation}
+\begin{split}
+    \dot Y_{t}& = \frac{\frac{\dot Y_{t-1}}{v}}{\left(\frac{\dot Y_{t-1}}{v}\right)^4+q}-\frac{\frac{\dot Y_{t-2}}{v}}{\left(\frac{\dot Y_{t-2}}{v}\right)^4+q} + \\
+    & (1+k)\frac{(1-s)(\dot Y_{t-2}+\dot Y_{t-3}+\dot Y_{t-4})+s(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})}{3} -\\
+    &\left[(k+1)\frac{(1-s)(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})+s(\dot Y_{t-4}+\dot Y_{t-5}+\dot Y_{t-6})}{3}\right.\\
+    &\left.-(1-s)\dot Y_{t-2}-s\dot Y_{t-3}\right]
+\end{split}
+\end{equation}
+
+\section{Growth Dynamics}
+The long run dynamics of the model are highly dependent on the choice of initial conditions. Simulation of the model require a choice of 6 initial values of income change in addition to the parameter choice. If the 6 initial values are equivalent, all future iterations of the mapping are equal to this choice and the model remains in a stable steady state. It both more interesting and realistic then to consider cases where there is variation in initial income growth.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/timeseries1.eps}
+    \caption{Timeseries plot of income growth rate over 150 iterations. $s=0.6,\ k=0.3,\ v=500,\ q=0.001$. Initial values of $\dot Y$ are: 100, 120, 110, 100, 105, 107}
+    \label{growth_timeseries1}
+\end{figure}
+Figure \ref{growth_timeseries1} displays a possible trajectory of income growth. Under the parameters listed, the trajectory clearly behaves in a stable, cyclic manner within 40 iterations. 
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/sbifurcation.eps}
+    \caption{Bifurcation diagram featuring same parametrization and initial conditions as \ref{growth_timeseries1}. $s$, the marginal propensity to save, is varied between 0.65 and 0.9 and the last 50 iterations are displayed. }
+    \label{growth_sbifurcation}
+\end{figure}
+Figure \ref{growth_sbifurcation} displays a Neimark-Sacker at $s\approx0.65$. Values less than this bifurcation yield stable 2-cycles as can be seen in Figure \ref{growth_timeseries1} where $s=0.6$. However, values greater than this bifurcation yield chaotic behavior with visible wiwndows of chaos. Of note however are the regions absent of points; for example, for many values of the parameter, the trajectory does not enter a period of zero-growth.
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/timeseries2.eps}
+    \caption{Timeseries plot of income growth over 200 iterations sharing the same parameters and initial conditions as Figure \ref{growth_timeseries1} except $s=0.7$.}
+    \label{growth_timeseries2}
+\end{figure}
+
+$k$ directly affects inventory production levels by shifting the desired level of inventory relative to predicted production. Although the value of the parameter only makes intuitive sense when bounded between 0 and 1, it would realistically not approach either extreme. If $k$ is too low, firms would not be able to handle unexpected demand shocks and if $k$ is too high, firms would effectively waste resources producing excess inventory. This model does not incorporate any form of inventory longevity; however, many types of products depreciate in value over time, disincentivizing excessive overproduction of goods.
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/kbifurcation.eps}
+    \caption{Bifurcation diagram varying $k$ featuring same parametrization as Figure \ref{growth_timeseries1}.}
+    \label{growth_kbifurcation}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/kbifurcation2.eps}
+    \caption{Bifurcation diagram varying $k$ featuring same parametrization as Figure \ref{growth_timeseries1} except $s=0.7$. }
+    \label{growth_kbifurcation2}
+\end{figure}
+
+Figure \ref{growth_kbifurcation} displays 2-cyclic trajectories for low to moderate levels of
+
+
+
+
+
+
+
+
+
 
