@@ -54,106 +54,153 @@ def mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, q, iter):
         dY[t] = growth(dU[t], dI[t], dS[t])
     return dY
 
-def sbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, k, v, q):
+def y0bifurcation(lower, upper, points, dY1, dY2, dY3, dY4, dY5, s, k, v, q):
     #Plot set up
     last = 20
     iterations = 1000
     fig = plt.figure(dpi=1200)
     ax = fig.add_subplot(111)
     #Generate distribution of parameter
-    s = np.linspace(lower, upper, points)
-    xaxis = np.repeat(s, last)
+    Y0 = np.linspace(lower, upper, points)
+    xaxis = np.repeat(Y0, last)
     yaxis = []
     #Solve for each parameter value
-    print("s Bifurcation")
+    print("$\dot Y_0$ Bifurcation")
     for j in tqdm(range(points)):
-        Income = mapping(dY0, dY1, dY2, dY3, dY4, dY5, s[j], k, v, q, iterations)
+        Income = mapping(Y0[j], dY1, dY2, dY3, dY4, dY5, s, k, v, q, iterations)
         for m in range(iterations):
             if m >= (iterations-last):
                 yaxis = np.append(yaxis, Income[m])
     ax.plot(xaxis, yaxis, ',k', alpha=0.25)
     #Labelling
     ax.minorticks_on()
-    ax.set_xlabel('$s$')
+    ax.set_xlabel('$\dot Y_0$')
     ax.set_ylabel('$\dot Y$')
-    #Save and show
-    plt.savefig('./manuscript/figures/metzlerian_growth/sbifurcation.eps', dpi=1200)
 
-def kbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, v, q):
+def y1bifurcation(lower, upper, points, dY0, dY2, dY3, dY4, dY5, s, k, v, q):
     #Plot set up
     last = 20
     iterations = 1000
     fig = plt.figure(dpi=1200)
     ax = fig.add_subplot(111)
     #Generate distribution of parameter
-    k = np.linspace(lower, upper, points)
-    xaxis = np.repeat(k, last)
+    Y1 = np.linspace(lower, upper, points)
+    xaxis = np.repeat(Y1, last)
     yaxis = []
     #Solve for each parameter value
-    print("k Bifurcation")
+    print("$\dot Y_1$ Bifurcation")
     for j in tqdm(range(points)):
-        Income = mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k[j], v, q, iterations)
+        Income = mapping(dY0, Y1[j], dY2, dY3, dY4, dY5, s, k, v, q, iterations)
         for m in range(iterations):
             if m >= (iterations-last):
                 yaxis = np.append(yaxis, Income[m])
     ax.plot(xaxis, yaxis, ',k', alpha=0.25)
     #Labelling
     ax.minorticks_on()
-    ax.set_xlabel('$k$')
+    ax.set_xlabel('$\dot Y_1$')
     ax.set_ylabel('$\dot Y$')
-    #Save and show
-    plt.savefig('./manuscript/figures/metzlerian_growth/kbifurcation.eps', dpi=1200)
 
-def qbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, v):
+def y2bifurcation(lower, upper, points, dY0, dY1, dY3, dY4, dY5, s, k, v, q):
     #Plot set up
     last = 20
     iterations = 1000
     fig = plt.figure(dpi=1200)
     ax = fig.add_subplot(111)
     #Generate distribution of parameter
-    q = np.linspace(lower, upper, points)
-    xaxis = np.repeat(q, last)
+    Y2 = np.linspace(lower, upper, points)
+    xaxis = np.repeat(Y2, last)
     yaxis = []
     #Solve for each parameter value
-    print("q Bifurcation")
+    print("$\dot Y_2$ Bifurcation")
     for j in tqdm(range(points)):
-        Income = mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, q[j], iterations)
+        Income = mapping(dY0, dY1, Y2[j], dY3, dY4, dY5, s, k, v, q, iterations)
         for m in range(iterations):
             if m >= (iterations-last):
                 yaxis = np.append(yaxis, Income[m])
-    ax.plot(xaxis, yaxis, ',q', alpha=0.25)
+    ax.plot(xaxis, yaxis, ',k', alpha=0.25)
     #Labelling
     ax.minorticks_on()
-    ax.set_xlabel('$q$')
+    ax.set_xlabel('$\dot Y_2$')
     ax.set_ylabel('$\dot Y$')
-    #Save and show
-    plt.savefig('./manuscript/figures/metzlerian_growth/qbifurcation.eps', dpi=1200)
 
-def vbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, q):
+def y3bifurcation(lower, upper, points, dY0, dY1, dY2, dY4, dY5, s, k, v, q):
     #Plot set up
     last = 20
     iterations = 1000
     fig = plt.figure(dpi=1200)
     ax = fig.add_subplot(111)
     #Generate distribution of parameter
-    v = np.linspace(lower, upper, points)
-    xaxis = np.repeat(v, last)
+    Y3 = np.linspace(lower, upper, points)
+    xaxis = np.repeat(Y3, last)
     yaxis = []
     #Solve for each parameter value
-    print("v Bifurcation")
+    print("$\dot Y_3$ Bifurcation")
     for j in tqdm(range(points)):
-        Income = mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k, v[j], q, iterations)
+        Income = mapping(dY0, dY1, dY2, Y3[j], dY4, dY5, s, k, v, q, iterations)
         for m in range(iterations):
             if m >= (iterations-last):
                 yaxis = np.append(yaxis, Income[m])
-    ax.plot(xaxis, yaxis, ',v', alpha=0.25)
+    ax.plot(xaxis, yaxis, ',k', alpha=0.25)
     #Labelling
     ax.minorticks_on()
-    ax.set_xlabel('$v$')
+    ax.set_xlabel('$\dot Y_3$')
     ax.set_ylabel('$\dot Y$')
-    #Save and show
-    plt.savefig('./manuscript/figures/metzlerian_growth/vbifurcation.eps', dpi=1200)
-sbifurcation(0.65, 0.9, 10000, 29, 30 , 50 , 100, 20, 50, 0.3, 500, 0.001)
-kbifurcation(0.1, 0.9, 10000, 29, 30 , 50 , 100, 20, 50, 0.5, 500, 0.001)
-qbifurcation(100, 1000, 10000, 29, 30 , 50 , 100, 20, 50, 0.5, 500, 0.001)
-vbifurcation(0.0, 1.0, 10000, 29, 30 , 50 , 100, 20, 50, 0.5, 500, 0.001)
+
+def y4bifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY5, s, k, v, q):
+    #Plot set up
+    last = 20
+    iterations = 1000
+    fig = plt.figure(dpi=1200)
+    ax = fig.add_subplot(111)
+    #Generate distribution of parameter
+    Y4 = np.linspace(lower, upper, points)
+    xaxis = np.repeat(Y4, last)
+    yaxis = []
+    #Solve for each parameter value
+    print("$\dot Y_4$ Bifurcation")
+    for j in tqdm(range(points)):
+        Income = mapping(dY0, dY1, dY2, dY3, Y4[j], dY5, s, k, v, q, iterations)
+        for m in range(iterations):
+            if m >= (iterations-last):
+                yaxis = np.append(yaxis, Income[m])
+    ax.plot(xaxis, yaxis, ',k', alpha=0.25)
+    #Labelling
+    ax.minorticks_on()
+    ax.set_xlabel('$\dot Y_4$')
+    ax.set_ylabel('$\dot Y$')
+
+def y5bifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, s, k, v, q):
+    #Plot set up
+    last = 20
+    iterations = 1000
+    fig = plt.figure(dpi=1200)
+    ax = fig.add_subplot(111)
+    #Generate distribution of parameter
+    Y5 = np.linspace(lower, upper, points)
+    xaxis = np.repeat(Y5, last)
+    yaxis = []
+    #Solve for each parameter value
+    print("$\dot Y_5$ Bifurcation")
+    for j in tqdm(range(points)):
+        Income = mapping(dY0, dY1, dY2, dY3, dY4, Y5[j], s, k, v, q, iterations)
+        for m in range(iterations):
+            if m >= (iterations-last):
+                yaxis = np.append(yaxis, Income[m])
+    ax.plot(xaxis, yaxis, ',k', alpha=0.25)
+    #Labelling
+    ax.minorticks_on()
+    ax.set_xlabel('$\dot Y_5$')
+    ax.set_ylabel('$\dot Y$')
+
+y0bifurcation(-400, 400, 5000, 120, 110, 100, 105, 107, 0.6, 0.3, 500, 0.001)
+plt.savefig('./manuscript/figures/metzlerian_growth/y0bifurcation.eps', dpi=1200)
+y1bifurcation(-400, 400, 5000, 100, 110, 100, 105, 107, 0.6, 0.3, 500, 0.001)
+plt.savefig('./manuscript/figures/metzlerian_growth/y1bifurcation.eps', dpi=1200)
+y2bifurcation(-400, 400, 5000, 100, 120, 100, 105, 107, 0.6, 0.3, 500, 0.001)
+plt.savefig('./manuscript/figures/metzlerian_growth/y2bifurcation.eps', dpi=1200)
+y3bifurcation(-400, 400, 5000, 100, 120, 110, 105, 107, 0.6, 0.3, 500, 0.001,)
+plt.savefig('./manuscript/figures/metzlerian_growth/y3bifurcation.eps', dpi=1200)
+y4bifurcation(-400, 400, 5000, 100, 120, 110, 100, 107, 0.6, 0.3, 500, 0.001)
+plt.savefig('./manuscript/figures/metzlerian_growth/y4bifurcation.eps', dpi=1200)
+y5bifurcation(-400, 400, 5000, 100, 120, 110, 100, 105, 0.6, 0.3, 500, 0.001)
+plt.savefig('./manuscript/figures/metzlerian_growth/y5bifurcation.eps', dpi=1200)

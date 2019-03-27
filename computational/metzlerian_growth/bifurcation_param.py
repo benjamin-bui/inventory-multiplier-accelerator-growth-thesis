@@ -125,7 +125,7 @@ def qbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, v):
     ax.set_xlabel('$q$')
     ax.set_ylabel('$\dot Y$')
     #Save and show
-   
+
 
 def vbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, q):
     #Plot set up
