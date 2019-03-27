@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-#Time series with mean of last 3 prediction
+#Create time series mapping 
 def growth(dUt, dIt, dSt):
     dYt = dUt + dIt + dSt
     return dYt
@@ -54,7 +54,7 @@ def mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, q, iter):
         dY[t] = growth(dU[t], dI[t], dS[t])
     return dY
 
-def bifurana(lower, upper, points, Yaxis, lsearch, period, precis):
+def lbifurana(lower, upper, points, Yaxis, lsearch, period, precis):
     last = 30
     param = np.linspace(lower, upper, points)
     Xaxis = np.repeat(param, last)
@@ -83,6 +83,34 @@ def bifurana(lower, upper, points, Yaxis, lsearch, period, precis):
     results.write(f"Long-run values at bifurcation: {set(np.round(ydat, precis))}\n")
     results.write(f"Analysis done rounding to {precis} decimal places\n\n")
     
+def rbifurana(lower, upper, points, Yaxis, usearch, period, precis):
+    last = 30
+    param = np.linspace(lower, upper, points)
+    Xaxis = np.repeat(param, last)
+    bifurfound = False
+    usearch = np.nonzero(Xaxis <= usearch)
+    usearch = usearch[0][0]
+    i = usearch
+    while bifurfound == False:
+        ydat = [Yaxis[i]]
+        for j in range(i+1, i+last):
+            ydat = np.append(ydat, Yaxis[j])
+        count = len(set(np.round(ydat, precis)))
+        if count != period:
+            print("Bifurcation Point Found")
+            bifurfound = True
+            print("Period Shift from")
+            print(period)
+            print("Bifurcation Point at")
+            print(Xaxis[i])
+            print("Points")
+            print(set(np.round(ydat, precis)))
+        else:
+            i -= last
+    results.write(f"Bifurcation Point Found into {period} cycle\n")
+    results.write(f"Bifurcation Point at {Xaxis[i]}\n")
+    results.write(f"Long-run values at bifurcation: {set(np.round(ydat, precis))}\n")
+    results.write(f"Analysis done rounding to {precis} decimal places\n\n")
 
 def sbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, k, v, q):
     #Print initial conditions of bifurcation to bifur_results.txt
@@ -162,11 +190,12 @@ def qbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, v):
 
 results = open('./computational/metzlerian_growth/bifur_results.txt', 'a+')
 Yaxis = sbifurcation(0.65, 0.9, 10000, 29, 30 , 50 , 100, 20, 50, 0.3, 500, 0.001)
-bifurana(0.65, 0.9, 10000, Yaxis, 0.65, 2, 0)
+lbifurana(0.65, 0.9, 10000, Yaxis, 0.65, 2, 0)
 Yaxis = kbifurcation(0.1, 0.9, 10000, 29, 30 , 50 , 100, 20, 50, 0.6, 500, 0.001)
-bifurana(0.1, 0.9, 10000, Yaxis, 0.1, 2, 0)
+lbifurana(0.1, 0.9, 10000, Yaxis, 0.1, 2, 0)
 Yaxis = vbifurcation(0, 2000, 10000, 29, 30 , 50 , 100, 20, 50, 0.6, 0.3, 0.001)
-bifurana(0, 2000, 10000, Yaxis, 550, 2, 0)
+lbifurana(0, 2000, 10000, Yaxis, 550, 2, 0)
+rbifurana(0, 2000, 10000, Yaxis, usearch, 1000, 1, 0)
 Yaxis = qbifurcation(0, 0.0001, 10000, 29, 30 , 50 , 100, 20, 50, 0.6, 0.3, 500)
-bifurana(0,0.0001, 10000, Yaxis, 0, 0)
+lbifurana(0,0.0001, 10000, Yaxis, 0, 0)
 results.close()
