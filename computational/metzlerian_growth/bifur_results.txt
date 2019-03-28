@@ -1,0 +1,33 @@
+Initial conditions of s bifurcation: lower=0.65, upper=0.9, points=50000, dY0=29, dY1=30, dY2=50, dY3=100, dY4=20, dY5=50, k=0.3, v=500, q=0.001 
+
+Bifurcation Point Found from 2 cycle
+Bifurcation Point at 0.6698753975079502
+Long-run values at bifurcation: {213.0, -156.0, 85.0}
+Analysis done rounding to 0 decimal places
+
+Initial conditions of k bifurcation: lower=0.1, upper=0.9, points=50000, dY0=29, dY1=30, dY2=50, dY3=100, dY4=20, dY5=50, s=0.6, v=500, q=0.001 
+
+Bifurcation Point Found from 2 cycle
+Bifurcation Point at 0.5147282945658913
+Long-run values at bifurcation: {-62.0, 82.0, 99.0, -68.0}
+Analysis done rounding to 0 decimal places
+
+Initial conditions of v bifurcation: lower=1, upper=2000, points=50000, dY0=29, dY1=30, dY2=50, dY3=100, dY4=20, dY5=50, s=0.6, k=0.3, q=0.001 
+
+Bifurcation Point Found from 2 cycle
+Bifurcation Point at 575.0443208864177
+Long-run values at bifurcation: {72.0, 73.0, 78.0, 81.0, 84.0, 88.0, 89.0, 92.0, 93.0, 94.0, 95.0, 96.0, 98.0, 99.0, 100.0, 101.0, 102.0, 103.0, 104.0, 106.0, 108.0, 111.0, 112.0, 116.0, 117.0, 119.0}
+Analysis done rounding to 0 decimal places
+
+Bifurcation Point Found into 1 cycle
+Bifurcation Point at 623.612472249445
+Long-run values at bifurcation: {102.0, 103.0}
+Analysis done rounding to 0 decimal places
+
+Initial conditions of q bifurcation: lower=0, upper=0.0001, points=50000, dY0=29, dY1=30, dY2=50, dY3=100, dY4=20, dY5=50, s=0.6, k=0.3, v=500 
+
+Bifurcation Point Found from 1 cycle
+Bifurcation Point at 8.521570431408629e-05
+Long-run values at bifurcation: {-640.0, 38.0, -943.0, -143.0, 153.0, 250.0}
+Analysis done rounding to 0 decimal places
+
