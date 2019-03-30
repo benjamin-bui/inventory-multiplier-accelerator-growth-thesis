@@ -42,7 +42,7 @@ def lbifurana(lower, upper, points, Yaxis, lsearch, period, precis):
             i += last
     results.write(f"Bifurcation Point found starting search from {lsearch}, left to right from {period} cycle.\n")
     results.write(f"Bifurcation Point at {Xaxis[i]}.\n")
-    results.write(f"Long-run values at bifurcation: {set(np.round(ydat, precis))}; Value Count = {len(set(np.round(ydat, precis)))} \.\n")
+    results.write(f"Long-run values at bifurcation: {set(np.round(ydat, precis))}; Value Count = {len(set(np.round(ydat, precis)))}.\n")
     results.write(f"Analysis done rounding to {precis} decimal places.\n\n")
     
 def rbifurana(lower, upper, points, Yaxis, usearch, period, precis):
@@ -154,6 +154,7 @@ lbifurana(1, 2000, 50000, Yaxis, 1, 1, 0)
 rbifurana(1, 2000, 50000, Yaxis,  1000, 1, 0)
 lbifurana(1, 2000, 50000, Yaxis, 525, 2, 0)
 rbifurana(1, 2000, 50000, Yaxis,  525, 2, 0)
-Yaxis = qbifurcation(0, 0.0001, 50000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 500)
-rbifurana(0,0.0001, 50000, Yaxis, 0.00008, 1, 0)
+Yaxis = qbifurcation(0, 0.002, 50000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 500)
+rbifurana(0, 0.002, 50000, Yaxis, 0.002, 1, 0)
+rbifurana(0, 0.002, 50000, Yaxis, 0.001598, 2, 0)
 results.close()

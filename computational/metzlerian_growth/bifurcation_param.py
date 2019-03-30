@@ -112,7 +112,7 @@ def vbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, q):
     ax.minorticks_on()
     ax.set_xlabel('$v$')
     ax.set_ylabel('$\dot Y$')
-
+        
 sbifurcation(0.1, 0.9, 10000, 100, 120, 110, 100, 105, 107, 0.3, 500, 0.001)
 plt.savefig('./manuscript/figures/metzlerian_growth/sbifurcation.eps', dpi=1200)
 kbifurcation(0.1, 0.9, 10000, 100, 120, 110, 100, 105, 107, 0.6, 500, 0.001)
@@ -121,5 +121,5 @@ kbifurcation(0.1, 0.9, 10000, 100, 120, 110, 100, 105, 107, 0.7, 500, 0.001)
 plt.savefig('./manuscript/figures/metzlerian_growth/kbifurcation2.eps', dpi=1200)
 vbifurcation(1, 2000, 10000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 0.001)
 plt.savefig('./manuscript/figures/metzlerian_growth/vbifurcation.eps', dpi=1200)
-qbifurcation(0, 0.0001, 10000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 500)
+qbifurcation(0, 0.002, 10000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 500)
 plt.savefig('./manuscript/figures/metzlerian_growth/qbifurcation.eps', dpi=1200)

@@ -85,7 +85,7 @@ There do not exist techniques to solve generalized 6th order difference equation
     \label{metzlerian_growth-sbifurcation}
 \end{figure}
 
-The bifurcation diagram displayed in Figure \ref{metzlerian_growth-sbifurcation} displays the long-run behavior of the model as $s$ is varied. The methodology of the computational analysis and results are displayed in detail in Section \ref{bifurcation_analyzer} and Section \ref{bifurcation_analysis}, respectively. Long-run values are rounded to their nearest whole number for the purposes of this computational analysis although it is possible to account for higher levels of numerical precision using the analyzer. A bifurcation point exists at $s=0.65$ and $s=0.53$, the mapping is a stable 2 cycle when $s$ is between these two values. 
+The bifurcation diagram displayed in Figure \ref{metzlerian_growth-sbifurcation} displays the long-run behavior of the model as $s$ is varied. The methodology of the computational analysis and results are displayed in detail in Section \ref{bifurcation_analyzer} and Section \ref{bifurcation_analysis}, respectively. Long-run values are rounded to their nearest whole number for the purposes of this computational analysis although it is possible to account for higher levels of numerical precision using the analyzer. A bifurcation point exists at $s=0.65$ and $s=0.53$, the mapping is a stable 2 cycle when $s$ is between these two values. This implies the presence of a stable business cycle when the marginal propensity to save is moderately high; however, the behavior appears chaotic when the marginal propensity to save approaches either extreme. 
 
 \begin{figure}
     \centering
@@ -94,7 +94,26 @@ The bifurcation diagram displayed in Figure \ref{metzlerian_growth-sbifurcation}
     \label{metzlerian_growth-kbifurcation}
 \end{figure}
 
-The bifurcation diagram varying $k$ qualitatively appears much simpler than Figure \ref{metzlerian_growth-sbifurcation}. This diagram displays stable, 2-cycle behavior except when $\leq k$
+The bifurcation diagram varying $k$ seen in Figure \ref{metzlerian_growth-kbifurcation} qualitatively appears much simpler than Figure \ref{metzlerian_growth-sbifurcation}. This diagram displays a bifurcation point when $k\approx 0.84837$. The model displays stable 2-cycle behavior until this point although the system continues to display windows of ordered cycles. It thus appears that although increasing the desired proportional level of inventory does increase the long-run level of cyclic growth, it does not affect the topology until $k$ is unrealistically large. 
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/vbifurcation}
+    \caption{Bifurcation diagram varying $v$ between 1 and 2000. Initial conditions and other parameters are held constant as described in Figure \ref{growth_timeseries1}.}
+    \label{metzlerian_growth-vbifurcation}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/qbifurcation}
+    \caption{Bifurcation diagram varying $q$ between 0 and 0.0001. Initial conditions and other parameters are held constant as described in Figure \ref{growth_timeseries1}.}
+    \label{metzlerian_growth-qbifurcation}
+\end{figure}
+
+Figure \ref{metzlerian_growth-vbifurcation} exhibits stable, fixed growth when $v\in[1,297.338)\cup(617.104, 2000]$ which is the upper bound of what was computationally determined. The model also displays a stable 2-cycle when $v\in(472.173, 589.757)$. Likewise, Figure \ref{metzlerian_growth-qbifurcation} has a bifurcation point at $q\approx0.0015997$ and $q\approx0.0015976$ which mark transitions from a stable, fixed point to a 2-period cycle to a 3-period cycle (more bifurcation points exist within the diagram and are more easily viewed by narrowing the parameter variation range). As stated previously, $v$ and $q$ individually lack an economic interpretation, but together they approximate the dynamics of a linear-cubic investment curve while incorporating bounded, asymptotic behavior. 
+
+\subsection{Chaotic Behavior in Growth}
+Bifurcation analysis of this type allows us to determine the presence and location of bifurcation points separating arbitrary period cycles. However, this is insufficient to determining if varying the parameters of the model result in chaotic behavior and where exactly this transition occurs. The existence of chaos lends credence to the assumption of bounded rationality assigned to firms. If the model always features stable cycles, then it would only be logical that firms would eventually be able to adapt their predicitve mechanism to predict this ordered behavior. The effect this shift in expectation rule would have on future dynamics is beyond the scope of this paper; however, the presence of chaos means the model is sufficiently sensitive to initial conditions that firms would not be able to accurately determine the future state of the market as under a chaotic system, knowing the approximate current state of the economy does not inform firms of the approximate future state of the economy. 
+
 
 
 
