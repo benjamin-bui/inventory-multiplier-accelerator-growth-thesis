@@ -1,8 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rc
-import math
-import time
 from tqdm import tqdm
 import statistics
 
@@ -62,9 +60,8 @@ def bbifurcation(lower, upper, points, c, d, f, k, Y0, U0, Ibar):
     print("b Bifurcation")
     for j in tqdm(range(points)):
         Income = timeseries(b[j], c, d, f, k, Y0, U0, Ibar, iterations)
-        for m in range(iterations):
-            if m >= (iterations-last):
-                yaxis = np.append(yaxis, Income[m])
+        lastvalues = Income[-last:]
+        yaxis.extend(lastvalues)
     ax.plot(xaxis, yaxis, ',k', alpha=0.25)
     #Labelling
     ax.minorticks_on()
@@ -88,9 +85,8 @@ def cbifurcation(lower, upper, points, b, d, f, k, Y0, U0, Ibar):
     print("c Bifurcation")
     for j in tqdm(range(points)):
         Income = timeseries(b, c[j], d, f, k, Y0, U0, Ibar, iterations)
-        for m in range(iterations):
-            if m >= (iterations-last):
-                yaxis = np.append(yaxis, Income[m])
+        lastvalues = Income[-last:]
+        yaxis.extend(lastvalues)
     ax.plot(xaxis, yaxis, ',k', alpha=0.25)
     #Labelling
     ax.minorticks_on()
@@ -114,9 +110,8 @@ def kbifurcation(lower, upper, points, b, c, d, f, Y0, U0, Ibar):
     print("k Bifurcation")
     for j in tqdm(range(points)):
         Income = timeseries(b, c, d, f, k[j], Y0, U0, Ibar, iterations)
-        for m in range(iterations):
-            if m >= (iterations-last):
-                yaxis = np.append(yaxis, Income[m])
+        lastvalues = Income[-last:]
+        yaxis.extend(lastvalues)
     ax.plot(xaxis, yaxis, ',k', alpha=0.25)
     #Labelling
     ax.minorticks_on()
@@ -141,9 +136,8 @@ def dbifurcation(lower, upper, points, b, c, f, k, Y0, U0, Ibar):
     print("d Bifurcation")
     for j in tqdm(range(points)):
         Income = timeseries(b, c, d[j], f, k, Y0, U0, Ibar, iterations)
-        for m in range(iterations):
-            if m >= (iterations-last):
-                yaxis = np.append(yaxis, Income[m])
+        lastvalues = Income[-last:]
+        yaxis.extend(lastvalues)
     ax.plot(xaxis, yaxis, ',k', alpha=0.25)
     #Labelling
     ax.minorticks_on()
@@ -168,9 +162,8 @@ def fbifurcation(lower, upper, points, b, c, d, k, Y0, U0, Ibar):
     print("f Bifurcation")
     for j in tqdm(range(points)):
         Income = timeseries(b, c, d, f[j], k, Y0, U0, Ibar, iterations)
-        for m in range(iterations):
-            if m >= (iterations-last):
-                yaxis = np.append(yaxis, Income[m])
+        lastvalues = Income[-last:]
+        yaxis.extend(lastvalues)
     ax.plot(xaxis, yaxis, ',k', alpha=0.25)
     #Labelling
     ax.minorticks_on()

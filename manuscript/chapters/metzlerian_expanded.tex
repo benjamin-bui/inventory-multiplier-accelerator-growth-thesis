@@ -77,45 +77,24 @@ The long run dynamics of the model are highly dependent on the choice of initial
 \end{figure}
 Figure \ref{growth_timeseries1} displays a possible trajectory of income growth. Under the parameters listed, the trajectory clearly behaves in a stable, cyclic manner within 40 iterations. 
 
-\begin{figure}[ht]
+There do not exist techniques to solve generalized 6th order difference equations; however it is possible to computationally solve for the long run dynamics of the system.
+\begin{figure}
     \centering
-    \includegraphics[height=0.4\textheight]{./metzlerian_growth/timeseries3.eps}
-    \caption{Timeseries plot of income growth rate over 150 iterations. Parameters are identical to the model presented in Figure \ref{growth_timeseries1}. Initial conditions of $\dot Y$ are: 29. 20, 15, 10, 20, 50}
-    \label{growth_timeseries3}
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/sbifurcation}
+    \caption{Bifurcation diagram varying $s$ between 0.1 and 0.9. Initial conditions and other parameters are held constant as described in Figure \ref{growth_timeseries1}.}
+    \label{metzlerian_growth-sbifurcation}
 \end{figure}
-Figure \ref{growth_timeseries3} displays a trajectory of income growth given identical parameters to the timeseries displayed in \ref{growth_timeseries1}. However, the dynamics of the model are qualitatively different, indicating long-run sensitivity to initial conditions. 
+
+The bifurcation diagram displayed in Figure \ref{metzlerian_growth-sbifurcation} displays the long-run behavior of the model as $s$ is varied. The methodology of the computational analysis and results are displayed in detail in Section \ref{bifurcation_analyzer} and Section \ref{bifurcation_analysis}, respectively. Long-run values are rounded to their nearest whole number for the purposes of this computational analysis although it is possible to account for higher levels of numerical precision using the analyzer. A bifurcation point exists at $s=0.65$ and $s=0.53$, the mapping is a stable 2 cycle when $s$ is between these two values. 
 
 \begin{figure}
     \centering
-    \includegraphics[height=0.4\textheight]{./metzlerian_growth/sbifurcation.eps}
-    \caption{Bifurcation diagram featuring same parametrization and initial conditions as \ref{growth_timeseries1}. $s$, the marginal propensity to save, is varied between 0.65 and 0.9 and the last 50 iterations are displayed. }
-    \label{growth_sbifurcation}
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/kbifurcation}
+    \caption{Bifurcation diagram varying $k$ between 0.1 and 0.9. Initial conditions and other parameters are held constant as described in Figure \ref{growth_timeseries1}.}
+    \label{metzlerian_growth-kbifurcation}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[height=0.4\textheight]{./metzlerian_growth/timeseries2.eps}
-    \caption{Timeseries plot of income growth over 200 iterations sharing the same parameters and initial conditions as Figure \ref{growth_timeseries1} except $s=0.7$.}
-    \label{growth_timeseries2}
-\end{figure}
-
-$k$ directly affects inventory production levels by shifting the desired level of inventory relative to predicted production. Although the value of the parameter only makes intuitive sense when bounded between 0 and 1, it would realistically not approach either extreme. If $k$ is too low, firms would not be able to handle unexpected demand shocks and $k$ would only approach 1 if it determined that its predictive mechanism was frequently incorrect in which case it is more likely that firms would develop a more accurate mechanism than waste resources creating large amounts of inventory. It is possible for $k>1$; however, these scenarios are not considered within the scope of this paper.
-
-\begin{figure}
-    \centering
-    \includegraphics[height=0.4\textheight]{./metzlerian_growth/kbifurcation.eps}
-    \caption{Bifurcation diagram varying $k$ featuring same parametrization as Figure \ref{growth_timeseries1}.}
-    \label{growth_kbifurcation}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[height=0.4\textheight]{./metzlerian_growth/kbifurcation2.eps}
-    \caption{Bifurcation diagram varying $k$ featuring same parametrization as Figure \ref{growth_timeseries1} except $s=0.7$. }
-    \label{growth_kbifurcation2}
-\end{figure}
-
-There do not exist techniques to solve generalized 6th order difference equations; however it is possible to computationally solve for the long run dynamics of the system. 
+The bifurcation diagram varying $k$ qualitatively appears much simpler than Figure \ref{metzlerian_growth-sbifurcation}. This diagram displays stable, 2-cycle behavior except when $\leq k$
 
 
 

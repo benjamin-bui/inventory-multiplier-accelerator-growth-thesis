@@ -1,2 +1,58 @@
 Initial conditions of s bifurcation: lower=0.1, upper=0.9, points=50000, dY0=100, dY1=120, dY2=110, dY3=100, dY4=105, dY5=107, k=0.3, v=500, q=0.001 
 
+Bifurcation Point found starting search from 0.53, left to right from 2 cycle.
+Bifurcation Point at 0.65.
+Long-run values at bifurcation: {131.0, 4.0, 132.0, 6.0, 133.0, 136.0, 135.0, 23.0, 31.0, 34.0, 46.0, 54.0, 67.0, 70.0, 76.0, 95.0, 98.0, 102.0, -19.0, -18.0, 110.0, 112.0, 114.0, -14.0, 118.0, -10.0, 120.0, 122.0, -1.0}; Value Count = 29 \.
+Analysis done rounding to 0 decimal places.
+
+Bifurcation Point found starting search from 0.53, right to left into 2 cycle.
+Bifurcation Point Found into 2 cycle.
+Bifurcation Point at 0.65.
+Long-run values at bifurcation: {131.0, 4.0, 132.0, 6.0, 133.0, 136.0, 135.0, 23.0, 31.0, 34.0, 46.0, 54.0, 67.0, 70.0, 76.0, 95.0, 98.0, 102.0, -19.0, -18.0, 110.0, 112.0, 114.0, -14.0, 118.0, -10.0, 120.0, 122.0, -1.0}; Value Count = 29.
+Analysis done rounding to 0 decimal places.
+
+Initial conditions of k bifurcation: lower=0.1, upper=0.9, points=50000, dY0=100, dY1=120, dY2=110, dY3=100, dY4=105, dY5=107, s=0.6, v=500, q=0.001 
+
+Bifurcation Point found starting search from 0.1, left to right from 2 cycle.
+Bifurcation Point at 0.8483669673393468.
+Long-run values at bifurcation: {-109.0, -99.0, -96.0, -91.0, 44.0, -83.0, -82.0, -84.0, -80.0, 51.0, -74.0, 55.0, -69.0, 61.0, -67.0, 67.0, -60.0, 73.0, -54.0, 75.0, 78.0, 87.0, -37.0, 91.0, 94.0, 96.0, 97.0, -30.0}; Value Count = 28 \.
+Analysis done rounding to 0 decimal places.
+
+Bifurcation Point found starting search from 0.9, right to left into 2 cycle.
+Bifurcation Point Found into 2 cycle.
+Bifurcation Point at 0.8994559891197824.
+Long-run values at bifurcation: {-207.0, 140.0, -75.0}; Value Count = 3.
+Analysis done rounding to 0 decimal places.
+
+Initial conditions of v bifurcation: lower=1, upper=2000, points=50000, dY0=100, dY1=120, dY2=110, dY3=100, dY4=105, dY5=107, s=0.6, k=0.3, q=0.001 
+
+Bifurcation Point found starting search from 1, left to right from 1 cycle.
+Bifurcation Point at 297.33768675373506.
+Long-run values at bifurcation: {101.0, 102.0}; Value Count = 2 \.
+Analysis done rounding to 0 decimal places.
+
+Bifurcation Point found starting search from 1000, right to left into 1 cycle.
+Bifurcation Point Found into 1 cycle.
+Bifurcation Point at 617.1041220824416.
+Long-run values at bifurcation: {101.0, 102.0}; Value Count = 2.
+Analysis done rounding to 0 decimal places.
+
+Bifurcation Point found starting search from 525, left to right from 2 cycle.
+Bifurcation Point at 589.7572551451028.
+Long-run values at bifurcation: {74.0, 77.0, 79.0, 85.0, 90.0, 92.0, 94.0, 96.0, 97.0, 99.0, 100.0, 102.0, 104.0, 105.0, 106.0, 108.0, 109.0, 112.0, 113.0, 116.0, 119.0, 121.0, 123.0}; Value Count = 23 \.
+Analysis done rounding to 0 decimal places.
+
+Bifurcation Point found starting search from 525, right to left into 2 cycle.
+Bifurcation Point Found into 2 cycle.
+Bifurcation Point at 472.17372347446945.
+Long-run values at bifurcation: {226.0, 83.0, -121.0}; Value Count = 3.
+Analysis done rounding to 0 decimal places.
+
+Initial conditions of q bifurcation: lower=0, upper=0.0001, points=50000, dY0=100, dY1=120, dY2=110, dY3=100, dY4=105, dY5=107, s=0.6, k=0.3, v=500 
+
+Bifurcation Point found starting search from 8e-05, right to left into 1 cycle.
+Bifurcation Point Found into 1 cycle.
+Bifurcation Point at 8.000160003200064e-05.
+Long-run values at bifurcation: {139.0, 142.0, -104.0, -232.0, -99.0, -91.0, -86.0, 554.0, -207.0, 53.0, -322.0, 320.0, -191.0, -566.0, -47.0, -289.0, 96.0, 607.0, -412.0, -26.0, 231.0, 360.0, 489.0, 107.0, -146.0, 112.0, 117.0, 122.0, 125.0, -642.0}; Value Count = 30.
+Analysis done rounding to 0 decimal places.
+

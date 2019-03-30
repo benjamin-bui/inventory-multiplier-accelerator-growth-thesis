@@ -52,7 +52,10 @@ articletitle
 	\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}%
 }
 \usepackage{chemformula}
-
+\usepackage{listings}
+\lstset{columns=fullflexible,
+	breaklines=true
+	postbreak=\mbox{\textcolor{black}{$\hookrightarrow$}\space}}
 %Lorem Ipsum%
 \usepackage{lipsum}
 
@@ -95,14 +98,20 @@ articletitle
 \input{chapters/introduction}
 \chapter{Heterogenous Inventory Cycles by Westerhoff et al.}
 \input{chapters/metzlerian_basic}
-\chapter{Inventory Cycles with Endogenous Investment\\ and Adaptive Expectations}
+\chapter{Inventory Cycles with Averaged Expectations, Endogenous Investment, and Consumption Lag}
 \input{chapters/metzlerian_expanded}
 \chapter{Conclusion}
 \input{chapters/conclusion}
 \chapter{References}
 \input{chapters/references}
 \begin{appendices}
-\chapter{Solving for Change in Income}
-\input{chapters/appendixA}
+\chapter{Solving for Change in Income}\label{appendix_growth}
+\input{chapters/appendix_growth}
+\chapter{Computational Analysis of the Logistic Map}
+\input{chapters/appendix_comp-logistic}
+\chapter{Computational Analysis of the Metzlerian Inventory Cycle Model with Heterogenous Expectation Rules}
+\input{chapters/appendix_comp-metzlerian}
+\chapter{Computational Analysis of the Metlerian Inventory Cycle Model with Averaged Expectations, Endogenous Investment, and Consumption Lag}
+\input{chapters/appendix_comp-metzlerian_growth}	
 \end{appendices}
 \end{document}
