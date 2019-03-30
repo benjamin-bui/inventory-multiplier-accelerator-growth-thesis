@@ -23,16 +23,15 @@ def lbifurana(lower, upper, points, Yaxis, lsearch, period, precis):
     param = np.linspace(lower, upper, points)
     Xaxis = np.repeat(param, last)
     bifurfound = False
-    lsearch = np.nonzero(Xaxis >= lsearch)
-    lsearch = lsearch[0][0]
-    i = lsearch
+    i = np.nonzero(Xaxis >= lsearch)
+    i = i[0][0]
     while bifurfound == False:
         ydat = [Yaxis[i]]
         for j in range(i+1, i+last):
             ydat = np.append(ydat, Yaxis[j])
         count = len(set(np.round(ydat, precis)))
         if count != period:
-            print("Bifurcation Point Found")
+            print("Bifurcation Point Found Searching")
             bifurfound = True
             print("Period Shift from")
             print(period)
@@ -42,6 +41,7 @@ def lbifurana(lower, upper, points, Yaxis, lsearch, period, precis):
             print(set(np.round(ydat, precis)))
         else:
             i += last
+    results.write(f"Bifurcation Point found starting search from {lsearch}, left to right\n")
     results.write(f"Bifurcation Point Found from {period} cycle\n")
     results.write(f"Bifurcation Point at {Xaxis[i]}\n")
     results.write(f"Long-run values at bifurcation: {set(np.round(ydat, precis))}\n")
@@ -52,9 +52,8 @@ def rbifurana(lower, upper, points, Yaxis, usearch, period, precis):
     param = np.linspace(lower, upper, points)
     Xaxis = np.repeat(param, last)
     bifurfound = False
-    usearch = np.nonzero(Xaxis >= usearch)
-    usearch = usearch[0][0]
-    i = usearch
+    i = np.nonzero(Xaxis >= usearch)
+    i = i[0][0]
     while bifurfound == False:
         ydat = [Yaxis[i]]
         for j in range(i+1, i+last):
@@ -71,6 +70,7 @@ def rbifurana(lower, upper, points, Yaxis, usearch, period, precis):
             print(set(np.round(ydat, precis)))
         else:
             i -= last
+    results.write(f"Bifurcation Point found starting search from {usearch}, right to left\n")
     results.write(f"Bifurcation Point Found into {period} cycle\n")
     results.write(f"Bifurcation Point at {Xaxis[i]}\n")
     results.write(f"Long-run values at bifurcation: {set(np.round(ydat, precis))}\n")
@@ -149,13 +149,16 @@ def qbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, v):
     return(Yaxis)
 
 results = open('./computational/metzlerian_growth/bifur_results.txt', 'a+')
-Yaxis = sbifurcation(0.65, 0.9, 50000, 29, 30 , 50 , 100, 20, 50, 0.3, 500, 0.001)
-lbifurana(0.65, 0.9, 50000, Yaxis, 0.65, 2, 0)
-Yaxis = kbifurcation(0.1, 0.9, 50000, 29, 30 , 50 , 100, 20, 50, 0.6, 500, 0.001)
+Yaxis = sbifurcation(0.1, 0.9, 50000, 100, 120, 110, 100, 105, 107, 0.3, 500, 0.001)
+lbifurana(0.65, 0.9, 50000, Yaxis, 0.53, 2, 0)
+rbifurana(0.65, 0.9, 50000, Yaxis, 0.53, 2, 0)
+Yaxis = kbifurcation(0.1, 0.9, 50000, 100, 120, 110, 100, 105, 107, 0.6, 500, 0.001)
 lbifurana(0.1, 0.9, 50000, Yaxis, 0.1, 2, 0)
-Yaxis = vbifurcation(1, 2000, 50000, 29, 30 , 50 , 100, 20, 50, 0.6, 0.3, 0.001)
-lbifurana(1, 2000, 50000, Yaxis, 550, 2, 0)
-rbifurana(0, 2000, 50000, Yaxis,  1000, 1, 0)
-Yaxis = qbifurcation(0, 0.0001, 50000, 29, 30 , 50 , 100, 20, 50, 0.6, 0.3, 500)
-lbifurana(0,0.0001, 50000, Yaxis, 0.000001, 1, 0)
+Yaxis = vbifurcation(1, 2000, 50000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 0.001)
+lbifurana(1, 2000, 50000, Yaxis, 1, 1, 0)
+rbifurana(1, 2000, 50000, Yaxis,  1000, 1, 0)
+lbifurana(1, 2000, 50000, Yaxis, 525, 2, 0)
+rbifurana(1, 2000, 50000, Yaxis,  525, 2, 0)
+Yaxis = qbifurcation(0, 0.0001, 50000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 500)
+rbifurana(0,0.0001, 50000, Yaxis, 0.00008, 1, 0)
 results.close()

@@ -77,13 +77,21 @@ The long run dynamics of the model are highly dependent on the choice of initial
 \end{figure}
 Figure \ref{growth_timeseries1} displays a possible trajectory of income growth. Under the parameters listed, the trajectory clearly behaves in a stable, cyclic manner within 40 iterations. 
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/timeseries3.eps}
+    \caption{Timeseries plot of income growth rate over 150 iterations. Parameters are identical to the model presented in Figure \ref{growth_timeseries1}. Initial conditions of $\dot Y$ are: 29. 20, 15, 10, 20, 50}
+    \label{growth_timeseries3}
+\end{figure}
+Figure \ref{growth_timeseries3} displays a trajectory of income growth given identical parameters to the timeseries displayed in \ref{growth_timeseries1}. However, the dynamics of the model are qualitatively different, indicating long-run sensitivity to initial conditions. 
+
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/sbifurcation.eps}
     \caption{Bifurcation diagram featuring same parametrization and initial conditions as \ref{growth_timeseries1}. $s$, the marginal propensity to save, is varied between 0.65 and 0.9 and the last 50 iterations are displayed. }
     \label{growth_sbifurcation}
 \end{figure}
-Figure \ref{growth_sbifurcation} displays a bifurcation at $s\approx0.65$. Values less than this bifurcation yield stable 2-cycles as can be seen in Figure \ref{growth_timeseries1} where $s=0.6$. However, values greater than this bifurcation yield chaotic behavior with visible wiwndows of chaos. Of note however are the regions absent of points; for example, for many values of the parameter, the trajectory does not enter a period of zero-growth.
+
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/timeseries2.eps}
@@ -91,7 +99,7 @@ Figure \ref{growth_sbifurcation} displays a bifurcation at $s\approx0.65$. Value
     \label{growth_timeseries2}
 \end{figure}
 
-$k$ directly affects inventory production levels by shifting the desired level of inventory relative to predicted production. Although the value of the parameter only makes intuitive sense when bounded between 0 and 1, it would realistically not approach either extreme. If $k$ is too low, firms would not be able to handle unexpected demand shocks and if $k$ is too high, firms would effectively waste resources producing excess inventory. This model does not incorporate any form of inventory longevity; however, many types of products depreciate in value over time, disincentivizing excessive overproduction of goods.
+$k$ directly affects inventory production levels by shifting the desired level of inventory relative to predicted production. Although the value of the parameter only makes intuitive sense when bounded between 0 and 1, it would realistically not approach either extreme. If $k$ is too low, firms would not be able to handle unexpected demand shocks and $k$ would only approach 1 if it determined that its predictive mechanism was frequently incorrect in which case it is more likely that firms would develop a more accurate mechanism than waste resources creating large amounts of inventory. It is possible for $k>1$; however, these scenarios are not considered within the scope of this paper.
 
 \begin{figure}
     \centering
@@ -107,7 +115,7 @@ $k$ directly affects inventory production levels by shifting the desired level o
     \label{growth_kbifurcation2}
 \end{figure}
 
-There do not exist techniques to solve generalized 6th order difference equations; however it is possible to computationally solve for the solution of the system. 
+There do not exist techniques to solve generalized 6th order difference equations; however it is possible to computationally solve for the long run dynamics of the system. 
 
 
 
