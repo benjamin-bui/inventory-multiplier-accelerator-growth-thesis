@@ -111,8 +111,46 @@ The bifurcation diagram varying $k$ seen in Figure \ref{metzlerian_growth-kbifur
 
 Figure \ref{metzlerian_growth-vbifurcation} exhibits stable, fixed growth when $v\in[1,297.338)\cup(617.104, 2000]$ which is the upper bound of what was computationally determined. The model also displays a stable 2-cycle when $v\in(472.173, 589.757)$. Likewise, Figure \ref{metzlerian_growth-qbifurcation} has a bifurcation point at $q\approx0.0015997$ and $q\approx0.0015976$ which mark transitions from a stable, fixed point to a 2-period cycle to a 3-period cycle (more bifurcation points exist within the diagram and are more easily viewed by narrowing the parameter variation range). As stated previously, $v$ and $q$ individually lack an economic interpretation, but together they approximate the dynamics of a linear-cubic investment curve while incorporating bounded, asymptotic behavior. 
 
+These bifurcation diagrams do not tell the complete story of this model however for any given set of parameters. As stated previously, 
 \subsection{Chaotic Behavior in Growth}
-Bifurcation analysis of this type allows us to determine the presence and location of bifurcation points separating arbitrary period cycles. However, this is insufficient to determining if varying the parameters of the model result in chaotic behavior and where exactly this transition occurs. The existence of chaos lends credence to the assumption of bounded rationality assigned to firms. If the model always features stable cycles, then it would only be logical that firms would eventually be able to adapt their predicitve mechanism to predict this ordered behavior. The effect this shift in expectation rule would have on future dynamics is beyond the scope of this paper; however, the presence of chaos means the model is sufficiently sensitive to initial conditions that firms would not be able to accurately determine the future state of the market as under a chaotic system, knowing the approximate current state of the economy does not inform firms of the approximate future state of the economy. 
+Bifurcation analysis of this type allows us to determine the presence and location of bifurcation points separating arbitrary period cycles. However, this is insufficient to determining if varying the parameters of the model result in chaotic behavior and where exactly this transition occurs. The existence of chaos lends credence to the assumption of bounded rationality assigned to firms. If the model always features stable cycles, then it would only be logical that firms would eventually be able to adapt their predictive mechanism to predict this ordered behavior. The effect this shift in expectation rule would have on future dynamics is beyond the scope of this paper; however, the presence of chaos means the model is sufficiently sensitive to initial conditions that firms would not be able to accurately determine the future state of the market as under a chaotic system, knowing the approximate current state of the economy does not inform firms of the approximate future state of the economy. 
+
+We begin by rewriting the model as a 1st-order difference equation with 6 variables. This can be done by creating and defining the variables $\dot Y_{t-1}=\dot A_t$, $\dot A_{t-1}=\dot B_{t}$, $\dot B_{t-1}=\dot C_{t}$, $\dot C_{t-1}=\dot D_{t}$, and $\dot D_{t-1}=\dot G_{t}$. This allows us to define an equivalent model:
+\begin{align*}
+    \dot Y_t = f(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
+    \dot A_t = g(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
+    \dot B_t = h(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
+    \dot C_t = j(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
+    \dot D_t = l(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
+    \dot G_t = m(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})
+\end{align*}
+The Jacobian matrix of this system of equations is:
+\begin{equation*}
+J = \begin{bmatrix}
+    \frac{\partial f}{\partial \dot Y_{t-1}} & \frac{\partial f}{\partial \dot A_{t-1}} & \frac{\partial f}{\partial \dot B_{t-1}} & \frac{\partial f}{\partial \dot C_{t-1}} & \frac{\partial f}{\partial \dot D_{t-1}} & \frac{\ f}{\partial \dot G_{t-1}}\\
+    \frac{\partial g}{\partial \dot Y_{t-1}} & \frac{\partial g}{\partial \dot A_{t-1}} & \frac{\partial g}{\partial \dot B_{t-1}} & \frac{\partial g}{\partial \dot C_{t-1}} & \frac{\partial g}{\partial \dot D_{t-1}} & \frac{\ f}{\partial \dot G_{t-1}}\\
+    \frac{\partial h}{\partial \dot Y_{t-1}} & \frac{\partial h}{\partial \dot A_{t-1}} & \frac{\partial h}{\partial \dot B_{t-1}} & \frac{\partial h}{\partial \dot C_{t-1}} & \frac{\partial h}{\partial \dot D_{t-1}} & \frac{\ f}{\partial \dot G_{t-1}}\\
+    \frac{\partial j}{\partial \dot Y_{t-1}} & \frac{\partial j}{\partial \dot A_{t-1}} & \frac{\partial j}{\partial \dot B_{t-1}} & \frac{\partial j}{\partial \dot C_{t-1}} & \frac{\partial j}{\partial \dot D_{t-1}} & \frac{\ f}{\partial \dot G_{t-1}}\\
+    \frac{\partial l}{\partial \dot Y_{t-1}} & \frac{\partial l}{\partial \dot A_{t-1}} & \frac{\partial l}{\partial \dot B_{t-1}} & \frac{\partial l}{\partial \dot C_{t-1}} & \frac{\partial l}{\partial \dot D_{t-1}} & \frac{\ f}{\partial \dot G_{t-1}}\\
+    \frac{\partial m}{\partial \dot Y_{t-1}} & \frac{\partial m}{\partial \dot A_{t-1}} & \frac{\partial m}{\partial \dot B_{t-1}} & \frac{\partial m}{\partial \dot C_{t-1}} & \frac{\partial m}{\partial \dot D_{t-1}} & \frac{\ f}{\partial \dot G_{t-1}}
+\end{bmatrix}
+\end{equation*}
+\begin{equation}
+J=
+\begin{bmatrix}\small
+    \frac{\partial f}{\partial Y_{t-1}} & \frac{\partial f}{\partial A_{t-1}} & s+\frac{k+1}{3}s & 0 & \frac{(k+1)(s-1)}{3} & -\frac{(k+1)s}{3}\\
+    1 & 0 & 0 & 0 & 0 & 0\\
+    0 & 1 & 0 & 0 & 0 & 0\\
+    0 & 0 & 1 & 0 & 0 & 0\\
+    0 & 0 & 0 & 1 & 0 & 0\\
+    0 & 0 & 0 & 0 & 1 & 0
+\end{bmatrix}
+\end{equation}
+where 
+\begin{align*}
+    \frac{\partial f}{\partial Y_{t-1}}&= \frac{1}{v\left(q+\frac{Y_{t-1}^4}{v^4}\right)}-\frac{4Y_{t-1}^4}{v^5\left(q+\frac{Y_{t-1}^4}{v^4}\right)}\\
+    \frac{\partial f}{\partial A_{t-1}}&=1+\frac{1}{3}(k+1)(1-s)-s+\frac{4A_{t-1}^4}{v^5\left(q+\frac{A_{t-1}^4}{v^4}\right)^2}-\frac{1}{v\left(q+\frac{A_{t-1}^4}{v^4}\right)}
+\end{align*}
 
 
 

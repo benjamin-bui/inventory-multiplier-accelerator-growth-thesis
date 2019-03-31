@@ -142,7 +142,7 @@ def qbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, v):
         Yaxis.extend(lastvalues)
     return(Yaxis)
 
-results = open('./computational/metzlerian_growth/bifur_results.txt', 'a+')
+results = open('./computational/metzlerian_growth/bifur-param_results.txt', 'a+')
 Yaxis = sbifurcation(0.1, 0.9, 50000, 100, 120, 110, 100, 105, 107, 0.3, 500, 0.001)
 lbifurana(0.65, 0.9, 50000, Yaxis, 0.53, 2, 0)
 rbifurana(0.65, 0.9, 50000, Yaxis, 0.53, 2, 0)
