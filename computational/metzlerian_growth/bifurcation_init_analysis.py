@@ -84,7 +84,7 @@ def y0bifurcation(lower, upper, points, dY1, dY2, dY3, dY4, dY5, s, k, v, q):
     dY0 = np.linspace(lower, upper, points)
     Yaxis = []
     #Solve for each parameter value
-    print("s Bifurcation")
+    print("dY0 Bifurcation")
     for j in tqdm(range(points)):
         Income = mapping(dY0[j], dY1, dY2, dY3, dY4, dY5, s, k, v, q, iterations)
         lastvalues = Income[-last:]
@@ -144,7 +144,7 @@ def y3bifurcation(lower, upper, points, dY0, dY1, dY2, dY4, dY5, s, k, v, q):
 
 def y4bifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY5, s, k, v, q):
     #Print initial conditions of bifurcation to bifur_results.txt
-    results.write(f"Initial conditions of $Y_0$ bifurcation: lower={lower}, upper={upper}, points={points}, dY0={dY0}, dY1={dY1}, dY2={dY2}, dY3={dY3}, dY5={dY5}, s={s}, k={k}, v={v}, q={q} \n\n")
+    results.write(f"Initial conditions of $Y_4$ bifurcation: lower={lower}, upper={upper}, points={points}, dY0={dY0}, dY1={dY1}, dY2={dY2}, dY3={dY3}, dY5={dY5}, s={s}, k={k}, v={v}, q={q} \n\n")
     #Plot set up
     last = 30
     iterations = 3000
@@ -161,7 +161,7 @@ def y4bifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY5, s, k, v, q):
 
 def y5bifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, s, k, v, q):
     #Print initial conditions of bifurcation to bifur_results.txt
-    results.write(f"Initial conditions of $Y_0$ bifurcation: lower={lower}, upper={upper}, points={points}, dY0={dY0}, dY1={dY1}, dY2={dY2}, dY3={dY3}, dY4={dY4}, s={s}, k={k}, v={v}, q={q} \n\n")
+    results.write(f"Initial conditions of $Y_5$ bifurcation: lower={lower}, upper={upper}, points={points}, dY0={dY0}, dY1={dY1}, dY2={dY2}, dY3={dY3}, dY4={dY4}, s={s}, k={k}, v={v}, q={q} \n\n")
     #Plot set up
     last = 30
     iterations = 3000
@@ -209,7 +209,7 @@ lbifurana(-400, 400, 10000, Yaxis, -20, 2, 0)
 rbifurana(-400, 400, 10000, Yaxis, 50, 1, 0)
 lbifurana(-400, 400, 10000, Yaxis, 50, 1, 0)
 rbifurana(-400, 400, 10000, Yaxis, 130, 2, 0)
-lbifurana(-400, 400, 10000, Yaxis, -130, 2, 0)
+lbifurana(-400, 400, 10000, Yaxis, 130, 2, 0)
 rbifurana(-400, 400, 10000, Yaxis, 400, 1, 0)
 Yaxis = y5bifurcation(-400, 400, 10000, 100, 120, 110, 100, 105, 0.6, 0.3, 500, 0.001)
 lbifurana(-400, 400, 10000, Yaxis, -400, 1, 0)

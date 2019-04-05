@@ -1,13 +1,9 @@
-\section{Background}
+\section{Model Set-Up}
 Metzler's and Westerhoff's model show that it is possible for endogenous business cycles to be induced through inventory cycles and the failure of firms to accurately predict future consumption. These models were designed to focus on the effects of firm expectations with Westerhoff's contribution consisting of introducing a heterogenous expectation rule that allows firms to switch behavior based on the state of the economy. Both of these models however simplify other aspects of the economy that feature more complex behavior in other business cycle models.
 
-The inventory cycle model features 3 main factors of production: predicted consumption, investment, and inventory. Metzler and Westerhoff holds investment as an exogenously determined constant; however, this is both unrealistic and does not allow for long term endogenous growth. To incorporate a mechanism for endogenously adjusting investment, we take inspiration from the discrete time business cycle model described by T\"{o}nu Puu\autocite{Puu2003}. In order for investment to operate under Keynes' accelerator principle, capital stock must be in a proportion to the change in income, thus the investment level would be a function of the rate of change in income. 
+The inventory cycle model features 3 main factors of production: predicted consumption, investment, and inventory. Metzler and Westerhoff holds investment as an exogenously determined constant; however, this is both unrealistic and does not allow for long term endogenous growth. To incorporate a mechanism for endogenously adjusting investment, we take inspiration from the multiplier-accelerator model presented in Chapter \ref{ch:multiplier-accelerator}. 
 
-A linear function for investment captures this premise; however, this leads to unrealistic behavior for higher magnitudes of income change. Suppose income dramatically increased; a linear function implies that a proportionally high level of investment can sustain this higher level of production when in reality other factors of production such as the land, labor, or technology available are the primary limiting factors. Of larger concern with a linear model though is if the economy encounters a sharp decrease in income. This induces a large, negative value for investment which implies that firms would actively destroy their machinery and other forms of capital stock in the event of an economic recession. This is obviously unrealistic and so John Hicks introduced a piecewise linear investment function such that at extreme levels of income change, investment will reach a predetermined maximal or minimal value. This piecewise function was then adapted to be differentiable over all points by Richard Goodwin by approximating the curve with a hyperbolic-tangent function\autocite{Puu2003}.
-
-Puu approximates the hyperbolic-tangent function with its linear-cubic Taylor series expansion as this introduces a back-bending behavior into the curve. This allows the investment curve to capture not only firm behavior in the private sector but also implicitly include government spending and taxation. This follows from the now common policy for governments to engage in contracyclic behavior, increasing the quantity and size of spending projects and decreasing taxes when income is decreasing. Likewise, when the economy is performing well, the government cuts back on spending projects intended to stimulate the economy while also increasing taxes in order to take advantage of the overheating economy. 
-
-The problem with the cubic function is that it leads to unbounded behavior in the extremes, much like the linear function. Puu resolves this by ensuring that income growth is bounded by [-1, 1]; this is not the case for our model however. We instead want a function that features similar curvature and behavior as the cubic function but flattens when income change is of significant magnitude. This can be accomplished with the following function:
+The problem with the cubic investment function used in that model is that it leads to unbounded behavior in the extremes, much like the linear function. Puu resolves this by ensuring that income growth is bounded by [-1, 1]; this is not the case for our model however. We instead want a function that features similar curvature and behavior as the cubic function but flattens when income change is of significant magnitude. This can be accomplished with the following function:
 
 \begin{equation}
     I_t = \frac{\frac{Y_{t-1}-Y_{t-2}}{v}}{(\frac{Y_{t-1}-Y_{t-2}}{v})^4+q}	
@@ -57,15 +53,13 @@ Income level, or output, can thus be written as a sum of production:
 \begin{equation}\label{eq:Income}
     Y_t=I_t+S_t+U_t
 \end{equation}
-However, as income has the capability of sustained growth under this model, it is preferable to analyze the rate of change of income in this model. In Appendix A, we show that the growth rate of the economy can be interpreted as a single variable, 6th order difference equation on $\dot Y$:
+However, as income has the capability of sustained growth under this model, it is preferable to analyze the rate of change of income in this model. In Appendix \ref{appendix_growth}, we show that the growth rate of the economy can be interpreted as a single variable, 6th order difference equation on $\dot Y$:
 \begin{equation}
-\begin{split}
-    \dot Y_{t}& = \frac{\frac{\dot Y_{t-1}}{v}}{\left(\frac{\dot Y_{t-1}}{v}\right)^4+q}-\frac{\frac{\dot Y_{t-2}}{v}}{\left(\frac{\dot Y_{t-2}}{v}\right)^4+q} + \\
-    & (1+k)\frac{(1-s)(\dot Y_{t-2}+\dot Y_{t-3}+\dot Y_{t-4})+s(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})}{3} -\\
-    &\left[(k+1)\frac{(1-s)(\dot Y_{t-3}+\dot Y_{t-4}+\dot Y_{t-5})+s(\dot Y_{t-4}+\dot Y_{t-5}+\dot Y_{t-6})}{3}\right.\\
-    &\left.-(1-s)\dot Y_{t-2}-s\dot Y_{t-3}\right]
-\end{split}
-\end{equation}
+    \begin{split}
+        \dot Y_{t}& = \frac{\frac{\dot Y_{t-1}}{v}}{\left(\frac{\dot Y_{t-1}}{v}\right)^4+q}-\frac{\frac{\dot Y_{t-2}}{v}}{\left(\frac{\dot Y_{t-2}}{v}\right)^4+q} + \\
+        & \frac{k+1}{3}\left[(1-s)(\dot Y_{t-2}-Y_{t-5})+s(\dot Y_{t-3}-Y_{t-6})\right]+(1-s)\dot Y_{t-2}+s\dot Y_{t-3}
+    \end{split}
+    \end{equation}
 
 \section{Growth Dynamics}
 The long run dynamics of the model are highly dependent on the choice of initial conditions. Simulation of the model require a choice of 6 initial values of income change in addition to the parameter choice. If the 6 initial values are equivalent, all future iterations of the mapping are equal to this choice and the model remains in a stable steady state. It both more interesting and realistic then to consider cases where there is variation in initial income growth.
@@ -111,7 +105,59 @@ The bifurcation diagram varying $k$ seen in Figure \ref{metzlerian_growth-kbifur
 
 Figure \ref{metzlerian_growth-vbifurcation} exhibits stable, fixed growth when $v\in[1,297.338)\cup(617.104, 2000]$ which is the upper bound of what was computationally determined. The model also displays a stable 2-cycle when $v\in(472.173, 589.757)$. Likewise, Figure \ref{metzlerian_growth-qbifurcation} has a bifurcation point at $q\approx0.0015997$ and $q\approx0.0015976$ which mark transitions from a stable, fixed point to a 2-period cycle to a 3-period cycle (more bifurcation points exist within the diagram and are more easily viewed by narrowing the parameter variation range). As stated previously, $v$ and $q$ individually lack an economic interpretation, but together they approximate the dynamics of a linear-cubic investment curve while incorporating bounded, asymptotic behavior. 
 
-These bifurcation diagrams do not tell the complete story of this model however for any given set of parameters. As stated previously, 
+These bifurcation diagrams do not tell the complete story of this model however for any given set of parameters. As stated previously, the choice of constant initial conditions will result in a constant trajectory of income growth. However, it is also trivial to show the existence of other trajectories by creating a timeseries holding the parameters constant but shifting the initial conditions.
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/timeseries3}
+    \caption{Timeseries plot of income growth rate over 150 iterations. Parameter choice is identical to that of Figure \ref{growth_timeseries1}. Initial values of $\dot Y$ are: 29, 20 , 15 , 10, 20 ,50,}
+    \label{growth_timeseries3}
+\end{figure}
+
+The timeseries displayed in Figure \ref{growth_timeseries1} and Figure \ref{growth_timeseries3} share the same parametrization but they clearly display distinct dynamics and are centered around different growth rates. It can be helpful then to think of each initial value as a parameter for the purposes of analysis, thereby allowing us to create bifurcation diagrams in order to identify the effects in the long-run behavior of the model with varying initial conditions. 
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/y0bifurcation}
+    \caption{Bifurcation diagram varying $\dot Y_0$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \label{metzlerian_growth-y0bifurcation}
+\end{figure}
+
+This diagram shows several clearly defined regions of stable, ordered behavior. There is a bifurcation when $Y_0\approx -267.986$ that causes the dynamics of the mapping to shift away from fixed, stable growth. There is also a region where stable 2-cycles exist between -180.378 and 231.903 before the emergence of higher order cycles. 
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/y1bifurcation}
+    \caption{Bifurcation diagram varying $\dot Y_1$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \label{metzlerian_growth-y1bifurcation}
+\end{figure}
+
+Figure \ref{metzlerian_growth-y1bifurcation} is also relatively simple to analyze, featuring a fixed growth rate until the bifurcation point where $Y_1\approx -99.010$. A region of stable 2-cycles also exist when $Y_1\in(-48.205,220.542)$. Fixed growth recommences when $Y_1\approx 243.104$ before shifting back into a 2-cycle region when $Y_1\approx 313.351$. 
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/y2bifurcation}
+    \caption{Bifurcation diagram varying $\dot Y_2$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \label{metzlerian_growth-y2bifurcation}
+\end{figure}
+
+Figure \ref{metzlerian_growth-y2bifurcation} is qualitatively almost identical to the diagram displayed in Figure \ref{metzlerian_growth-y1bifurcation}. The model displays fixed growth until the bifurcation point when $Y_2\approx -109.011$. A region of stable 2-cycles exists when $Y_2\in(-58.206, 210.541)$. Fixed growth recommences after the bifurcation point when $Y_2\approx 233.103$ before shifting back into stable 2-cycles when $Y_2\approx 303.350$. 
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/y3bifurcation}
+    \caption{Bifurcation diagram varying $\dot Y_3$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \label{metzlerian_growth-y3bifurcation}
+\end{figure}
+
+Figure \ref{metzlerian_growth-y3bifurcation} possess many regions of clearly visible, ordered cyclic behavior, of note however is presence of stable 2-cycles when $Y_3\in (19.162, 270.867$.
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/y4bifurcation}
+    \caption{Bifurcation diagram varying $\dot Y_4$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \label{metzlerian_growth-y4bifurcation}
+\end{figure}
+
 \subsection{Chaotic Behavior in Growth}
 Bifurcation analysis of this type allows us to determine the presence and location of bifurcation points separating arbitrary period cycles. However, this is insufficient to determining if varying the parameters of the model result in chaotic behavior and where exactly this transition occurs. The existence of chaos lends credence to the assumption of bounded rationality assigned to firms. If the model always features stable cycles, then it would only be logical that firms would eventually be able to adapt their predictive mechanism to predict this ordered behavior. The effect this shift in expectation rule would have on future dynamics is beyond the scope of this paper; however, the presence of chaos means the model is sufficiently sensitive to initial conditions that firms would not be able to accurately determine the future state of the market as under a chaotic system, knowing the approximate current state of the economy does not inform firms of the approximate future state of the economy. 
 

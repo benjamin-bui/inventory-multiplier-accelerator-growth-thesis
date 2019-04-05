@@ -35,11 +35,10 @@ def plot_cobweb(f, u, x0, nmax=250 ):
     ax.grid(which='minor', alpha=0.5)
     ax.grid(which='major', alpha=0.5)
     ax.set_aspect('equal')
-    ax.set_xlabel('$x$')
+    ax.set_xlabel('$\dot Y_t$')
     ax.axhline(0, color='k', lw=.5, alpha=0.25)
     ax.axvline(0, color='k', lw=.5, alpha=0.25)
-    ax.set_ylabel(f.latex_label)
-    ax.set_title('$x_0 = {:1}, \mu = {:2}$'.format(x0, u))
+    ax.set_ylabel('$\dot Y_{t+1}$')
 
 class AnnotatedFunction:
     def __init__(self, func, latex_label):
@@ -51,9 +50,9 @@ class AnnotatedFunction:
 
 #Logistic Function
 func = AnnotatedFunction(lambda x, u: u*x-(u+1)*x**3, r'$\mu Z-(\mu+1)Z^3$')
-plot_cobweb(func, 1.5, 0.5)
+plot_cobweb(func, 1.5, 0.1)
 plt.savefig('./manuscript/figures/sam_hicks/fixed.eps', dpi=1500)
-plot_cobweb(func, 2.15, 0.799455)
+plot_cobweb(func, 2.15, 0.1)
 plt.savefig('./manuscript/figures/sam_hicks/2-cyclic.eps', dpi=1500)
 plot_cobweb(func, 2.4, 0.1)
 plt.savefig('./manuscript/figures/sam_hicks/chaos_contained.eps', dpi=1500)
