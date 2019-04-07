@@ -47,7 +47,7 @@ ax.set_title('Lyapunov Plot')
 ax.set_ylim(-2, 1)
 ax.axhline(0, color='k', lw=.5, alpha=.5)
 #Save and show
-plt.savefig('./manuscript/figures/logistic/lyapunov.eps', dpi=600)
+plt.savefig('./manuscript/figures/logistic/lyapunov.eps', dpi=1200)
 plt.show()
 
 

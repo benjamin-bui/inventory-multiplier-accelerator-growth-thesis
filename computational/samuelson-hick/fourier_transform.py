@@ -13,7 +13,7 @@ def multiplier_accelerator(x, u):
     return u*x-(u+1)*x**3
 
 def timeseries_plot(iterations, u, x0, last):
-    fig = plt.figure(dpi=600)
+    fig = plt.figure(dpi=1200)
     #Time series of mapping
     ax1 = fig.add_subplot(2, 1, 1)
     x = np.array([x0,]*iterations)

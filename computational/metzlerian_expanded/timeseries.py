@@ -38,7 +38,7 @@ def adapt(ct1, ct2, ct3):
 
 #Plot timeseries
 def income_plot(Income):
-    fig = plt.figure(dpi=600)
+    fig = plt.figure(dpi=1200)
     #Time series of mapping
     ax1 = fig.add_subplot(1, 1, 1)
     ax1.plot(Income, c='blue', linewidth=0.5)

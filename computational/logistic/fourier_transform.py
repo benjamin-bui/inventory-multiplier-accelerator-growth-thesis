@@ -13,7 +13,7 @@ def LogisticMap(x, u):
     return u*x*(1-x)
 
 def timeseries_plot(iterations, u, x0, last):
-    fig = plt.figure(dpi=600)
+    fig = plt.figure(dpi=1200)
     #Time series of mapping
     ax1 = fig.add_subplot(2, 1, 1)
     x = np.array([x0,]*iterations)
@@ -42,7 +42,7 @@ def timeseries_plot(iterations, u, x0, last):
     ax2.plot(freq, fftnomean, c='b', linewidth=0.5)
     plt.xlim(0+1/iterations,1.0)
     #Bad prototype filter
-    fig2=plt.figure(dpi=600)
+    fig2=plt.figure(dpi=1200)
     ax1_2 = fig2.add_subplot(2,1,2)
     highfft = fftx
     for i in range(last):

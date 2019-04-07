@@ -22,7 +22,7 @@ x = 0.1 * np.ones(n)
 
 #Lyapunov calculation
 lyapunov = np.zeros(n)
-fig = plt.figure(dpi=600)
+fig = plt.figure(dpi=1200)
 ax = fig.add_subplot(111)
 
 for i in tqdm(range(iterations)):

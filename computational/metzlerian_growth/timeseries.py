@@ -8,7 +8,7 @@ def growth(dYt1, dYt2, dYt3, dYt5, dYt6, s, k, v, q):
 
 #Plot timeseries
 def variableplot(Variable):
-    fig = plt.figure(dpi=600)
+    fig = plt.figure(dpi=1200)
     #Time series of mapping
     ax1 = fig.add_subplot(1, 1, 1)
     ax1.plot(Variable, c='blue', linewidth=0.5)
@@ -16,7 +16,6 @@ def variableplot(Variable):
     ax1.set_ylabel('$\dot Y$')
 
 def mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, q, iter):
-
     #Initialize vectors
     dY = np.append([dY0, dY1, dY2, dY3, dY4, dY5], np.zeros(iter-6))
     #Simulate
@@ -31,4 +30,6 @@ mapping(100, 120, 110, 100, 105, 107, 0.7, 0.3, 500, 0.001, 150)
 plt.savefig('./manuscript/figures/metzlerian_growth/timeseries2.eps', dpi=1200)
 mapping(29, 20 , 15 , 10, 20 ,50, 0.6, 0.3, 500, 0.001, 150)
 plt.savefig('./manuscript/figures/metzlerian_growth/timeseries3.eps', dpi=1200)
+mapping(29, 20 , 15 , 10, 20 ,50, 0.6, 0.3, 500, 0.001, 10000)
+plt.savefig('./manuscript/figures/metzlerian_growth/test.eps', dpi=1200)
 

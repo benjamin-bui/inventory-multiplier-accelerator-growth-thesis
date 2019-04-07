@@ -30,7 +30,7 @@ def gensignal(iterations, ulow, uhigh):
     print(x0)
     """
     #Generate plot
-    fig = plt.figure(dpi=600)
+    fig = plt.figure(dpi=1200)
     ax1 = fig.add_subplot(111)
     ax1.plot(signal, c='b', linewidth='0.5')
     plt.show()

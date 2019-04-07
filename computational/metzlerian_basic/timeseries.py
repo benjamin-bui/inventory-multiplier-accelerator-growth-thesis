@@ -36,13 +36,13 @@ def stock(k, Ulag, Clag, U):
     return Qhat - Qlag
 #Plots timeseries data
 def timeseries_plot(Income):
-    fig = plt.figure(dpi=600)
+    fig = plt.figure(dpi=1200)
     #Time series of mapping
     ax1 = fig.add_subplot(1, 1, 1)
     ax1.plot(Income, c='blue', linewidth=0.5)
     plt.ylabel('Income')
     plt.xlabel('t')
-    plt.savefig('./manuscript/figures/metzlerian_basic/timeseries_income.eps', dpi=600) 
+    plt.savefig('./manuscript/figures/metzlerian_basic/timeseries_income.eps', dpi=1200) 
     plt.show()
 #Solves for timeseries data
 def timeseries(b, c, d, f, k, Y0, U0, Ibar, iterations):

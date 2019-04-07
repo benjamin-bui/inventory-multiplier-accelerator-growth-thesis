@@ -30,7 +30,7 @@ def ftransform(signal, last):
     #Normalizes frequency from 0 to 1
     fftx = np.linspace(0, 1, last/2+1)
     #Create Plot
-    fig = plt.figure(dpi=600)
+    fig = plt.figure(dpi=1200)
     ax1 = fig.add_subplot(312)
     ax2 = fig.add_subplot(311)
     ax3 = fig.add_subplot(313)
