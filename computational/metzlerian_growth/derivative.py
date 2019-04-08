@@ -14,8 +14,8 @@ def ddYt1(lower, upper, points, s, k, v, q):
     #Time series of mapping
     ax1 = fig.add_subplot(1, 1, 1)
     ax1.plot(xaxis, yaxis, c='blue', linewidth=0.5)
-    ax1.set_xlabel('$Y_{t-1}}$')
-    ax1.set_ylabel('$\partial f/\partial Y_{t-1}$')        
+    ax1.set_xlabel('$\dot Y_{t-1}}$')
+    ax1.set_ylabel('$\partial f/\partial \dot Y_{t-1}$')        
     
 def ddYt2(lower, upper, points, s, k, v, q):
     xaxis = np.linspace(lower, upper, points)
@@ -26,8 +26,8 @@ def ddYt2(lower, upper, points, s, k, v, q):
     #Time series of mapping
     ax1 = fig.add_subplot(1, 1, 1)
     ax1.plot(xaxis, yaxis, c='blue', linewidth=0.5)
-    ax1.set_xlabel('$A_{t-1}$')
-    ax1.set_ylabel('$\partial f/\partial A_{t-1}$')   
+    ax1.set_xlabel('$\dot A_{t-1}$')
+    ax1.set_ylabel('$\partial f/\partial \dot A_{t-1}$')   
 
 ddYt1(-300.0, 300.0, 10000, 0.6, 0.3, 500.0, 0.001)
 plt.savefig('./manuscript/figures/metzlerian_growth/derivative1.eps', dpi=1200)

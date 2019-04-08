@@ -94,15 +94,16 @@ def qlyplot(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, iter):
     ax.plot(xaxis, yaxis, ',k', alpha=0.25)
     #Labelling
     ax.minorticks_on()
+    ax.ticklabel_format(axis='x',style='sci')
     ax.set_xlabel('$q$')
     ax.set_ylabel('$\lambda$')
 
-slyplot(0.1, 0.9, 20000, 100, 120, 110, 100, 105, 107, 0.3, 500, 0.001, 2000)
-plt.savefig('./manuscript/figures/metzlerian_growth/slyplot.eps', dpi=1200)
-klyplot(0.1, 0.9, 20000, 100, 120, 110, 100, 105, 107, 0.6, 500, 0.001, 2000)
-plt.savefig('./manuscript/figures/metzlerian_growth/klyplot.eps', dpi=1200)
-vlyplot(1, 2000, 20000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 0.001, 2000)
-plt.savefig('./manuscript/figures/metzlerian_growth/vlyplot.eps', dpi=1200)
+# slyplot(0.1, 0.9, 20000, 100, 120, 110, 100, 105, 107, 0.3, 500, 0.001, 2000)
+# plt.savefig('./manuscript/figures/metzlerian_growth/slyplot.eps', dpi=1200)
+# klyplot(0.1, 0.9, 20000, 100, 120, 110, 100, 105, 107, 0.6, 500, 0.001, 2000)
+# plt.savefig('./manuscript/figures/metzlerian_growth/klyplot.eps', dpi=1200)
+# vlyplot(1, 2000, 20000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 0.001, 2000)
+# plt.savefig('./manuscript/figures/metzlerian_growth/vlyplot.eps', dpi=1200)
 qlyplot(0, 0.002, 20000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 500, 2000)
 plt.savefig('./manuscript/figures/metzlerian_growth/qlyplot.eps', dpi=1200)
 
