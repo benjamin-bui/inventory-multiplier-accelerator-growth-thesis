@@ -161,7 +161,7 @@ Figure \ref{metzlerian_growth-y3bifurcation} possess many regions of clearly vis
 \subsection{Chaotic Behavior in Growth}
 Bifurcation analysis of this type allows us to determine the presence and location of bifurcation points separating arbitrary period cycles. However, this is insufficient to determining if varying the parameters of the model result in chaotic behavior and where exactly this transition occurs. The existence of chaos lends credence to the assumption of bounded rationality assigned to firms. If the model always features stable cycles, then it would only be logical that firms would eventually be able to adapt their predictive mechanism to predict this ordered behavior. The effect this shift in expectation rule would have on future dynamics is beyond the scope of this paper; however, the presence of chaos means the model is sufficiently sensitive to initial conditions that firms would not be able to accurately determine the future state of the market as under a chaotic system, knowing the approximate current state of the economy does not inform firms of the approximate future state of the economy. 
 
-We begin by rewriting the model as a 1st-order difference equation with 6 variables. This can be done by creating and defining the variables $\dot Y_{t-1}=\dot A_t$, $\dot A_{t-1}=\dot B_{t}$, $\dot B_{t-1}=\dot C_{t}$, $\dot C_{t-1}=\dot D_{t}$, and $\dot D_{t-1}=\dot G_{t}$. This allows us to define an equivalent model:
+The method described in the introduction to solve for the lyapunov exponent is applicable to 1-dimensional systems. Although are system is formally a 1-dimensional, 6th order difference equation, existing methods of analysis are much more accomodating to single-order mappings. We thus begin by rewriting the model as a 1st-order difference equation with 6 variables. This can be done by creating and defining the variables $\dot Y_{t-1}=\dot A_t$, $\dot A_{t-1}=\dot B_{t}$, $\dot B_{t-1}=\dot C_{t}$, $\dot C_{t-1}=\dot D_{t}$, and $\dot D_{t-1}=\dot G_{t}$. This allows us to define an equivalent model:
 \begin{align*}
     \dot Y_t = f(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
     \dot A_t = g(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
@@ -197,6 +197,57 @@ where
     \frac{\partial f}{\partial Y_{t-1}}&= \frac{1}{v\left(q+\frac{Y_{t-1}^4}{v^4}\right)}-\frac{4Y_{t-1}^4}{v^5\left(q+\frac{Y_{t-1}^4}{v^4}\right)}\\
     \frac{\partial f}{\partial A_{t-1}}&=1+\frac{1}{3}(k+1)(1-s)-s+\frac{4A_{t-1}^4}{v^5\left(q+\frac{A_{t-1}^4}{v^4}\right)^2}-\frac{1}{v\left(q+\frac{A_{t-1}^4}{v^4}\right)}
 \end{align*}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/derivative1.eps}
+    \caption{Plot of $\frac{\partial f}{\partial \dot Y_{t-1}}$ with respect to $\dot Y_{t-1}$.}
+    \label{derivative1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/derivative2.eps}
+    \caption{Plot of $\frac{\partial f}{\partial \dot A_{t-1}}$ with respect to $dot A_{t-1}=\dot Y_{t-2}$.}
+    \label{derivative2}
+\end{figure}
+
+Figure \ref{derivative1} and \ref{derivative2} displays the possible values for the variable partial derivatives of the model over a reasonable range of growth rates. All other partial derivatives present in the Jacobian are clearly constant given a set of parameters. If we think of the our mapping as a transformation of an $n$-dimensional space and the lyapunov exponent as a measure of the compression and expansion of this space, it is clear that we must track the direction of this action as the transformation iterates through time. This is accomplished by evaluating the evolution of an $n$-length vector $v$, normalized to a length of 1 for simplicity as the direction of this vector is all we are concerned with. This occurs with the 1-dimensional case as well, by incorporating a 1-dimensional vector of length 1. This is however, equivalent to the scalar 1 so it need not be explicitly included in calculation for reasons that will be elaborated here. The Jacobian $J$ operates as the higher-dimension analogue to the derivative so by taking the product of the Jacobian and the direction vector, we are able to project our derivatives onto the direction vector. From here, we can solve for the lyapunov exponent much like in our 1-dimensional case:
+\begin{equation}
+    \lambda = \lim_{j\to\infty}\frac{1}{j}\sum^{t=j}_{j=1}\ln\lvert J_t\cdot v_t\rvert
+\end{equation}
+With a 1-dimensional mapping, $v_t=v=1$ and $J_t=f^\prime(x_t)$. It is clear how the Jacobian evaluates over time, changing over the course of the time-series. The direction vector must also be updated, this is accomplished by normalizing the length of the projection:
+\begin{equation}
+    v_{t+1}=\frac{J_t\cdot v_t}{\lvert J_t\cdot v_t\rvert}
+\end{equation}
+A consequence of this is that the lyapunov exponent is now both dependent on the initial condition and the choice of initial direction vector. As stated in the introduction, the inital condition provided it not reside in an unstable periodic cycle; moreover, the choice of intial vector is of little consequence as it quickly updates to the correct elongation direction regardless of intiial choice. As stated for the 1-dimensional case, it is typically impractical to solve for the lyapunov exponent analytically; however, we can approximate it by iterating the model for some large $t$ and treating this value as the limit.
+
+An important note is that although 1-dimensional models only have 1 lyapunov exponent, $n$ dimensional models actually have $n$ lyapunov exponents.The method described above only calculates the largest exponent; however, it is typically only necessary to determine this maximal value as the positivity of this exponent is used as the determiner of chaos in the system. A consequence of the bounded behavior of our model is that the negative lyapunov exponents must "dominate" in order to result in overall compression of the model; otherwise the mapping would result in an explosive model. 
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/slyplot.eps}
+    \caption{Lyapunov plot varying $s$ between 0 and 1. Other parameters are held constant held constant as described in Figure \ref{growth_timeseries1}}
+    \label{slyapunov}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/klyplot.eps}
+    \caption{Lyapunov plot varying $k$ between 0 and 1. Other parameters are held constant held constant as described in Figure \ref{growth_timeseries1}}
+    \label{klyapunov}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/klyplot.eps}
+    \caption{Lyapunov plot varying $v$ between 1 and 2000. Other parameters are held constant held constant as described in Figure \ref{growth_timeseries1}}
+    \label{klyapunov}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/klyplot.eps}
+    \caption{Lyapunov plot varying $q$ between 0 and 0.002. Other parameters are held constant held constant as described in Figure \ref{growth_timeseries1}}
+    \label{klyapunov}
+\end{figure}
 
 
 

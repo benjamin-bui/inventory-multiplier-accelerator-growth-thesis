@@ -9,9 +9,6 @@
 *.toc
 *.fls
 *.fdb_latexmk
-#Python Results
-*.png
-*.eps
 #Mathematica Results
 *.gif
 *.mov
