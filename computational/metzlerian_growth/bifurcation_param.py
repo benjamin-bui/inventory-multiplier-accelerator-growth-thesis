@@ -85,6 +85,7 @@ def qbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, v):
     ax.plot(xaxis, yaxis, ',k', alpha=0.25)
     #Labelling
     ax.minorticks_on()
+    plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
     ax.set_xlabel('$q$')
     ax.set_ylabel('$\dot Y$')
     #Save and show
@@ -123,3 +124,5 @@ vbifurcation(1, 2000, 10000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 0.001)
 plt.savefig('./manuscript/figures/metzlerian_growth/vbifurcation.eps', dpi=1200)
 qbifurcation(0, 0.002, 10000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 500)
 plt.savefig('./manuscript/figures/metzlerian_growth/qbifurcation.eps', dpi=1200)
+qbifurcation(0.0001, 0.002, 10000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 500)
+plt.savefig('./manuscript/figures/metzlerian_growth/q2bifurcation.eps', dpi=1200)

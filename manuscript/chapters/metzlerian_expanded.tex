@@ -222,7 +222,7 @@ With a 1-dimensional mapping, $v_t=v=1$ and $J_t=f^\prime(x_t)$. It is clear how
 \begin{equation}
     v_{t+1}=\frac{J_t\cdot v_t}{\lvert J_t\cdot v_t\rvert}
 \end{equation}
-A consequence of this is that the lyapunov exponent is now both dependent on the initial condition and the choice of initial direction vector. As stated in the introduction, the inital condition provided it not reside in an unstable periodic cycle; moreover, the choice of intial vector is of little consequence as it quickly updates to the correct elongation direction regardless of intiial choice. As stated for the 1-dimensional case, it is typically impractical to solve for the lyapunov exponent analytically; however, we can approximate it by iterating the model for some large $t$ and treating this value as the limit.
+A consequence of this is that the lyapunov exponent is now both dependent on the initial condition and the choice of initial direction vector\autocite{MedioAlfredo2001Ndap,Puu2003}. As stated in the introduction, the inital condition provided it not reside in an unstable periodic cycle; moreover, the choice of intial vector is of little consequence as it quickly updates to the correct elongation direction regardless of intiial choice. As stated for the 1-dimensional case, it is typically impractical to solve for the lyapunov exponent analytically; however, we can approximate it by iterating the model for some large $t$ and treating this value as the limit.
 
 An important note is that although 1-dimensional models only have 1 lyapunov exponent, $n$ dimensional models actually have $n$ lyapunov exponents.The method described above only calculates the largest exponent; however, it is typically only necessary to determine this maximal value as the positivity of this exponent is used as the determiner of chaos in the system. A consequence of the bounded behavior of our model is that the negative lyapunov exponents must "dominate" in order to result in overall compression of the model; otherwise the mapping would result in an explosive model. 
 
@@ -242,16 +242,24 @@ An important note is that although 1-dimensional models only have 1 lyapunov exp
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/vlyplot.eps}
     \caption{Lyapunov plot varying $v$ between 1 and 2000. Other parameters and initial conditions are held constant held constant as described in Figure \ref{growth_timeseries1}}
-    \label{klyapunov}
+    \label{vlyapunov}
 \end{figure}
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/qlyplot.eps}
     \caption{Lyapunov plot varying $q$ between 0 and 0.002. Other parameters and initial conditions are held constant held constant as described in Figure \ref{growth_timeseries1}}
-    \label{klyapunov}
+    \label{qlyapunov}
 \end{figure}
 
-Note again that we are calculating only the maximal Lyapunov exponent, thus if the displayed lyapunov exponent is 0, the other exponents may be 0 or even negative meaning that there can be compression of the space occuring even when $\lambda=0$. 
+Note again that we are calculating only the maximal Lyapunov exponent, thus if the displayed lyapunov exponent is 0, the other exponents may be 0 or even negative meaning that there can be compression of the space occuring even when $\lambda=0$. Comparing the lyapunov plot to the bifurcation diagrams for each parameter, we can clearly see that parameter ranges where the lyapunov exponent is positive correspond to dense regions in the bifurcation diagram. This implies that parameter choices can result in chaotic behavior as opposed to just cycles of higher periodicity than what was displayed in the bifurcation diagram. The regions of chaotic behavior are unsuprising based on visual observation of the bifurcation diagrams aside from the $q$ parameter.
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/q2bifurcation.eps}
+    \caption{Bifurcation diagram varying $q$ between 0.0001 and 0.002. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \label{metzlerian_growth-qbifurcation_zoom}
+\end{figure}
+Figure \ref{metzlerian_growth-qbifurcation_zoom} is created identically to Figure \ref{metzlerian_growth-qbifurcation} but by excluding the smallest values for $q$ allows us to generate a much more accurate picture of the dynamics of the model as $q$ varies. Here it is obvious why the Lyapunov exponent plot indicated the presence of chaos until entering a region of stable cycles at $q>\num{0.889d-3}$.
+
 
 
 
