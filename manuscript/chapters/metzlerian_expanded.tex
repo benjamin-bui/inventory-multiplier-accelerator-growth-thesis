@@ -1,7 +1,7 @@
 \section{Model Set-Up}
-Metzler's and Westerhoff's model show that it is possible for endogenous business cycles to be induced through inventory cycles and the failure of firms to accurately predict future consumption. These models were designed to focus on the effects of firm expectations with Westerhoff's contribution consisting of introducing a heterogenous expectation rule that allows firms to switch behavior based on the state of the economy. Both of these models however simplify other aspects of the economy that feature more complex behavior in other business cycle models.
+Metzler's and Wegener's model show that it is possible for endogenous business cycles to be induced through inventory cycles and the failure of firms to accurately predict future consumption. These models were designed to focus on the effects of firm expectations with Wegener's contribution consisting of introducing a heterogenous expectation rule that allows firms to switch behavior based on the state of the economy. Both of these models however simplify other aspects of the economy that feature more complex behavior in other business cycle models.
 
-The inventory cycle model features 3 main factors of production: predicted consumption, investment, and inventory. Metzler and Westerhoff holds investment as an exogenously determined constant; however, this is both unrealistic and does not allow for long term endogenous growth. To incorporate a mechanism for endogenously adjusting investment, we take inspiration from the multiplier-accelerator model presented in Chapter \ref{ch:multiplier-accelerator}. 
+The inventory cycle model features 3 main factors of production: predicted consumption, investment, and inventory. Metzler and Wegener holds investment as an exogenously determined constant; however, this is both unrealistic and does not allow for long term endogenous growth. To incorporate a mechanism for endogenously adjusting investment, we take inspiration from the multiplier-accelerator model presented in Chapter \ref{ch:multiplier-accelerator}. 
 
 The problem with the cubic investment function used in that model is that it leads to unbounded behavior in the extremes, much like the linear function. Puu resolves this by ensuring that income growth is bounded by [-1, 1]; this is not the case for our model however. We instead want a function that features similar curvature and behavior as the cubic function but flattens when income change is of significant magnitude. This can be accomplished with the following function:
 
@@ -19,7 +19,7 @@ Thus giving a maximal or minimal investment of:
 \end{equation*}
 Intuitively, larger values of $v$ make the function "wider", increasing the range over $Y_{t-1}-Y_{t-2}$ where $I_t$ is not effectively 0. Smaller values of $q$ increases the magnitude of the maximum and minimum of the function, effectively making it taller. $v$ and $q$ cannot be directly attributed to any direct economic phenomena; however, their effect on the function can be interpreted analogously to the properties of the linear-cubic function. The "height" of the function determines the potential magnitude of investment and the "width" determines the rate at which investment, both private and public, react to changes in income.
 
-Metzler describes the existence of two important lags in the study of Keynesian models. The Robertson lag is characterized by making current consumption a function of past income, i.e. consumption behavior lags behind current income. The Lundberg lag however concerns a discrepancy between the income level and the production decision of firms \autocite{Metzler1941} . These lags are named after the two economists D. H. Robertson and Erik Lundberg who developed models that contained only their eponymous lag type. Although both lags are likely to exist in reality, most models only incorporate one lag due to the increased complexity associated with it. Metzler and Westerhoff make use of a Lundberg lag by making income a function of the predicted level of consumption as opposed to actual consumption. T\"{o}nu Puu's model makes use of a Robertson in order to induce endogenous business cycles. Metzler himself does not claim that the Lundberg sequence is any more realistic than the Robertson sequence. Whichever lag has a longer time-period can be treated as of being greater importance but Metzler actually proposes a variety of scenarios that present contradicting conclusions. Suppose that decided their behavior on a quarterly basis but consumers altered their spending behavior with every paycheck, then it is no longer unrealistic to treat the Robertson lag as being of 0 length, i.e. nonexistent. If consumers revise their spending behavior every 6 months to a year, then it would actually be more realistic to include a non-zero Robertson lag while minimizing the Lundberg lag. 
+Metzler describes the existence of two important lags in the study of Keynesian models. The Robertson lag is characterized by making current consumption a function of past income, i.e. consumption behavior lags behind current income. The Lundberg lag however concerns a discrepancy between the income level and the production decision of firms \autocite{Metzler1941} . These lags are named after the two economists D. H. Robertson and Erik Lundberg who developed models that contained only their eponymous lag type. Although both lags are likely to exist in reality, most models only incorporate one lag due to the increased complexity associated with it. Metzler and Wegener make use of a Lundberg lag by making income a function of the predicted level of consumption as opposed to actual consumption. T\"{o}nu Puu's model makes use of a Robertson in order to induce endogenous business cycles. Metzler himself does not claim that the Lundberg sequence is any more realistic than the Robertson sequence. Whichever lag has a longer time-period can be treated as of being greater importance but Metzler actually proposes a variety of scenarios that present contradicting conclusions. Suppose that decided their behavior on a quarterly basis but consumers altered their spending behavior with every paycheck, then it is no longer unrealistic to treat the Robertson lag as being of 0 length, i.e. nonexistent. If consumers revise their spending behavior every 6 months to a year, then it would actually be more realistic to include a non-zero Robertson lag while minimizing the Lundberg lag. 
 
 For the purposes of this model, we will include a non-zero Lundberg and Robertson lag. The consumption function is treated exactly as presented in Puu:
 \begin{equation}
@@ -27,7 +27,7 @@ For the purposes of this model, we will include a non-zero Lundberg and Robertso
 \end{equation}
 This function incorporates a 1-period Lundberg lag where $s\in[0,1]$ is the marginal propensity to save. This function also contains a 2-period delayed consumption due to the marginal propensity to save, thus all income made in some period $t$ can be though of as being eventually spent in the period $t+1$ and $t+2$. Although intuitive, this explanation is not wholly accurate as the Lundberg lag does not imply saving of income to spend in the next period but rather that spending behavior is influenced only on the information of lagged income level. The choice of $s$ dictates the relative importance of lagged income, a higher marginal propensity to save reduces the impact of income made in the previous time period but increases the effective impact of the income made two time periods ago.  
 
-As the economy is also making use of a Robertson lag, income is not directly a function of consumption as may be seen in other models. Rather, income is viewed from a production standpoint. This is achieved by explicitly defining a predicted level of consumption. Westerhoff and Metzler use an equation similar to the form:
+As the economy is also making use of a Robertson lag, income is not directly a function of consumption as may be seen in other models. Rather, income is viewed from a production standpoint. This is achieved by explicitly defining a predicted level of consumption. Wegener and Metzler use an equation similar to the form:
 
 \begin{equation*} 
     U_t=C_{t-1}+\eta(C_{t-1}-C_{t-2})
@@ -67,15 +67,15 @@ The long run dynamics of the model are highly dependent on the choice of initial
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/timeseries1.eps}
     \caption{Timeseries plot of income growth rate over 150 iterations. $s=0.6,\ k=0.3,\ v=500,\ q=0.001$. Initial values of $\dot Y$ are: 100, 120, 110, 100, 105, 107}
-    \label{growth_timeseries1}
+    \label{metzlerian_growth-timeseries1}
 \end{figure}
-Figure \ref{growth_timeseries1} displays a possible trajectory of income growth. Under the parameters listed, the trajectory clearly behaves in a stable, cyclic manner within 40 iterations. 
+Figure \ref{metzlerian_growth-timeseries1} displays a possible trajectory of income growth. Under the parameters listed, the trajectory clearly behaves in a stable, cyclic manner within 40 iterations. 
 
 There do not exist techniques to solve generalized 6th order difference equations; however it is possible to computationally solve for the long run dynamics of the system.
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/sbifurcation}
-    \caption{Bifurcation diagram varying $s$ between 0.1 and 0.9. Initial conditions and other parameters are held constant as described in Figure \ref{growth_timeseries1}.}
+    \caption{Bifurcation diagram varying $s$ between 0.1 and 0.9. Initial conditions and other parameters are held constant as described in Figure \ref{metzlerian_growth-timeseries1}.}
     \label{metzlerian_growth-sbifurcation}
 \end{figure}
 
@@ -84,7 +84,7 @@ The bifurcation diagram displayed in Figure \ref{metzlerian_growth-sbifurcation}
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/kbifurcation}
-    \caption{Bifurcation diagram varying $k$ between 0.1 and 0.9. Initial conditions and other parameters are held constant as described in Figure \ref{growth_timeseries1}.}
+    \caption{Bifurcation diagram varying $k$ between 0.1 and 0.9. Initial conditions and other parameters are held constant as described in Figure \ref{metzlerian_growth-timeseries1}.}
     \label{metzlerian_growth-kbifurcation}
 \end{figure}
 
@@ -93,13 +93,13 @@ The bifurcation diagram varying $k$ seen in Figure \ref{metzlerian_growth-kbifur
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/vbifurcation}
-    \caption{Bifurcation diagram varying $v$ between 1 and 2000. Initial conditions and other parameters are held constant as described in Figure \ref{growth_timeseries1}.}
+    \caption{Bifurcation diagram varying $v$ between 1 and 2000. Initial conditions and other parameters are held constant as described in Figure \ref{metzlerian_growth-timeseries1}.}
     \label{metzlerian_growth-vbifurcation}
 \end{figure}
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/qbifurcation}
-    \caption{Bifurcation diagram varying $q$ between 0 and 0.0001. Initial conditions and other parameters are held constant as described in Figure \ref{growth_timeseries1}.}
+    \caption{Bifurcation diagram varying $q$ between 0 and 0.0001. Initial conditions and other parameters are held constant as described in Figure \ref{metzlerian_growth-timeseries1}.}
     \label{metzlerian_growth-qbifurcation}
 \end{figure}
 
@@ -109,16 +109,16 @@ These bifurcation diagrams do not tell the complete story of this model however 
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/timeseries3}
-    \caption{Timeseries plot of income growth rate over 150 iterations. Parameter choice is identical to that of Figure \ref{growth_timeseries1}. Initial values of $\dot Y$ are: 29, 20 , 15 , 10, 20 ,50,}
-    \label{growth_timeseries3}
+    \caption{Timeseries plot of income growth rate over 150 iterations. Parameter choice is identical to that of Figure \ref{metzlerian_growth-timeseries1}. Initial values of $\dot Y$ are: 29, 20 , 15 , 10, 20 ,50,}
+    \label{metzlerian_growth_timeseries3}
 \end{figure}
 
-The timeseries displayed in Figure \ref{growth_timeseries1} and Figure \ref{growth_timeseries3} share the same parametrization but they clearly display distinct dynamics and are centered around different growth rates. It can be helpful then to think of each initial value as a parameter for the purposes of analysis, thereby allowing us to create bifurcation diagrams in order to identify the effects in the long-run behavior of the model with varying initial conditions. 
+The timeseries displayed in Figure \ref{metzlerian_growth-timeseries1} and Figure \ref{metzlerian_growth-timeseries3} share the same parametrization but they clearly display distinct dynamics and are centered around different growth rates. It can be helpful then to think of each initial value as a parameter for the purposes of analysis, thereby allowing us to create bifurcation diagrams in order to identify the effects in the long-run behavior of the model with varying initial conditions. 
 
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/y0bifurcation}
-    \caption{Bifurcation diagram varying $\dot Y_0$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \caption{Bifurcation diagram varying $\dot Y_0$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{metzlerian_growth-timeseries1}}
     \label{metzlerian_growth-y0bifurcation}
 \end{figure}
 
@@ -127,7 +127,7 @@ This diagram shows several clearly defined regions of stable, ordered behavior. 
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/y1bifurcation}
-    \caption{Bifurcation diagram varying $\dot Y_1$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \caption{Bifurcation diagram varying $\dot Y_1$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{metzlerian_growth-timeseries1}}
     \label{metzlerian_growth-y1bifurcation}
 \end{figure}
 
@@ -136,7 +136,7 @@ Figure \ref{metzlerian_growth-y1bifurcation} is also relatively simple to analyz
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/y2bifurcation}
-    \caption{Bifurcation diagram varying $\dot Y_2$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \caption{Bifurcation diagram varying $\dot Y_2$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{metzlerian_growth-timeseries1}}
     \label{metzlerian_growth-y2bifurcation}
 \end{figure}
 
@@ -145,7 +145,7 @@ Figure \ref{metzlerian_growth-y2bifurcation} is qualitatively almost identical t
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/y3bifurcation}
-    \caption{Bifurcation diagram varying $\dot Y_3$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \caption{Bifurcation diagram varying $\dot Y_3$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{metzlerian_growth-timeseries1}}
     \label{metzlerian_growth-y3bifurcation}
 \end{figure}
 
@@ -154,7 +154,7 @@ Figure \ref{metzlerian_growth-y3bifurcation} possess many regions of clearly vis
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/y4bifurcation}
-    \caption{Bifurcation diagram varying $\dot Y_4$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \caption{Bifurcation diagram varying $\dot Y_4$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{metzlerian_growth-timeseries1}}
     \label{metzlerian_growth-y4bifurcation}
 \end{figure}
 
@@ -198,20 +198,20 @@ where
     \frac{\partial f}{\partial A_{t-1}}&=1+\frac{1}{3}(k+1)(1-s)-s+\frac{4A_{t-1}^4}{v^5\left(q+\frac{A_{t-1}^4}{v^4}\right)^2}-\frac{1}{v\left(q+\frac{A_{t-1}^4}{v^4}\right)}
 \end{align*}
 
-Figure \ref{derivative1} and \ref{derivative2} displays the possible values for the variable partial derivatives of the model over a reasonable range of growth rates. All other partial derivatives present in the Jacobian are clearly constant given a set of parameters.
+Figure \ref{metzlerian_growth-derivative1} and \ref{metzlerian_growth-derivative2} displays the possible values for the variable partial derivatives of the model over a reasonable range of growth rates. All other partial derivatives present in the Jacobian are clearly constant given a set of parameters.
 
 \begin{figure}[h]
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/derivative1.eps}
     \caption{Plot of $\frac{\partial f}{\partial \dot Y_{t-1}}$ with respect to $\dot Y_{t-1}$.}
-    \label{derivative1}
+    \label{metzlerian_growth-derivative1}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/derivative2.eps}
     \caption{Plot of $\frac{\partial f}{\partial \dot A_{t-1}}$ with respect to $\dot A_{t-1}=\dot Y_{t-2}$.}
-    \label{derivative2}
+    \label{metzlerian_growth-derivative2}
 \end{figure}
 
 If we think of the our mapping as a transformation of an $n$-dimensional space and the lyapunov exponent as a measure of the compression and expansion of this space, it is clear that we must track the direction of this action as the transformation iterates through time. This is accomplished by evaluating the evolution of an $n$-length vector $v$, normalized to a length of 1 for simplicity as the direction of this vector is all we are concerned with. This occurs with the 1-dimensional case as well, by incorporating a 1-dimensional vector of length 1. This is however, equivalent to the scalar 1 so it need not be explicitly included in calculation for reasons that will be elaborated here. The Jacobian $J$ operates as the higher-dimension analogue to the derivative so by taking the product of the Jacobian and the direction vector, we are able to project our derivatives onto the direction vector. From here, we can solve for the lyapunov exponent much like in our 1-dimensional case:
@@ -229,33 +229,33 @@ An important note is that although 1-dimensional models only have 1 lyapunov exp
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/slyplot.eps}
-    \caption{Lyapunov plot varying $s$ between 0 and 1. Other parameters and initial conditions are held constant held constant as described in Figure \ref{growth_timeseries1}.}
-    \label{slyapunov}
+    \caption{Lyapunov plot varying $s$ between 0 and 1. Other parameters and initial conditions are held constant held constant as described in Figure \ref{metzlerian_growth-timeseries1}.}
+    \label{metzlerian_growth-slyapunov}
 \end{figure}
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/klyplot.eps}
-    \caption{Lyapunov plot varying $k$ between 0 and 1. Other parameters and initial conditions are held constant held constant as described in Figure \ref{growth_timeseries1}}
-    \label{klyapunov}
+    \caption{Lyapunov plot varying $k$ between 0 and 1. Other parameters and initial conditions are held constant held constant as described in Figure \ref{metzlerian_growth-timeseries1}}
+    \label{metzlerian_growth-klyapunov}
 \end{figure}
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/vlyplot.eps}
-    \caption{Lyapunov plot varying $v$ between 1 and 2000. Other parameters and initial conditions are held constant held constant as described in Figure \ref{growth_timeseries1}}
-    \label{vlyapunov}
+    \caption{Lyapunov plot varying $v$ between 1 and 2000. Other parameters and initial conditions are held constant held constant as described in Figure \ref{metzlerian_growth-timeseries1}}
+    \label{metzlerian_growth-lyapunov}
 \end{figure}
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/qlyplot.eps}
-    \caption{Lyapunov plot varying $q$ between 0 and 0.002. Other parameters and initial conditions are held constant held constant as described in Figure \ref{growth_timeseries1}}
-    \label{qlyapunov}
+    \caption{Lyapunov plot varying $q$ between 0 and 0.002. Other parameters and initial conditions are held constant held constant as described in Figure \ref{metzlerian_growth-timeseries1}}
+    \label{metzlerian_growth-qlyapunov}
 \end{figure}
 
 Note again that we are calculating only the maximal Lyapunov exponent, thus if the displayed lyapunov exponent is 0, the other exponents may be 0 or even negative meaning that there can be compression of the space occuring even when $\lambda=0$. Comparing the lyapunov plot to the bifurcation diagrams for each parameter, we can clearly see that parameter ranges where the lyapunov exponent is positive correspond to dense regions in the bifurcation diagram. This implies that parameter choices can result in chaotic behavior as opposed to just cycles of higher periodicity than what was displayed in the bifurcation diagram. The regions of chaotic behavior are unsuprising based on visual observation of the bifurcation diagrams aside from the $q$ parameter.
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/q2bifurcation.eps}
-    \caption{Bifurcation diagram varying $q$ between 0.0001 and 0.002. All other parameters and initial conditions kept as described in Figure \ref{growth_timeseries1}}
+    \caption{Bifurcation diagram varying $q$ between 0.0001 and 0.002. All other parameters and initial conditions kept as described in Figure \ref{metzlerian_growth-timeseries1}}
     \label{metzlerian_growth-qbifurcation_zoom}
 \end{figure}
 Figure \ref{metzlerian_growth-qbifurcation_zoom} is created identically to Figure \ref{metzlerian_growth-qbifurcation} but by excluding the smallest values for $q$ allows us to generate a much more accurate picture of the dynamics of the model as $q$ varies. Here it is obvious why the Lyapunov exponent plot indicated the presence of chaos until entering a region of stable cycles at $q>\num{0.889d-3}$.
