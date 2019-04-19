@@ -99,11 +99,11 @@ def qlyplot(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, iter):
     ax.set_ylabel('$\lambda$')
 
 slyplot(0.1, 0.9, 20000, 100, 120, 110, 100, 105, 107, 0.3, 500, 0.001, 1000)
-plt.savefig('./manuscript/figures/metzlerian_growth/slyplot.eps', dpi=1200)
+plt.savefig('./manuscript/figures/metzlerian_growth/slyplot.eps', dpi=2880)
 klyplot(0.1, 0.9, 20000, 100, 120, 110, 100, 105, 107, 0.6, 500, 0.001, 1000)
-plt.savefig('./manuscript/figures/metzlerian_growth/klyplot.eps', dpi=1200)
+plt.savefig('./manuscript/figures/metzlerian_growth/klyplot.eps', dpi=2880)
 vlyplot(1, 2000, 20000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 0.001, 1000)
-plt.savefig('./manuscript/figures/metzlerian_growth/vlyplot.eps', dpi=1200)
+plt.savefig('./manuscript/figures/metzlerian_growth/vlyplot.eps', dpi=2880)
 qlyplot(0, 0.002, 20000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 500, 1000)
-plt.savefig('./manuscript/figures/metzlerian_growth/qlyplot.eps', dpi=1200)
+plt.savefig('./manuscript/figures/metzlerian_growth/qlyplot.eps', dpi=2880)
 
