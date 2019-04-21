@@ -17,6 +17,13 @@ def mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, q, iter):
         dY[t] = growth(dY[t-1], dY[t-2], dY[t-3], dY[t-5], dY[t-6], s, k, v, q,)
     return dY
 
+#Creates bifurcation data
+#Searches plot given a starting point
+#l designates a search from left to right
+#r designates a search from right to left
+#period designates periodicity of cycle of starting point
+#precis determines level of precision required for deviation of cycles
+
 def lbifurana(lower, upper, points, Yaxis, lsearch, period, precis):
     last = 30
     param = np.linspace(lower, upper, points)
@@ -141,19 +148,20 @@ def qbifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, dY5, s, k, v):
         lastvalues = Income[-last:]
         Yaxis.extend(lastvalues)
     return(Yaxis)
-
+#Saves results in a .txt file and appends further data to bottom of file
+#Precision typically 0 indicating only whole number changes in growth are appreciable changes in periodicity
 results = open('./computational/metzlerian_growth/bifur-param_results.txt', 'a+')
-# Yaxis = sbifurcation(0.1, 0.9, 50000, 100, 120, 110, 100, 105, 107, 0.3, 500, 0.001)
-# lbifurana(0.65, 0.9, 50000, Yaxis, 0.53, 2, 0)
-# rbifurana(0.65, 0.9, 50000, Yaxis, 0.53, 2, 0)
-# Yaxis = kbifurcation(0.1, 0.9, 50000, 100, 120, 110, 100, 105, 107, 0.6, 500, 0.001)
-# lbifurana(0.1, 0.9, 50000, Yaxis, 0.1, 2, 0)
-# rbifurana(0.1, 0.9, 50000, Yaxis, 0.9, 2, 0)
-# Yaxis = vbifurcation(1, 2000, 50000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 0.001)
-# lbifurana(1, 2000, 50000, Yaxis, 1, 1, 0)
-# rbifurana(1, 2000, 50000, Yaxis,  1000, 1, 0)
-# lbifurana(1, 2000, 50000, Yaxis, 525, 2, 0)
-# rbifurana(1, 2000, 50000, Yaxis,  525, 2, 0)
+Yaxis = sbifurcation(0.1, 0.9, 50000, 100, 120, 110, 100, 105, 107, 0.3, 500, 0.001)
+lbifurana(0.65, 0.9, 50000, Yaxis, 0.53, 2, 0)
+rbifurana(0.65, 0.9, 50000, Yaxis, 0.53, 2, 0)
+Yaxis = kbifurcation(0.1, 0.9, 50000, 100, 120, 110, 100, 105, 107, 0.6, 500, 0.001)
+lbifurana(0.1, 0.9, 50000, Yaxis, 0.1, 2, 0)
+rbifurana(0.1, 0.9, 50000, Yaxis, 0.9, 2, 0)
+Yaxis = vbifurcation(1, 2000, 50000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 0.001)
+lbifurana(1, 2000, 50000, Yaxis, 1, 1, 0)
+rbifurana(1, 2000, 50000, Yaxis,  1000, 1, 0)
+lbifurana(1, 2000, 50000, Yaxis, 525, 2, 0)
+rbifurana(1, 2000, 50000, Yaxis,  525, 2, 0)
 Yaxis = qbifurcation(0, 0.002, 50000, 100, 120, 110, 100, 105, 107, 0.6, 0.3, 500)
 rbifurana(0, 0.002, 50000, Yaxis, 0.002, 1, 0)
 rbifurana(0, 0.002, 50000, Yaxis, 0.001, 2, 0)

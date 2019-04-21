@@ -16,6 +16,8 @@ def mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, q, iter):
         dY[t] = growth(dY[t-1], dY[t-2], dY[t-3], dY[t-5], dY[t-6], s, k, v, q,)
     return dY
 
+# Solves for last 20 values of growth as a single parameter is changed
+# All functions below vary a single parameter between 'lower' and 'upper'
 def y0bifurcation(lower, upper, points, dY1, dY2, dY3, dY4, dY5, s, k, v, q):
     #Plot set up
     last = 20

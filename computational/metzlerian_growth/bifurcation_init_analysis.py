@@ -17,6 +17,13 @@ def mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, q, iter):
         dY[t] = growth(dY[t-1], dY[t-2], dY[t-3], dY[t-5], dY[t-6], s, k, v, q,)
     return dY
 
+#Creates bifurcation data
+#Searches plot given a starting point
+#l designates a search from left to right
+#r designates a search from right to left
+#period designates periodicity of cycle of starting point
+#precis determines level of precision required for deviation of cycles
+
 def lbifurana(lower, upper, points, Yaxis, lsearch, period, precis):
     last = 30
     param = np.linspace(lower, upper, points)
@@ -175,7 +182,9 @@ def y5bifurcation(lower, upper, points, dY0, dY1, dY2, dY3, dY4, s, k, v, q):
         lastvalues = Income[-last:]
         Yaxis.extend(lastvalues)
     return(Yaxis)
-
+    
+#Saves results in a .txt file and appends further data to bottom of file
+#Precision typically 0 indicating only whole number changes in growth are appreciable changes in periodicity
 results = open('./computational/metzlerian_growth/bifur-init_results.txt', 'a+')
 Yaxis = y0bifurcation(-400, 400, 10000, 120, 110, 100, 105, 107, 0.6, 0.3, 500, 0.001)
 lbifurana(-400, 400, 10000, Yaxis, -400, 1, 0)

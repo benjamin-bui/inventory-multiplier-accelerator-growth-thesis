@@ -7,6 +7,7 @@ from sympy import *
 from sympy.solvers import solve
 from sympy import Symbol
 from sympy.plotting import plot3d
+
 #Plots investment curve given p and q
 def investment(v, q, lower, upper, points):
     xaxis = np.linspace(lower, upper, points)
@@ -19,12 +20,12 @@ def investment(v, q, lower, upper, points):
     ax1.plot(xaxis, yaxis, c='blue', linewidth=0.5)
     ax1.set_xlabel('$Y_{t-1}-Y_{t-2}$')
     ax1.set_ylabel('$I_t$')
-#Plot maximum and full width at maximum of investment curve relative to p and q
 
 #Solves for maximal investment given p and q
 def maximum(v, q):
     return ((3 ** (3 / 4)) / (4 * q ** (3 / 4) ))
-#Solves for the full width at half maximum given p, q, and maximal investment
+
+#Solves for the full width at half maximum given v, q, and maximal investment using sympy symbolic algebra. Results of solve for this function are functionally identical to results in Mathematica
 def width(v, q):
     max = maximum(v, q)
     half = max / 2
@@ -32,9 +33,8 @@ def width(v, q):
     solutions = solve( (Y / v) / ((Y / v) ** 4 + q) - half, Y)
     halfwidth = abs(solutions[1]-solutions[0])
     return halfwidth
-    
 
-
+#Plots maximal investment given a range of v and q
 def max_investment(lowerv, upperv, lowerq, upperq, points):
     fig = plt.figure(dpi=1200)
     ax1 = fig.add_subplot(1, 1, 1)
@@ -49,6 +49,7 @@ def max_investment(lowerv, upperv, lowerq, upperq, points):
     ax1.set_xlabel('$q$')
     ax1.set_ylabel('Maximal Investment')
 
+#Plots the Full Width at Half Max with a 3-dimensional tirangular surface plot
 def width_investment(lowerv, upperv, lowerq, upperq, points):
     fig = plt.figure(dpi=1200)
     ax = plt.axes(projection='3d')
@@ -68,6 +69,6 @@ def width_investment(lowerv, upperv, lowerq, upperq, points):
 # plt.savefig('./manuscript/figures/metzlerian_growth/invesment.eps', dpi=1200)
 # max_investment(0, 2000, 0.0001, 0.002, 10000)
 # plt.savefig('./manuscript/figures/metzlerian_growth/maxinvestment.eps', dpi=1200)
-width_investment(2, 1000, 0.001, 0.002, 100)
+width_investment(1, 1000, 0.001, 0.002, 50)
 plt.savefig('./manuscript/figures/metzlerian_growth/widthinvestment.eps', dpi=1200)
 

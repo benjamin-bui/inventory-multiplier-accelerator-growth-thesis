@@ -1,7 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from tqdm import tqdm
-#Time series with mean of last 3 prediction
+
+
+#Time series of growth with mean of last 3 prediction
 def growth(dYt1, dYt2, dYt3, dYt5, dYt6, s, k, v, q):
     dYt = (dYt1 / v) / ( (dYt1 / v)**4 + q) - (dYt2 / v) / ( (dYt2 / v)**4 + q) + ((k+1)/3) * ((1-s)*(dYt2-dYt5)+s*(dYt3-dYt6)) + (1-s)*dYt2 + s*dYt3
     return dYt
@@ -15,11 +16,12 @@ def variableplot(Variable):
     ax1.set_xlabel('$t$')
     ax1.set_ylabel('$\dot Y$')
 
+#Generate time series data and plots
 def mapping(dY0, dY1, dY2, dY3, dY4, dY5, s, k, v, q, iter):
     #Initialize vectors
     dY = np.append([dY0, dY1, dY2, dY3, dY4, dY5], np.zeros(iter-6))
     #Simulate
-    for t in tqdm(range(6, iter)):
+    for t in range(6, iter):
         dY[t] = growth(dY[t-1], dY[t-2], dY[t-3], dY[t-5], dY[t-6], s, k, v, q,)
     variableplot(dY)
     return dY
