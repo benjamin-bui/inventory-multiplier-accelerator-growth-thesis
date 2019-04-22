@@ -34,4 +34,6 @@ mapping(29, 20 , 15 , 10, 20 ,50, 0.6, 0.3, 500, 0.001, 150)
 plt.savefig('./manuscript/figures/metzlerian_growth/timeseries3.eps', dpi=1200)
 mapping(100, 120, 110, 100, 105, 107, 0.3, 0.3, 500, 0.001, 150)
 plt.savefig('./manuscript/figures/metzlerian_growth/chaotic_timeseries.eps', dpi=1200)
+mapping(100, 120, 110, 100, 105, 107, 0.6, 0.3, 416, 0.001, 150)
+plt.savefig('./manuscript/figures/metzlerian_growth/chaotic_timeseries2.eps', dpi=1200)
 

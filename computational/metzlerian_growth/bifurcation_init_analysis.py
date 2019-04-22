@@ -225,6 +225,7 @@ lbifurana(-400, 400, 10000, Yaxis, -400, 1, 0)
 rbifurana(-400, 400, 10000, Yaxis, -0, 2, 0)
 lbifurana(-400, 400, 10000, Yaxis, -0, 2, 0)
 rbifurana(-400, 400, 10000, Yaxis, 120, 2, 0)
+lbifurana(-400, 400, 10000, Yaxis, 120, 2, 0)
 rbifurana(-400, 400, 10000, Yaxis, 300, 1, 0)
 
 results.close()

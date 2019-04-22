@@ -122,7 +122,7 @@ The bifurcation diagram varying $k$ seen in Figure \ref{metzlerian_growth-kbifur
     \label{metzlerian_growth-qbifurcation}
 \end{figure}
 
-Figure \ref{metzlerian_growth-vbifurcation} exhibits stable, fixed growth when $v\in[1,297.338)\cup(617.104, 2000]$ which is the upper bound of what was computationally determined. The model also displays a stable 2-cycle when $v\in(472.173, 589.757)$. Likewise, Figure \ref{metzlerian_growth-qbifurcation} has a bifurcation point at $q\approx0.0015997$ and $q\approx0.0015976$ which mark transitions from a stable, fixed point to a 2-period cycle to a 3-period cycle (more bifurcation points exist within the diagram and are more easily viewed by narrowing the parameter variation range). As stated previously, $v$ and $q$ individually lack an economic interpretation, but together they approximate the dynamics of a linear-cubic investment curve while incorporating bounded, asymptotic behavior. 
+Figure \ref{metzlerian_growth-vbifurcation} exhibits stable, fixed growth when $v\in[1,297.338)\cup(617.104, 2000]$ which is the upper bound of what was computationally determined. The model also displays a stable 2-cycle when $v\in(472.173, 589.757)$. Likewise, Figure \ref{metzlerian_growth-qbifurcation} has a bifurcation point at $q\approx0.0015997$ and $q\approx0.0015976$ which mark transitions from a stable, fixed point to a 2-period cycle to a 3-period cycle (more bifurcation points exist within the diagram and are more easily viewed by narrowing the parameter variation range, this can be seen in Figure \ref{metzlerian_growth-qbifurcation_zoom}). As stated previously, $v$ and $q$ individually lack an economic interpretation, but together they approximate the dynamics of a linear-cubic investment curve while incorporating bounded, asymptotic behavior. 
 
 These bifurcation diagrams do not tell the complete story of this model however for any given set of parameters. As stated previously, the choice of constant initial conditions will result in a constant trajectory of income growth. However, it is also trivial to show the existence of other trajectories by creating a timeseries holding the parameters constant but shifting the initial conditions.
 \begin{figure}
@@ -132,7 +132,7 @@ These bifurcation diagrams do not tell the complete story of this model however 
     \label{metzlerian_growth_timeseries3}
 \end{figure}
 
-The timeseries displayed in Figure \ref{metzlerian_growth-timeseries1} and Figure \ref{metzlerian_growth-timeseries3} share the same parametrization but they clearly display distinct dynamics and are centered around different growth rates. It can be helpful then to think of each initial value as a parameter for the purposes of analysis, thereby allowing us to create bifurcation diagrams in order to identify the effects in the long-run behavior of the model with varying initial conditions. 
+The timeseries displayed in Figure \ref{metzlerian_growth-timeseries1} and Figure \ref{metzlerian_growth_timeseries3} share the same parametrization but they clearly display distinct dynamics and are centered around different growth rates. It can be helpful then to think of each initial value as a parameter for the purposes of analysis, thereby allowing us to create bifurcation diagrams in order to identify the effects in the long-run behavior of the model with varying initial conditions. 
 
 \begin{figure}
     \centering
@@ -168,7 +168,7 @@ Figure \ref{metzlerian_growth-y2bifurcation} is qualitatively almost identical t
     \label{metzlerian_growth-y3bifurcation}
 \end{figure}
 
-Figure \ref{metzlerian_growth-y3bifurcation} possess many regions of clearly visible, ordered cyclic behavior, of note however is presence of stable 2-cycles when $Y_3\in (19.162, 270.867$.
+Figure \ref{metzlerian_growth-y3bifurcation} possess many regions of clearly visible, ordered cyclic behavior, of note however is presence of stable 2-cycles when $Y_3\in (19.162, 270.867)$.
 
 \begin{figure}
     \centering
@@ -176,6 +176,18 @@ Figure \ref{metzlerian_growth-y3bifurcation} possess many regions of clearly vis
     \caption{Bifurcation diagram varying $\dot Y_4$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{metzlerian_growth-timeseries1}}
     \label{metzlerian_growth-y4bifurcation}
 \end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{./metzlerian_growth/y5bifurcation}
+    \caption{Bifurcation diagram varying $\dot Y_5$ between -400 and 400. All other parameters and initial conditions kept as described in Figure \ref{metzlerian_growth-timeseries1}}
+    \label{metzlerian_growth-y5bifurcation}
+\end{figure}
+
+Figure \ref{metzlerian_growth-y4bifurcation} displays fixed behavior when $\dot Y_4$ is very large or small compared to the other initial variables. When their values are more moderate, the long-run behavior of the model can be a 2-cycle such as when $\dot Y_4\in(-144.054, -111.571)$ or $\dot Y_4\in(87.880, 143.494)$. Higher order cycles and chaotic behavior is also present in this moderate range.
+
+
+Figure \ref{metzlerian_growth-y5bifurcation} also displays fixed behavior when $\dot Y_5$ is very large or small compared to the other initial variables. 2-cycles are present when $\dot Y_5\in(-28.843, 27.243)\cup(71.167, 179.899)$ although chaotic behavior and higher order cycles are also present.
 
 \section{Chaotic Behavior in Growth}
 Bifurcation analysis of this type allows us to determine the presence and location of bifurcation points separating arbitrary period cycles. However, this is insufficient to determining if varying the parameters of the model result in chaotic behavior and where exactly this transition occurs. The existence of chaos lends credence to the assumption of bounded rationality assigned to firms. If the model always features stable cycles, then it would only be logical that firms would eventually be able to adapt their predictive mechanism to predict this ordered behavior. The effect this shift in expectation rule would have on future dynamics is beyond the scope of this paper; however, the presence of chaos means the model is sufficiently sensitive to initial conditions that firms would not be able to accurately determine the future state of the market as under a chaotic system, knowing the approximate current state of the economy does not inform firms of the approximate future state of the economy. 
@@ -261,7 +273,7 @@ An important note is that although 1-dimensional models only have 1 lyapunov exp
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/vlyplot.eps}
     \caption{Lyapunov plot varying $v$ between 1 and 2000. Other parameters and initial conditions are held constant held constant as described in Figure \ref{metzlerian_growth-timeseries1}}
-    \label{metzlerian_growth-lyapunov}
+    \label{metzlerian_growth-vlyapunov}
 \end{figure}
 \begin{figure}
     \centering
