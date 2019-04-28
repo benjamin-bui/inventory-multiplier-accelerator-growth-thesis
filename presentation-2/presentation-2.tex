@@ -55,8 +55,25 @@ style=chem-acs
 	\begin{itemize}
 		\item The study of stochastic processes was deeply influential in explaining macroscale themodynamic properties
 
-		\item Fractals and chaotic processes are a more recent addition to the chemist's toolkit\autocite{Beutel2007,Morris2010}
+		\item This quickly spread into the fields of economics and finance 
 	\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\textwidth]{brownian_motion.eps}
+		\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+\note{Brownian motion, a stochastic evolutionary process, laid the framework for the study of statistical mechanics which bridged the gap between the behavior and interactions of individual particles and the thermodynamic properties of the constituent material.}
+\begin{frame}{Motivation}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item Fractals and chaotic processes are a more recent addition to the chemist's toolkit\autocite{Beutel2007,Morris2010}
+			\item Could chaos play a role in economics as well?
+		\end{itemize}
 	\end{column}
 	\begin{column}{0.5\textwidth}
 		\begin{figure}
@@ -66,9 +83,396 @@ style=chem-acs
 	\end{column}
 	\end{columns}
 \end{frame}
-\note{Test}
+\note{Fractals and chaos theory are common in physical dynamical systems but are increasing in popularity in chemistry for their ability to model and explain cyclic processes like the BZ-reaction. It is also necessary to accurately describe phenomena such as flame dynamics and surface chemistry}
+\begin{frame}{Overview}
+	\begin{itemize}
+		\item Wegener et al.: Inventory cycle model with a Lundberg lag
+		\item T\"onu Puu: Multiplier-acclerator growth model with a Robertson lag
+		\item Benjamin Bui: Inventory Cycles with endogenous investment
+	\end{itemize}
+\end{frame}
+\section*{Inventory Cycles}
+\begin{frame}{Background}
+	\begin{itemize}
+		\item Lloyd Metzler developed an inventory cycle model in 1941 in order to explore the effect of a Lundberg lag\autocite{Metzler1941}
+		\item Wegener, Westerhoff, and Zaklan expanded on this model in 2009\autocite{Wegener2009}
+	\end{itemize}
+\end{frame}
+\note{This model provided an endogenous, deterministic explanation for the dynamic nature of business cycles. It utilizes the Lundberg lag which means theres a discrepancy between goods demanded and goods produced. This disagrees with Classical market clearing theories which assume that supply will always equal demand and that agents will behave with perfect rationality.}
+\begin{frame}{Consumption and Investment}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item Investment is held as endogenous 
+			\item Consumption is a lagged proportion of income
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{align}
+			I_t &= \bar I\\
+			C_t &= bY_t
+		\end{align}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Inventory}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item Desired inventory is a proportion of expected income
+			\item Stock output is made to match desired inventory
+			\item Actual inventory depends on the accuracy of the expectation
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{align*}
+			\hat Q_t &= kU_t\\
+			S_t &= \hat Q_t - Q_{t-1}\\
+			Q_t &= \hat Q_t - (C_t-U_t)
+		\end{align*}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Predicting Consumption}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item "Extrapolaters" believe that consumption will diverge from the steady-state
+			\item "Regressers" believe that consumption will return to the steady-state
+			\item Firms will choose from the types depending on the consumption level
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{align*}
+			U_t^E &= C_{t-1} + c(C_{t-1}-\bar C)\\
+			U_t^R &= C_{t-1} + f(\bar C-C_{t-1})\\
+			U_t &= w_tU_t^E+(1-w_t)U_t^R\\
+			w_t &= \frac{1}{1+d(\bar C-C_{t-1})^2}
+		\end{align*}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Aggregate Output}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item Output is the sum of these production factors
+			\item Can solve for a single fixed point
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{align*}
+			Y_t = I_t + U_t + S_t\\ 
+			\bar Y = \frac{1}{1-b}\bar I
+		\end{align*}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{A Possible Trajectory}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.9\textheight]{timeseries_income.eps}
+	\end{figure}
+\end{frame}
+
+\section*{Multiplier-Accelerator}
+\begin{frame}{Framework}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item Consumption has a Robertson lag
+			\item Investment is cubic relative to income change
+			\item There is no Lundberg lag
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{align*}
+			C_t &= (1-s)Y_{t-1} + sY_{t-2}\\
+			I_t &= v(Y_{t-1}-Y_{t-2})-v(Y_{t-1}-Y_{t-2})^3
+		\end{align*}
+	\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}{The Growth Model}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		Change in income is normalized to be within the range (-1, 1)\autocite{Puu2003}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{align*}
+			\mu &\equiv v-s\\
+			\dot Y_t &= \mu\dot Y_{t-1}-(\mu+1)\dot Y_{t-1}^3
+		\end{align*}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Qualitatively Different Trajectories Possible}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{2-cyclic.eps}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{chaos_uncontained.eps}
+		\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Growth Dynamics}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{bifurcation.eps}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{lyapunov.eps}
+		\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\section*{Inventory Cycle with Growth}
+\begin{frame}{Goal}
+	\begin{itemize}
+		\item To incorporate a Roberson and Lundberg lag in the same model
+		\item To provide a reasonable basis for the boundedly rational behavior of firms
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Consumption and Investment}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item Consumption is identical to the multiplier-accelerator model
+			\item The investment function is qualitatively similar but asymptotically approaches 0
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{align*}
+			C_t &= (1-s)Y_{t-1}+sY_{t-2}\\
+			I_t &= \frac{\frac{Y_{t-1}-Y_{t-2}}{v}}{\frac{Y_{t-1}-Y_{t-2}}{v}+q}
+		\end{align*}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Investment Curve}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.9\textheight]{investment.eps}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Maximal/Minimal Investment}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{align*}
+			&Y_{t-1}-Y_{t-2} = \pm\frac{q^{1/4}v}{3^{1/4}}\\
+			&I_t = \frac{3^{3/4}}{3q^{3/4}}
+		\end{align*}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{maxinvestment.eps}
+		\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Investment FWHM}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.9\textheight]{widthinvestment.eps}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Inventory}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item Predicted consumption is an average of lagged consumption
+			\item Inventory production is otherwise identical to Wegener's model
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{align*}
+			U_t &= \frac{C_{t-1}+C_{t-2}+C_{t-2}}{3}\\
+			S_t &= kU_t-Q_{t-1}\\
+			Q_t &= Q_{t-1} + S_t + (U_t-C_t)
+		\end{align*}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Output Growth}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		Endogenous investment allows for long-run growth or decay 
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{align*}
+			Y_t &= I_t + S_t + U_t\\
+			\dot Y_t &= Y_{t}-Y_{t-1}
+		\end{align*}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Output Growth}
+	\begin{equation*}
+	\begin{split}
+        \dot Y_{t}& = \frac{\frac{\dot Y_{t-1}}{v}}{\left(\frac{\dot Y_{t-1}}{v}\right)^4+q}-\frac{\frac{\dot Y_{t-2}}{v}}{\left(\frac{\dot Y_{t-2}}{v}\right)^4+q} + \\
+		& \frac{k+1}{3}\left[(1-s)(\dot Y_{t-2}-Y_{t-5})+s(\dot Y_{t-3}-Y_{t-6})\right]\\
+		& +(1-s)\dot Y_{t-2}+s\dot Y_{t-3}
+	\end{split}
+	\end{equation*}
+\end{frame}
+
+\begin{frame}{}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{timeseries1.eps}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{timeseries3.eps}
+		\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Propensity to Consume}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{sbifurcation.eps}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{slyplot.eps}
+		\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Investment (FWHM)}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{vbifurcation.eps}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{vlyplot.eps}
+		\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Investment (Maximum/Minimum)}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{qbifurcation.eps}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{qlyplot.eps}
+		\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Sensitivity to Initial Conditions}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{y0bifurcation.eps}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{y1bifurcation.eps}
+		\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Sensitivity to Initial Conditions}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{y2bifurcation.eps}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{y3bifurcation.eps}
+		\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Sensitivity to Initial Conditions}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{y4bifurcation.eps}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.2\textwidth]{y5bifurcation.eps}
+		\end{figure}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{Next steps}
+	\begin{itemize}
+		\item Further investigate the fractal structure of the strange attractors
+		\item Open the economy to foreign trade and improve the investment mechanism 
+		\item Improve consumption prediction mechanism
+	\end{itemize}
+\end{frame}
 
 \begin{frame}[allowframebreaks]{References}
+	\nocite{*}
 	\printbibliography
 \end{frame}
 \end{document}
