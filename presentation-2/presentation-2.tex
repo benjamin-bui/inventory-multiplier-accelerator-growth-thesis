@@ -54,7 +54,7 @@ style=chem-acs
 	\begin{itemize}
 		\item The study of stochastic processes was deeply influential in explaining macroscale themodynamic properties
 
-		\item This quickly spread into the fields of economics and finance 
+		\item Although first applied by French mathematician Louis Bachelier\autocite{Bachelier1900}, Einstein popularized the application of stochastic processes which helped its spread into the fields of finance and economics
 	\end{itemize}
 	\end{column}
 	\begin{column}{0.5\textwidth}
@@ -78,7 +78,7 @@ style=chem-acs
 	\begin{column}{0.5\textwidth}
 		\begin{figure}
 			\centering
-			\includegraphics{bz_reaction.jpg}
+			\includegraphics[width=0.9\textwidth]{bz_reaction.jpg}
 			\caption{Still image of the BZ-reaction}
 		\end{figure}
 	\end{column}
@@ -121,9 +121,10 @@ style=chem-acs
 	\begin{columns}
 	\begin{column}{0.5\textwidth}
 		\begin{itemize}
-			\item Desired inventory is a proportion of expected consumption
-			\item Stock output is made to match desired inventory
-			\item Actual inventory depends on the accuracy of the expectation
+			\item Desired inventory, $\hat Q$ is a proportion of expected consumption
+			\item Stock output, $S$ is made to match desired inventory
+			\item Actual inventory, $Q$ depends on the accuracy of the expectation
+			\item 
 		\end{itemize}
 	\end{column}
 	\begin{column}{0.5\textwidth}
@@ -140,8 +141,8 @@ style=chem-acs
 	\begin{columns}
 	\begin{column}{0.5\textwidth}
 		\begin{itemize}
-			\item "Extrapolaters" believe that consumption will diverge from the steady-state
-			\item "Regressers" believe that consumption will return to the steady-state
+			\item $U^E$: "Extrapolaters" believe that consumption will diverge from the steady-state
+			\item $U^R$: "Regressers" believe that consumption will return to the steady-state
 			\item Firms will choose from the types depending on the consumption level
 		\end{itemize}
 	\end{column}
@@ -160,7 +161,7 @@ style=chem-acs
 	\begin{columns}
 	\begin{column}{0.5\textwidth}
 		\begin{itemize}
-			\item Output is the sum of these production factors
+			\item Output, $Y$, is the sum of these production factors
 			\item Can solve for a single fixed point
 		\end{itemize}
 	\end{column}
@@ -186,8 +187,8 @@ style=chem-acs
 	\begin{columns}
 	\begin{column}{0.5\textwidth}
 		\begin{itemize}
-			\item Consumption has a Robertson lag
-			\item Investment is cubic relative to income change
+			\item Consumption, $C$, has a Robertson lag
+			\item Investment, $I$, is cubic relative to income change
 			\item There is no Lundberg lag
 		\end{itemize}
 	\end{column}
@@ -261,8 +262,8 @@ style=chem-acs
 	\begin{columns}
 	\begin{column}{0.5\textwidth}
 		\begin{itemize}
-			\item Consumption is identical to the multiplier-accelerator model
-			\item The investment function is qualitatively similar but asymptotically approaches 0
+			\item Consumption, $C$, is identical to the multiplier-accelerator model
+			\item The investment function, $I$, is qualitatively similar but asymptotically approaches 0
 		\end{itemize}
 	\end{column}
 	\begin{column}{0.5\textwidth}
@@ -287,7 +288,7 @@ style=chem-acs
 	\begin{column}{0.5\textwidth}
 		\begin{align*}
 			&Y_{t-1}-Y_{t-2} = \pm\frac{q^{1/4}v}{3^{1/4}}\\
-			&I_t = \frac{3^{3/4}}{3q^{3/4}}
+			&I_t = \pm\frac{3^{3/4}}{3q^{3/4}}
 		\end{align*}
 	\end{column}
 	\begin{column}{0.5\textwidth}
@@ -312,8 +313,8 @@ style=chem-acs
 	\begin{columns}
 	\begin{column}{0.5\textwidth}
 		\begin{itemize}
-			\item Predicted consumption is an average of lagged consumption
-			\item Inventory production is otherwise identical to Wegener's model
+			\item Predicted consumption, $U$, is an average of lagged consumption
+			\item Evolution of stock output, $S$, and actual inventory, $Q$, behaves identically to the Wegener model
 		\end{itemize}
 	\end{column}
 	\begin{column}{0.5\textwidth}
@@ -364,12 +365,22 @@ style=chem-acs
 		\begin{figure}
 			\centering
 			\includegraphics[width=1.0\textwidth]{timeseries3.eps}
-			\caption{Timeseries plot of income growth rate over 150 iterations. Parameters identical to Fig. \ref{metzlerian_growth-timeseries1}. Initial values of $\dot Y$ are: 29, 20 , 15 , 10, 20 ,50}
+			\caption{Timeseries plot of income growth rate over 150 iterations. Parameters identical to Fig. \ref{metzlerian_growth-timeseries1}. Initial values of $\dot Y$ are: 29, 20 , 15 , 10, 20, 50}
 		\end{figure}
 	\end{column}
 	\end{columns}
 \end{frame}
 
+\begin{frame}{Determining Chaos}
+	\begin{align*}
+		\dot Y_t = f(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
+		\dot A_t = g(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
+		\dot B_t = h(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
+		\dot C_t = j(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
+		\dot D_t = l(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})\\
+		\dot G_t = m(\dot Y_{t-1}, \dot A_{t-1}, \dot B_{t-1}, \dot C_{t-1}, \dot D_{t-1}, \dot G_{t-1})
+	\end{align*}
+\end{frame}
 \begin{frame}{Determining Chaos}
 	\begin{equation*}
 		J=
@@ -394,7 +405,7 @@ style=chem-acs
 		v_{t+1} &=\frac{J_t\cdot v_t}{|J_t\cdot v_t|}
 	\end{align*}
 \end{frame}
-\begin{frame}{Propensity to Consume}
+\begin{frame}{Propensity to Consume: $s$}
 	\begin{columns}
 	\begin{column}{0.5\textwidth}
 		\begin{figure}
@@ -413,7 +424,7 @@ style=chem-acs
 	\end{columns}
 \end{frame}
 
-\begin{frame}{Investment (FWHM)}
+\begin{frame}{Investment (FWHM): Measured by $v$}
 	\begin{columns}
 	\begin{column}{0.5\textwidth}
 		\begin{figure}
@@ -432,7 +443,7 @@ style=chem-acs
 	\end{columns}
 \end{frame}
 
-\begin{frame}{Investment (Maximum/Minimum)}
+\begin{frame}{Investment (Maximum/Minimum): Measured by $q$}
 	\begin{columns}
 	\begin{column}{0.5\textwidth}
 		\begin{figure}
