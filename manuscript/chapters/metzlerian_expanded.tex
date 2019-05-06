@@ -1,9 +1,9 @@
 \section{Model Set-Up}
-Metzler's and Wegener's model show that it is possible for endogenous business cycles to be induced through inventory cycles and the failure of firms to accurately predict future consumption. These models were designed to focus on the effects of firm expectations with Wegener's contribution consisting of introducing a heterogenous expectation rule that allows firms to switch behavior based on the state of the economy. Both of these models however simplify other aspects of the economy that feature more complex behavior in other business cycle models.
+Metzler's and Wegener's model show that it is possible for endogenous business cycles to be induced through inventory cycles and the failure of firms to accurately predict future consumption. These models were designed to focus on the effects of firm expectations with Wegener's contribution consisting of introducing a heterogenous expectation rule that allows firms to switch behavior based on the state of the economy. Both of these models however, simplify other aspects of the economy that feature more complex behavior in other business cycle models.
 
-The inventory cycle model features 3 main factors of production: predicted consumption, investment, and inventory. Metzler and Wegener holds investment as an exogenously determined constant; however, this is both unrealistic and does not allow for long term endogenous growth. To incorporate a mechanism for endogenously adjusting investment, we take inspiration from the multiplier-accelerator model presented in Chapter \ref{ch:multiplier-accelerator}. 
+The inventory cycle model features 3 main factors of production: predicted consumption: $U$, investment: $I$, and inventory stock $S$. Metzler and Wegener holds investment as an exogenously determined constant; however, this is both unrealistic and does not allow for long term endogenous growth. To incorporate a mechanism for endogenously adjusting investment, we take inspiration from the multiplier-accelerator model presented in Chapter \ref{ch:multiplier-accelerator}. 
 
-The problem with the cubic investment function used in that model is that it leads to unbounded behavior in the extremes, much like the linear function. Puu resolves this by ensuring that income growth is bounded by [-1, 1] but this is not the case for our model. We instead want a function that features similar curvature and behavior as the cubic function over moderate values but flattens when income change is of significant magnitude. This can be accomplished with the following function:
+The problem with the cubic investment function used in that model is that it leads to unbounded behavior in the extremes, much like the linear function. Puu resolves this by ensuring that income growth is bounded by [-1, 1] but this is not the case for our model. We instead want a function that features similar curvature and behavior as the cubic function over moderate values but flattens when income change is of significant magnitude. We can thus define investment $I_t$ to be a function of the the change in income $Y_{t-1}$ and $Y_{t-2}$.
 \begin{equation}
     I_t = \frac{\frac{Y_{t-1}-Y_{t-2}}{v}}{(\frac{Y_{t-1}-Y_{t-2}}{v})^4+q}	
 \end{equation}
@@ -29,36 +29,36 @@ Thus giving a maximal or minimal investment of:
     \caption{Plot of maximal investment as $q$ varies between 0 and 2000.}
     \label{metzlerian_growth-maxinvestment}
 \end{figure}
-Intuitively, larger values of $v$ make the function "wider", increasing the range over $Y_{t-1}-Y_{t-2}$ where $I_t$ is not effectively 0. Smaller values of $q$ increases the magnitude of the maximum and minimum of the function, effectively making it taller. $v$ and $q$ cannot be directly attributed to any direct economic phenomena; however, their effect on the function can be interpreted analogously to the properties of the linear-cubic function. The "height" of the function determines the potential magnitude of investment and the "width" determines the rate at which investment, both private and public, react to changes in income.
+Intuitively, larger values of $v$ make the function ``wider", increasing the range over $Y_{t-1}-Y_{t-2}$ where $I_t$ is not effectively 0. Smaller values of $q$ increases the magnitude of the maximum and minimum of the function, effectively making it taller. The parameters $v$ and $q$ cannot be directly attributed to any direct economic phenomena; however, their effect on the function can be interpreted analogously to the properties of the linear-cubic function. The ``height" of the function determines the potential magnitude of investment and the ``width" determines the rate at which investment, both private and public, react to changes in income.
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/widthinvestment.eps}
     \caption{Plot of the full width at half maximum (FWHM) of the investment curve as $v$ varies between 1 and 2000 and $q$ varies between 0.001 and 0.002}
     \label{metzlerian_growth-widthinvestment}
 \end{figure}
-Fig \ref{metzlerian_growth-widthinvestment} shows that the FWHM of the investment curve has a nearly positive, linear relationship with both $v$ and $q$ over tested values of $v$ and $q$.
+ Figure\ref{metzlerian_growth-widthinvestment} shows that the FWHM of the investment curve has a nearly positive, linear relationship with both $v$ and $q$ over tested values of $v$ and $q$.
 
-Metzler describes the existence of two important lags in the study of Keynesian models. The Robertson lag is characterized by making current consumption a function of past income, i.e. consumption behavior lags behind current income. The Lundberg lag however concerns a discrepancy between the income level and the production decision of firms\autocite{Metzler1941}. These lags are named after the two economists D. H. Robertson and Erik Lundberg who developed models that contained only their eponymous lag type. Although both lags are likely to exist in reality, most models only incorporate one lag due to the increased complexity associated with it. Metzler and Wegener make use of a Lundberg lag by making income a function of the predicted level of consumption as opposed to actual consumption. T\"{o}nu Puu's model makes use of a Robertson lag in order to induce endogenous business cycles. Metzler himself does not claim that the Lundberg sequence is any more realistic than the Robertson sequence. Whichever lag has a longer time-period can be treated as of being greater importance but Metzler actually proposes a variety of scenarios that present contradicting conclusions. Suppose that firms decided their behavior on a quarterly basis but consumers altered their spending behavior with every paycheck, then it would be appropriate to treat the Robertson lag as being of 0 length, i.e. nonexistent. If consumers revise their spending behavior every 6 months to a year, then it would actually be more realistic to include a non-zero Robertson lag while minimizing the Lundberg lag. 
+Metzler describes the existence of two important lags in the study of Keynesian models. The Robertson lag is characterized by making current consumption a function of past income, i.e. consumption behavior lags behind current income. The Lundberg lag however, concerns a discrepancy between the income level and the production decision of firms\autocite{Metzler1941}. These lags are named after the two economists D. H. Robertson and Erik Lundberg who developed models that contained only their eponymous lag type. Although both lags are likely to exist in reality, most models only incorporate one lag due to the increased complexity associated with it. Metzler and Wegener make use of a Lundberg lag by making income a function of the predicted level of consumption as opposed to actual consumption. T\"{o}nu Puu's model makes use of a Robertson lag in order to induce endogenous business cycles. Metzler himself does not claim that the Lundberg sequence is any more realistic than the Robertson sequence. Whichever lag has a longer time-period can be treated as of being greater importance but Metzler actually proposes a variety of scenarios that present contradicting conclusions. Suppose that firms decided their behavior on a quarterly basis but consumers altered their spending behavior with every paycheck, then it would be appropriate to treat the Robertson lag as being of 0 length, i.e. nonexistent. If consumers revise their spending behavior every 6 months to a year, then it would actually be more realistic to include a non-zero Robertson lag while minimizing the Lundberg lag. 
 
 For the purposes of this model, we will include a non-zero Lundberg and Robertson lag. The consumption function is treated exactly as presented in Puu:
 \begin{equation}
     C_t=(1-s)Y_{t-1}+sY_{t-2}
 \end{equation}
 
-As the economy is also making use of a Robertson lag, income is not directly a function of consumption as it is \ref{ch:multiplier-accelerator}. Rather, income is viewed from a production standpoint. This is achieved by explicitly defining a predicted level of consumption. Wegener and Metzler use an equation similar to the form:
+As the economy is also making use of a Lundberg lag, income does not have actual consumption as a primary factor. Rather, income is viewed from a production standpoint. This is achieved by explicitly defining a predicted level of consumption $U$. This determines the quantity of goods produced by firms intended for consumption and allow for a potential gap between the quantity of goods demanded $C_t$ and the quantity supplied by firms $U_t$. Wegener and Metzler use an equation similar to the form:
 
 \begin{equation*} 
     U_t=C_{t-1}+\eta(C_{t-1}-C_{t-2})
 \end{equation*}
 However, this assumes that firms have no way to adapt their coefficient of expectation $\eta$. 
 
-A new predictive mechanism requires that firms have bounded rationality. If firms possessed perfect rationality, then they would be able to perfectly predict consumption levels as consumption is based on lagged income, thus if we wish to maintain our Robertson lag, firms must still have bounded rationality. Another mechanism that firms can use that maintains better "memory" is that of an average. 
+A new predictive mechanism requires that firms have bounded rationality. If firms possessed perfect rationality, then they would be able to perfectly predict consumption levels as consumption is based on lagged income, thus if we wish to maintain our Robertson lag, firms must still have bounded rationality. Another mechanism that firms can use that maintains better ``memory" is that of an average. 
 \begin{equation}\label{predict}
     U_t = \frac{C_{t-1}+C_{t-2}+C_{t-3}}{3}
 \end{equation}
-This formulation is an average of the consumption levels of the past 3 time periods. The choice of three time periods is relatively arbitrary and higher order difference equations of the same form can be used; however these higher order formulations can result in a less mathematically tractable model.
+This formulation means that firms predict future income to be approximately equal to the average of the actual income level of the past 3 time periods. The choice of three time periods is relatively arbitrary and higher order difference equations of the same form can be used; however, these higher order formulations can result in a less mathematically tractable model.
 
-Inventory production proceeds as seen in Chapter 2 with firms producing $S_t$ explicitly to maintain inventory at optimal levels:
+Inventory production proceeds as seen in Chapter 2 with firms producing $S_t$ stock production in order to explicitly to maintain inventory at optimal levels:
 \begin{equation}
     S_t = k U_t-Q_{t-1}
 \end{equation}
@@ -75,7 +75,7 @@ However, as income has the capability of sustained growth under this model, it i
 \begin{equation}
     \begin{split}
         \dot Y_{t}& = \frac{\frac{\dot Y_{t-1}}{v}}{\left(\frac{\dot Y_{t-1}}{v}\right)^4+q}-\frac{\frac{\dot Y_{t-2}}{v}}{\left(\frac{\dot Y_{t-2}}{v}\right)^4+q} + \\
-        & \frac{k+1}{3}\left[(1-s)(\dot Y_{t-2}-Y_{t-5})+s(\dot Y_{t-3}-Y_{t-6})\right]+(1-s)\dot Y_{t-2}+s\dot Y_{t-3}
+        & \frac{k+1}{3}\left[(1-s)(\dot Y_{t-2}-\dot Y_{t-5})+s(\dot Y_{t-3}-\dot Y_{t-6})\right]+(1-s)\dot Y_{t-2}+s\dot Y_{t-3}
     \end{split}
     \end{equation}
 
@@ -89,13 +89,13 @@ The long run dynamics of the model are highly dependent on the choice of initial
 \end{figure}
 Figure \ref{metzlerian_growth-timeseries1} displays a possible trajectory of income growth. Under the parameters listed, the trajectory clearly behaves in a stable, cyclic manner within 40 iterations. 
 
-There do not exist techniques to solve generalized 6th order difference equations; however it is possible to computationally solve for the long run dynamics of the system.
+There do not exist techniques to solve generalized 6th order difference equations; however, it is possible to computationally solve for the long run dynamics of the system.
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/sbifurcation}
     \caption{Bifurcation diagram varying $s$ between 0.1 and 0.9. Initial conditions and other parameters are held constant as described in Figure \ref{metzlerian_growth-timeseries1}.}
     \label{metzlerian_growth-sbifurcation}
-\end{figure} The bifurcation diagram displayed in Figure \ref{metzlerian_growth-sbifurcation} displays the long-run behavior of the model as $s$ is varied. The methodology of the computational analysis of the bifurcation points and the results of this analyis are displayed in detail in Section \ref{bifurcation_analyzer} and Section \ref{bifurcation_analysis}, respectively. Long-run values are rounded to their nearest whole number for the purposes of this computational analysis although it is possible to account for higher levels of numerical precision using the analyzer. The mapping displays a stable 2-cycle when $s\in(0.65, 0.53)$. This implies the presence of a stable business cycle when the marginal propensity to save is moderately high; however, the behavior appears chaotic when the marginal propensity to save approaches either extreme. 
+\end{figure} The bifurcation diagram displayed in Figure \ref{metzlerian_growth-sbifurcation} displays the long-run behavior of the model as $s$ is varied. The methodology of the computational analysis of the bifurcation points and the results of this analysis are displayed in detail in Section \ref{bifurcation_analyzer} and Section \ref{bifurcation_analysis}, respectively. Long-run values are rounded to their nearest whole number for the purposes of this computational analysis although it is possible to account for higher levels of numerical precision using the analyzer. The mapping displays a stable 2-cycle when $s\in(0.65, 0.53)$. This implies the presence of a stable business cycle when the marginal propensity to save is moderately high; however, the behavior appears chaotic when the marginal propensity to save approaches either extreme. 
 
 \begin{figure}
     \centering
@@ -121,7 +121,7 @@ The bifurcation diagram varying $k$ seen in Figure \ref{metzlerian_growth-kbifur
 
 Figure \ref{metzlerian_growth-vbifurcation} exhibits stable, fixed growth when $v\in(1,297.338)\cup(617.104, 2000)$ which is the upper bound of what was computationally determined. The model also displays a stable 2-cycle when $v\in(472.173, 589.757)$. Likewise, Figure \ref{metzlerian_growth-qbifurcation} has a bifurcation point at $q\approx0.0015997$ and $q\approx0.0015976$ which mark transitions from a stable, fixed point to a 2-period cycle to a 3-period cycle (more bifurcation points exist within the diagram and are more easily viewed by narrowing the parameter variation range, this can be seen in Figure \ref{metzlerian_growth-qbifurcation_zoom}). As stated previously, $v$ and $q$ individually lack an economic interpretation, but together they approximate the dynamics of a linear-cubic investment curve while incorporating bounded, asymptotic behavior. 
 
-These bifurcation diagrams do not tell the complete story of this model however for any given set of parameters. As stated previously, the choice of constant initial conditions will result in a constant trajectory of income growth. However, it is also trivial to show the existence of other trajectories by creating a timeseries holding the parameters constant but shifting the initial conditions.
+These bifurcation diagrams do not tell the complete story of this model however, for any given set of parameters. As stated previously, the choice of constant initial conditions will result in a constant trajectory of income growth. However, it is also trivial to show the existence of other trajectories by creating a timeseries holding the parameters constant but shifting the initial conditions.
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./metzlerian_growth/timeseries3}
@@ -147,7 +147,7 @@ This diagram shows several clearly defined regions of stable, ordered behavior. 
     \label{metzlerian_growth-y1bifurcation}
 \end{figure}
 
-Figure \ref{metzlerian_growth-y1bifurcation} is also relatively simple to analyze, featuring a fixed growth rate until the bifurcation point where $Y_1\approx -99.010$. A region of stable 2-cycles also exist when $Y_1\in(-48.205,220.542)$. Fixed growth recommences when $Y_1\approx 243.104$ before shifting back into a 2-cycle region when $Y_1\approx 313.351$. 
+Figure \ref{metzlerian_growth-y1bifurcation} is also relatively simple to analyze, featuring a fixed growth rate until the bifurcation point where $\dot Y_1\approx -99.010$. A region of stable 2-cycles also exist when $Y_1\in(-48.205,220.542)$. Fixed growth recommences when $\dot Y_1\approx 243.104$ before shifting back into a 2-cycle region when $\dot Y_1\approx 313.351$. 
 
 \begin{figure}
     \centering
@@ -156,7 +156,7 @@ Figure \ref{metzlerian_growth-y1bifurcation} is also relatively simple to analyz
     \label{metzlerian_growth-y2bifurcation}
 \end{figure}
 
-Figure \ref{metzlerian_growth-y2bifurcation} is qualitatively almost identical to the diagram displayed in Figure \ref{metzlerian_growth-y1bifurcation}. The model displays fixed growth until the bifurcation point when $Y_2\approx -109.011$. A region of stable 2-cycles exists when $Y_2\in(-58.206, 210.541)$. Fixed growth recommences after the bifurcation point when $Y_2\approx 233.103$ before shifting back into stable 2-cycles when $Y_2\approx 303.350$. 
+Figure \ref{metzlerian_growth-y2bifurcation} is qualitatively almost identical to the diagram displayed in Figure \ref{metzlerian_growth-y1bifurcation}. The model displays fixed growth until the bifurcation point when $\dot Y_2\approx -109.011$. A region of stable 2-cycles exists when $\dot Y_2\in(-58.206, 210.541)$. Fixed growth recommences after the bifurcation point when $\dot Y_2\approx 233.103$ before shifting back into stable 2-cycles when $\dot Y_2\approx 303.350$. 
 
 \begin{figure}
     \centering
@@ -165,7 +165,7 @@ Figure \ref{metzlerian_growth-y2bifurcation} is qualitatively almost identical t
     \label{metzlerian_growth-y3bifurcation}
 \end{figure}
 
-Figure \ref{metzlerian_growth-y3bifurcation} possess many regions of clearly visible, ordered cyclic behavior, of note however is presence of stable 2-cycles when $Y_3\in (19.162, 270.867)$.
+Figure \ref{metzlerian_growth-y3bifurcation} possess many regions of clearly visible, ordered cyclic behavior, of note however, is presence of stable 2-cycles when $\dot Y_3\in (19.162, 270.867)$.
 
 \begin{figure}
     \centering
@@ -245,15 +245,15 @@ Figure \ref{metzlerian_growth-derivative1} and \ref{metzlerian_growth-derivative
 
 If we think of the our mapping as a transformation in an $n$-dimensional space and the Lyapunov exponent as a measure of the compression and expansion of this space, it is clear that we must track the direction of this action as the transformation iterates through time. This is accomplished by evaluating the evolution of an $n$-length vector $v$, normalized to a length of 1 for simplicity as the direction of this vector is all we are concerned with. This occurs with the 1-dimensional $v_t$ case as well, by incorporating a 1-dimensional vector of length 1. This is however, equivalent to the scalar 1 so it need not be explicitly included in calculation. The Jacobian $J$ operates as the higher-dimension analogue to the derivative so by taking the product of the Jacobian and the direction vector, we are able to project our derivatives onto the direction vector. From here, we can solve for the Lyapunov exponent much like in our 1-dimensional case:
 \begin{equation}
-    \lambda(\dot Y,\dot A,\dot B\dot C,\dot D,\dot G)= \lim_{j\to\infty}\frac{1}{j}\sum^{t=j}_{j=1}\ln\lvert J_t\cdot v_t\rvert
+    \lambda(\dot Y,\dot A,\dot B,\dot C,\dot D,\dot G)= \lim_{j\to\infty}\frac{1}{j}\sum^{t=j}_{j=1}\ln\lvert J_t\cdot v_t\rvert
 \end{equation}
-With a 1-dimensional mapping, $v_t=v=1$ and $J_t=f^\prime(x_t)$. It is clear how the Jacobian evolves over timeas \ref{eq:Jacobian} is dependent on the state of the economy. The direction vector must also be updated, this is accomplished by normalizing the length of the projection:
+With a 1-dimensional mapping, $v_t=v=1$ and $J_t=f^\prime(x_t)$. It is clear how the Jacobian evolves over time as \ref{eq:Jacobian} is dependent on the state of the economy. The direction vector must also be updated, this is accomplished by normalizing the length of the projection:
 \begin{equation}
     v_{t+1}=\frac{J_t\cdot v_t}{\lvert J_t\cdot v_t\rvert}
 \end{equation}
 A consequence of this is that the Lyapunov exponent is now both dependent on the initial condition and the choice of initial direction vector\autocite{MedioAlfredo2001Ndap,Puu2003}. As stated in the introduction, the initial condition provided it not reside in an unstable periodic cycle; moreover, the choice of initial vector is of little consequence as it quickly updates to the correct elongation direction regardless of initial choice. As stated for the 1-dimensional case, it is typically impractical to solve for the Lyapunov exponent analytically; however, we can approximate it by iterating the model for some large $t$ and treating this value as the limit.
 
-An important note is that although 1-dimensional models only have 1 Lyapunov exponent, $n$ dimensional models actually have $n$ Lyapunov exponents.The method described above only calculates the largest exponent; however, it is typically only necessary to determine this maximal value as the positivity of this exponent is used as the determiner of chaos in the system. A consequence of the bounded behavior of our model is that the negative Lyapunov exponents must "dominate" in order to result in overall compression of the model; otherwise the mapping would result in an explosive model. 
+An important note is that although 1-dimensional models only have 1 Lyapunov exponent, $n$ dimensional models actually have $n$ Lyapunov exponents.The method described above only calculates the largest exponent; however, it is typically only necessary to determine this maximal value as the positivity of this exponent is used as the determiner of chaos in the system. A consequence of the bounded behavior of our model is that the negative Lyapunov exponents must ``dominate" in order to result in overall compression of the model; otherwise the mapping would result in an explosive model. 
 
 \begin{figure}
     \centering

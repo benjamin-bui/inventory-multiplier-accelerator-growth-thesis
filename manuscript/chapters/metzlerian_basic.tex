@@ -6,7 +6,7 @@ Another notable Keynesian was Lloyd Metzler who developed a different type of mu
 Unlike the well known multiplier-accelerator model developed by Samuelson and Hicks, the dynamics of this model are driven by a Lundberg lag and shifts in the heterogenous mix of behaviors in the firms. The Lundberg lag, named after the eponymous economist Erik Lundberg, is based on a difference existing between the quantity produced and the quantity demanded. This is performed by having firms maintain a level of inventory to absorb unexpected increases in consumption. Firms predict consumption using  one of two behaviors, a regressive type and an extrapolative type. The extrapolative behavior occurs when a firm predicts that future income will deviate from the steady state. The regressive behavior occurs when firms predict that future income will return to the steady state. 
 
 \section{Model Set-Up}
-In this business cycle model, the economy is closed and income is determined completely by the quantity of goods produced by firms. Goods are completely homogenized but can be produced for 3 purposes: stock $S$, consumption $U$, and investment $I$. This lets us define income as:
+In this business cycle model, the economy is closed and income is determined completely by the quantity of goods produced by firms. Goods are completely homogenized but can be produced for 3 purposes: stock $S$, predicted consumption $U$, and investment $I$. This lets us define income $Y$ as the sum of these 3 factors:
 \begin{equation}
     Y_t=I_t+S_t+U_t
 \end{equation}
@@ -23,7 +23,7 @@ Producers have a desired level of inventory based on the expected level of consu
     \hat Q_t=kU_t
 \end{equation}  
 where $Q$ is the level of inventory. In order to achieve this desired level of inventory, firms produce $S$ amount of output such that:
-\begin{equation}
+\begin{equation}\label{eq:metzlerian_simple-savings}
     S_t=\hat Q_t-Q_{t-1}
 \end{equation}
 However, the expected level of consumption does not necessarily match the produced level of goods. The realized level of inventory change can thus be determined as:
@@ -44,7 +44,7 @@ The other possible strategy firms can take is to expect consumption to return to
 where $0\leq f\leq 1$ denotes the expected adjustment speed to the long-run level. 
 
 As this economy only involves two expectation rules, the aggregate expected level of consumption is a simple weighted average:
-\begin{equation}
+\begin{equation}\label{eq:metzlerian_simple-predicted_consumption}
     U_t=w_tU_t^E+(1-w_t)U_t^R
 \end{equation}
 The weight is defined as a function of consumption level which allows firms to switch their predictive behavior based on the current consumption level. Intuitively, as consumption deviates further from equilibrium, more firms will believe that the boom or slump will end and adjust in accordance. Likewise, when consumption is close to equilibrium, firms will believe it to be more accurate to extrapolate consumption. This behavior is modelled by the function:
@@ -54,15 +54,14 @@ The weight is defined as a function of consumption level which allows firms to s
 where $d$ is proportional to the popularity of the regressive rule.
 
 Taking these rules in aggregate, income is a second-order nonlinear iterated mapping. Condensing the model, we arrive at the mapping:
-\begin{equation}
-    Y_t=U_t+kU_t-(1+k)U_{t-1}+C_{t-1}+\bar I
+\begin{equation}\label{eq:metzlerian_simple-condensed_income}
+    Y_t = \bar I +(1+k)(U_t-U_{t-1}) + C_{t-1}
 \end{equation}
 This gives a single fixed point of:
 \begin{equation}
     \bar Y=\frac{1}{1-b}\bar I
 \end{equation}
-
-It is apparent that, as $\bar Y$ is constant, the theoretical set-up of the model is only valid if there is no long-term growth, that is to say income must be bounded. This is because the predictive mechanism used by firms is reliant on the difference between the lag in consumption and the steady-state level of consumption. If consumption were to consistently grow, then this difference would also grow over time, eliminating any effective purpose in providing heterogenous expectations as firms would practically unanimously switch to the extrapolative mechanism. 
+The processes of this simplification are detailed in Appendix \ref{appendix_metzler}. It is apparent that, as $\bar Y$ is constant, the theoretical set-up of the model is only valid if there is no long-term growth, that is to say income must be bounded. This is because the predictive mechanism used by firms is reliant on the difference between the lag in consumption and the steady-state level of consumption. If consumption were to consistently grow, then this difference would also grow over time, eliminating any effective purpose in providing heterogenous expectations as firms would practically unanimously switch to the extrapolative mechanism. 
 
 \begin{figure}
     \centering

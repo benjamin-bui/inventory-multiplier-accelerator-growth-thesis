@@ -1,6 +1,6 @@
-The study of dynamical systems is traditionally thought to have begun with the publication of "New Methods of Celestial Mechanics" by Poincar\'e and expanded with the work of Lyapunov into a theory of the stability of dynamical systems. It was not until the 1960s however that the use of chaos and stability theory exploded across disciplines\autocite{Aubin2002}. 
+The study of dynamical systems is traditionally thought to have begun with the publication of ``New Methods of Celestial Mechanics" by Poincar\'e and expanded with the work of Lyapunov into a theory of the stability of dynamical systems. It was not until the 1960s however, that the use of chaos and stability theory exploded across disciplines\autocite{Aubin2002}. 
 
-Dynamics are typically an unnecessary tool when studying the paths of chemical reactions. Their value became apparent however, when Belousov and later Zhabotinsky released published their work on an oscillatory reaction, a reaction that would later come to be known as the BZ reaction\autocite{Winfree1984}. Cycles were also known to exist in the biochemical realm with many famous pathways in organisms such as the Krebs cycle and Calvin cycle; however the BZ reaction was developed to create an inorganic analogue to the Krebs cycle\autocite{Field1986}. The development of this cycle allowed for a relatively easily replicable cyclic reaction with with easily measurable indicators of the progress of the reaction. 
+Dynamics are typically an unnecessary tool when studying the paths of chemical reactions. Their value became apparent however, when Belousov and later Zhabotinsky released published their work on an oscillatory reaction, a reaction that would later come to be known as the BZ reaction\autocite{Winfree1984}. Cycles were also known to exist in the biochemical realm with many famous pathways in organisms such as the Krebs cycle and Calvin cycle; however, the BZ reaction was developed to create an inorganic analogue to the Krebs cycle\autocite{Field1986}. The development of this cycle allowed for a relatively easily replicable cyclic reaction with with easily measurable indicators of the progress of the reaction. 
 
 The study of dynamical chemical systems has since expanded to a variety of other mechanisms such as self-replicating molecules\autocite{Beutel2007} in addition to studying fractal patterns and dimensionality involved in electrochemical deposits\autocite{Hudson1994} and flame patterns\autocite{Matalon2009}. Despite the fairly wide range of background information required to set up these different models, the underlying mathematical theory used to study these models is identical which has contributed to the wide range of interdisciplinary work performed by theorists in the field.
 \section{Background on Dynamical Systems}
@@ -8,7 +8,7 @@ Traditional dynamical systems are modelled in continuous time as a system of ord
 \begin{equation}
     \frac{d^2}{dt^2}+\frac{g}{L}\sin\theta=0
 \end{equation}
-Most  attempts  at  modelling  real-world  systems  however  require  the  use  of  multiple dependent variables.  However, as the amount of variables increases, the complexity of the model increases.  Modelling an $n$-body system acting on each other gravitationally is of obvious interest in astronomy; however, it was quickly found  that  although  a  1  and  2  body  system  were  relatively  simple  to  solve  for,  the introduction of a third body caused significant complications.  The 3-body system is in fact what Poincar\'e studied in order to develop a theory of chaotic deterministic systems\autocite{Poincare1993}.
+Most  attempts  at  modelling  real-world  systems  however,  require  the  use  of  multiple dependent variables.  However, as the amount of variables increases, the complexity of the model increases.  Modelling an $n$-body system acting on each other gravitationally is of obvious interest in astronomy; however, it was quickly found  that  although  a  1  and  2  body  system  were  relatively  simple  to  solve  for,  the introduction of a third body caused significant complications.  The 3-body system is in fact what Poincar\'e studied in order to develop a theory of chaotic deterministic systems\autocite{Poincare1993}.
 
 That is not to say that these systems cannot arrive at ordered solutions.  Although continuous time systems require a minimum of 3 variables in order for chaos to arise, there are typically windows of order in chaotic regimes that allow for stable, oscillatory behavior. The BZ-reaction is still being actively studied and is known to actually be highly complex but is often reduced into 7 primary sub-reactions\autocite{Field1986}. A great deal of the work involved in studying dynamical systems is actually on finding ways to simplify models in order to arrive at more mathematically tractable systems. The BZ-reaction has been simplified to a 3-variable system that still provides the complex periodicity and chaotic behavior characteristic of the model\autocite{Gyorgyi1992}.
 
@@ -22,7 +22,7 @@ The logistic map is regarded as the prototypical chaotic discrete time mapping. 
 \begin{equation}
     \frac{d}{dx}f(x)=f(x)(1-f(x))
 \end{equation}
-The logistic function has 2 equilibria or points where the derivative of the function is 0. $f(x) = 0$ is an unstable equilibrium but $f(x)=1$ is a stable equilibrium point which means that other points on the function will tend towards this equilibrium overtime.  This can be realized by solving for the derivative of the function at points when $f(x)\in(0,1)$ which is universally positive and $f(x)\in(1,\infty)$ which is negative. Integrating the differential equation gives the general form equation:
+The logistic function has 2 fixed points where the derivative of the function is 0. $f(x) = 0$ is an unstable fixed point but $f(x)=1$ is a stable fixed point which means that other points on the function will tend towards this fixed point over time.  This can be realized by solving for the derivative of the function at points when $f(x)\in(0,1)$ which is universally positive and $f(x)\in(1,\infty)$ which is negative. Integrating the differential equation gives the general form equation:
 \begin{equation}
     f(x)=\frac{e^x}{e^x+C}
 \end{equation}
@@ -33,7 +33,7 @@ This function gained prominence due to its rapid, exponential growth when $f(x)$
 \end{equation}
 The logistic map is a difference equation model popularized by Robert May as a discrete time analogue to the logistic function\autocite{May1976}. When interpreted in the biological context, $x_t$ refers to the ratio of the population at time $t$ compared to the maximal population, thus the mapping is bounded between 0 and 1. Here we see the conceptual difference between discrete and continuous time systems. Differential equations solve for the derivative of a variable with respect to time in terms of the variable; difference equations solve for the actual state of the variable in the successive state provided we know the state of the variable in the previous time period. Much like how differential equations can be of higher order with the introduction of higher order derivatives, a difference equation can also be of higher order by including more time period of lag in the function for the state of the variable which is valuable in a variety of the models discussed later.
 
-Much like how the equilibrium points were solved for in the differential equation, difference equations also have equilibrium points where $x_{t+1}=x_t$. Interestingly, unlike the logistic function, there does not exist a fixed point at $x_t=1$ as this would result in $x_{t+1}=0$. Solving for the fixed points, we have:
+Much like how the fixed point were solved for in the differential equation, difference equations also have fixed points where $x_{t+1}=x_t$. Interestingly, unlike the logistic function, there does not exist a fixed point at $x_t=1$ as this would result in $x_{t+1}=0$. Solving for the fixed points, we have:
 \begin{equation}
     x_{t+1}=x_t=0,\frac{\mu-1}{\mu}
 \end{equation}
@@ -42,12 +42,12 @@ The stability of a fixed point is again dependent on the derivative of the funct
 \begin{equation}
     f^\prime(x)=\mu(1-2x)
 \end{equation}
-For reasons that will become clear later, the stability of a point on the map requires that $|f^\prime(x)|<1$. Solving for when this is true for our two fixed points, we see that $\mu<1$ provides stability for the origin fixed point and $1<\mu<3$ gives stability for the non-zero fixed point. Thus, provided the parameter $\mu$ satisfies either of the conditions set previously, it will converge to one of the fixed points in a relatively small, finite amount of iterations. 
+For reasons that will become clear later, the stability of a point on the map requires that $|f^\prime(x)|<1$. Solving for when this is true for our two fixed points, we see that $\mu<1$ provides stability for the origin fixed point and $1<\mu<3$ gives stability for the non-zero fixed point. Thus, provided the parameter $\mu$ satisfies either of the conditions set previously, output will converge to one of the fixed points in a relatively small, finite amount of iterations. 
 
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./logistic/fixed_cob.eps}
-    \caption{Cobweb plot of the logistic map setting $\mu=1.5$ and $x_0=0.1$. The trajectory asymptotically approaches the equilibrium point of $\frac{1}{3}$.}
+    \caption{Cobweb plot of the logistic map setting $\mu=1.5$ and $x_0=0.1$. The trajectory asymptotically approaches the fixed point of $\frac{1}{3}$.}
     \label{log_fixed_cob}
 \end{figure}
 
@@ -55,7 +55,7 @@ This behavior can be visualized using a cobweb diagram. This diagram consists of
 
 The \SI{45}{\degree} line is defined as the line where $x_t=x_{t+1}$ which is useful for determining the result of successive iterations. Beginning from the point $x_0$, we can then determine what point $x_1$ wll be via the mapping. We can then look horizontally to the \SI{45}{\degree} line until we intersect with it. The $x$-coordinate of this intersection point is equivalent to the result of the mapping of the previous iteration, thus using this new point will allow us to determine the result of the next iteration of the function. This process can be repeated ad infinitum; however, the result will soon prove uninteresting for stable points and orbits as the trajectory will converge and repeat its behavior.
 
-The reason the logistic map is so frequently studied is because of its ability to exhibit complex behavior beyond a stable equilibrium solution. Once $\mu>3$, the mapping enters a cyclic region. Much like how fixed points could be solved for by identifying where $x_{t}=x_{t+1}$, stable oscillatory points can be found by solving for the equilibrium points of higher iterations of the function. A 2-cycle will be such that $x_{t}=x_{t+2}\neq x_{t+1}$ for example and the stability of a such a cycle can be found using the same methodology as described previously. 
+The reason the logistic map is so frequently studied is because of its ability to exhibit complex behavior beyond a stable fixed point solution. Once $\mu>3$, the mapping enters a cyclic region. Much like how fixed points could be solved for by identifying where $x_{t}=x_{t+1}$, stable oscillatory points can be found by solving for the fixed points of higher iterations of the function. A 2-cycle will be such that $x_{t}=x_{t+2}\neq x_{t+1}$ for example and the stability of a such a cycle can be found using the same methodology as described previously. 
 \begin{figure}
     \centering
     \includegraphics[height=0.4\textheight]{./logistic/2-cyclic_cob.eps}
@@ -90,7 +90,7 @@ Another way visually see the behavior is with a bifurcation diagram. This diagra
     \label{log_bifurcation}
 \end{figure}
 
-Research on the logistic map and other iterated maps has shown the existence of what is called Feigenbaum's constant. This constant can be found by observing the behavior of the periodic cycles of the map. The interval of stability decreases and the ratio of subsequence intervals actually approaches a limit $\delta\approx4.6692$\autocite{Puu2003}. All other topologically similar maps with a single local maximum share this Feigenbaum constant. Once the mapping exceeds this constant, chaos occurs which allows for another method to determine precisely where chaotic behavior occurs. 
+Research on the logistic map and other iterated maps has shown the existence of what is called Feigenbaum's constant, $\delta$. This constant can be found by observing the behavior of the periodic cycles of the map. The interval of stability decreases and the ratio of subsequence intervals actually approaches a limit $\delta\approx4.6692$\autocite{Puu2003}. All other topologically similar maps with a single local maximum share this Feigenbaum constant. Once the mapping exceeds this constant, chaos occurs which allows for another method to determine precisely where chaotic behavior occurs. 
 
 It is also beneficial to point out that another mechanism exists for cyclic behavior to exist. The previously described method involved taking a mapping and solving for the stability of its double iteration. This allows for $2n$-period stability cycles to exists. However, there does exist odd-ordered cycles such as the $3$ cycle; however, it occurs as a window of order in the region of chaos. These windows can be seen in Figure \ref{log_Lyapunov} where the Lyapunov exponent dips into the negative region past the chaotic bifurcation point. These bifurcation points are known as tangent bifurcations.
 \begin{figure}
@@ -99,7 +99,7 @@ It is also beneficial to point out that another mechanism exists for cyclic beha
     \caption{3-period cycle of the logistic map showing only the cyclic behavior.}
     \label{log_3-cyclic_cob}
 \end{figure}
-This also allows us to use Sharkovsky's Theorem, which states that any continuous mapping with a 3-period cycle must also have every $n$-period cycle for every $n\in\mathbb{Z}$.\autocite{Puu2003} A variety of other mathematical techniques exist to study the dynamics of difference equation mappings but these will be covered when necessary in the paper. Most notably, the determination of chaos in higher order models requires a slightly different but conceptually similar technique to the first order case.
+This also allows us to use Sharkovsky's Theorem, which states that any continuous mapping with a 3-period cycle must also have every $n$-period cycle for every $n\in\mathbb{N}$.\autocite{Puu2003} A variety of other mathematical techniques exist to study the dynamics of difference equation mappings but these will be covered when necessary in the paper. Most notably, the determination of chaos in higher order models requires a slightly different but conceptually similar technique to the first order case.
 
 
 

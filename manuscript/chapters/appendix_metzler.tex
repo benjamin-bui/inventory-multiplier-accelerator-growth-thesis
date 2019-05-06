@@ -1,0 +1,43 @@
+Income is a sum of the three production factors, $U_t$, $I_t$, and $S_t$. Production for inventory stock $S_t$ is given by the desired level of inventory $\hat Q_t$ and the past level of inventory $Q_{t-1}$ via the function:
+\begin{equation}
+S_t=\hat Q_t-Q_{t-1}    
+\end{equation}
+Desired inventory level, $\hat Q$ is dependent on the expected level of consumption $U$ by the function:
+\begin{equation}
+    \hat Q_t = kU_t
+\end{equation}
+The previous level of inventory however, is determined by the equation:
+\begin{equation*}
+    Q_{t-1}=\hat Q_{t-1}-(C_{t-1}-U_{t-1})
+\end{equation*}
+This is of course equivalent to the equation:
+\begin{equation}
+    Q_{t-1}=kU_{t-1}-(C_{t-1}-U_{t-1})
+\end{equation}
+We can thus write the production for inventory stock in terms of predicted consumption $U$ and actual consumption $C$:
+\begin{align*}
+    S_t&=kU_t-[kU_{t-1}-(C_{t-1}-U_{t-1})]\\
+    S_t&=kU_t-kU_{t-1}+C_{t-1}-U_{t-1}
+\end{align*}
+\begin{equation}
+    S_t=kU_t-(1+k)U_{t-1}+C_{t-1}
+\end{equation}
+We can now substitute this function for the production of inventory stock into our function for output $Y$:
+\begin{equation*}
+    Y_t=  I_t + (kU_t-(1+k)U_{t-1}+C_{t-1}) + U_t
+\end{equation*}
+Noting that inventory is exogenously determined, we can rewrite this function as:
+\begin{equation}
+    Y_t = \bar I +(1+k)(U_t-U_{t-1}) + C_{t-1}
+\end{equation}
+Note however, the parameters $c,\ f,\ $and $d$ are still relevant to the dynamics of this model. This simplified formulation encapsulates these parameters in the trajectory of the predicted consumption term $U$.
+
+The fixed point of income, where $Y_{t-1}=Y_t$ can be found by substituting the income level for actual consumption:
+\begin{equation*}
+    \bar Y = \bar I + b \bar Y + (1+k)(\bar U-\bar U)
+\end{equation*}
+This is because the fixed point level of consumption is simply a proportion of income. The fixed point of income results in a constant level of predicted consumption, thus the term $(1+k)(\bar U-\bar U)$ is equal to 0. The fixed point of income is thus determined only by the parameter $b$ and the exogenous level of investment:
+\begin{equation}
+    \bar Y= \frac{\bar I}{1-b}
+\end{equation}
+
